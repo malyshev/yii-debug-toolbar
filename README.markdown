@@ -32,7 +32,7 @@ For use `yii-debug-toolbar` need to specify new `route` in `log` component:
         ),
     ),
 
-Make sure your IP is listed in the `ipFilters` setting. If you are working locally this option not required.
+> Make sure your IP is listed in the `ipFilters` setting. If you are working locally this option not required.
 
 
 #TODOs and BUGS
