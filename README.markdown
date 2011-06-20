@@ -4,6 +4,8 @@ The Yii Debug Toolbar is a configurable set of panels that display various
 debug information about the current request/response and when clicked, display
 more details about the panel's content.
 
+It is a ported to PHP famous Django Debug Toolbar.
+
 Currently, the following panels have been written and are working:
 
 - Server info
