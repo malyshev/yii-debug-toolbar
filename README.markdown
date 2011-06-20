@@ -40,3 +40,9 @@ For use `yii-debug-toolbar` need to specify new `route` in `log` component:
 #TODOs and BUGS
 
 See: https://github.com/malyshev/yii-debug-toolbar/issues
+
+#Working preview
+<img src="http://farm3.static.flickr.com/2672/5853614867_a0dc947c43_z.jpg" alt="Screenshot1" />
+<img src="http://farm6.static.flickr.com/5101/5854171184_9312bf5f18_z.jpg" alt="Screenshot2" />
+
+
