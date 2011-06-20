@@ -1,0 +1,89 @@
+<?php
+/**
+ * YiiDebugToolbarPanelRequest class file.
+ *
+ * @author Sergey Malyshev <malyshev.php@gmail.com>
+ */
+
+
+/**
+ * YiiDebugToolbarPanelRequest represents an ...
+ *
+ * Description of YiiDebugToolbarPanelRequest
+ *
+ * @author Sergey Malyshev <malyshev.php@gmail.com>
+ * @version $Id$
+ * @package
+ * @since 1.1.7
+ */
+
+class YiiDebugToolbarPanelSettings extends YiiDebugToolbarPanel implements DebugToolbarPanelInterface
+{
+    public function getMenuTitle()
+    {
+        return 'Settings';
+    }
+
+    public function getTitle()
+    {
+        return 'Application Settings';
+    }
+
+    public function getSubTitle()
+    {
+        return sprintf('(%s)', get_class(Yii::app()));
+    }
+
+    public function init()
+    {
+        
+    }
+
+    protected function getApplicationData()
+    {
+        return $this->prepareData(get_object_vars(Yii::app()));
+    }
+
+    protected function getModulesData()
+    {
+        return $this->prepareData(Yii::app()->modules);
+    }
+
+    protected function getApplicationParams()
+    {
+        return $this->prepareData(Yii::app()->params);
+    }
+
+    protected function getComponentsData()
+    {
+        return $this->prepareData(Yii::app()->components);
+    }
+
+    public function run()
+    {
+        $this->render('settings', array(
+            'application' => $this->getApplicationData(),
+            'params' => $this->getApplicationParams(),
+            'modules' => $this->getModulesData(),
+            'components' => $this->getComponentsData(),
+
+        ));
+    }
+
+    private function prepareData($data)
+    {
+        $result = array();
+        foreach ($data as $key=>$value)
+        {
+            if (is_object($value))
+            {
+                $value = array_merge(array(
+                    'class' => get_class($value)
+                ), get_object_vars($value));
+
+            }
+            $result[$key] = $value;
+        }
+        return $result;
+    }
+}

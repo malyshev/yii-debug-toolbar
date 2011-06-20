@@ -1,0 +1,296 @@
+#yii-debug-toolbar {color:#000;background:#FFF;}
+#yii-debug-toolbar, #yii-debug-toolbar div, #yii-debug-toolbar span, #yii-debug-toolbar applet, #yii-debug-toolbar object, #yii-debug-toolbar iframe,
+#yii-debug-toolbar h1, #yii-debug-toolbar h2, #yii-debug-toolbar h3, #yii-debug-toolbar h4, #yii-debug-toolbar h5, #yii-debug-toolbar h6, #yii-debug-toolbar p, #yii-debug-toolbar blockquote, #yii-debug-toolbar pre,
+#yii-debug-toolbar a, #yii-debug-toolbar abbr, #yii-debug-toolbar acronym, #yii-debug-toolbar address, #yii-debug-toolbar big, #yii-debug-toolbar cite, #yii-debug-toolbar code,
+#yii-debug-toolbar del, #yii-debug-toolbar dfn, #yii-debug-toolbar em, #yii-debug-toolbar font, #yii-debug-toolbar img, #yii-debug-toolbar ins, #yii-debug-toolbar kbd, #yii-debug-toolbar q, #yii-debug-toolbar s, #yii-debug-toolbar samp,
+#yii-debug-toolbar small, #yii-debug-toolbar strike, #yii-debug-toolbar strong, #yii-debug-toolbar sub, #yii-debug-toolbar sup, #yii-debug-toolbar tt, #yii-debug-toolbar var,
+#yii-debug-toolbar b, #yii-debug-toolbar u, #yii-debug-toolbar i, #yii-debug-toolbar center,
+#yii-debug-toolbar dl, #yii-debug-toolbar dt, #yii-debug-toolbar dd, #yii-debug-toolbar ol, #yii-debug-toolbar ul, #yii-debug-toolbar li,
+#yii-debug-toolbar fieldset, #yii-debug-toolbar form, #yii-debug-toolbar label, #yii-debug-toolbar legend,
+#yii-debug-toolbar table, #yii-debug-toolbar caption, #yii-debug-toolbar tbody, #yii-debug-toolbar tfoot, #yii-debug-toolbar thead, #yii-debug-toolbar tr, #yii-debug-toolbar th, #yii-debug-toolbar td {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:12px;
+    line-height:1.5em;
+    color:#000;
+    vertical-align:baseline;
+    background:transparent;
+    font-family:sans-serif;
+    text-align:left;
+}
+
+#yii-debug-toolbar{
+    display: block;
+    position:fixed;
+    z-index:10000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 180px;
+    line-height: 24px;
+    background: #192839;
+    
+}
+
+#yii-debug-toolbar-swither{
+    display: block;
+    position:fixed;
+    z-index:1000000;
+    top: 5px;
+    right: 5px;
+    bottom: 0;
+    height: 28px;
+    width: 28px;
+    line-height: 28px;
+
+}
+
+#yii-debug-toolbar-swither a{
+    background: transparent url(panel.png) no-repeat scroll center center;
+    text-indent:-999999px;
+    z-index:100000000;
+    display: block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    padding: 4px 0 0 4px;
+}
+#yii-debug-toolbar-swither a.close{
+    background: transparent url(panel-close.png) no-repeat scroll center center;
+}
+
+#yii-debug-toolbar p{
+    padding: 5px 0;
+}
+
+
+#yii-debug-toolbar h3 {
+font-size:24px;
+font-weight:normal;
+line-height:50px;
+}
+
+#yii-debug-toolbar h4 {
+font-size:20px;
+font-weight:bold;
+margin-top:0.8em;
+}
+
+#yii-debug-toolbar #yii-debug-toolbar-buttons{
+    opacity:0.9;
+}
+
+#yii-debug-toolbar #yii-debug-toolbar-buttons ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+#yii-debug-toolbar #yii-debug-toolbar-buttons ul li{
+    border-bottom:1px solid #222;
+    color:#fff;
+    display:block;
+    font-weight:bold;
+    float:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    width:auto;
+}
+
+#yii-debug-toolbar #yii-debug-toolbar-buttons li>a,
+#yii-debug-toolbar #yii-debug-toolbar-buttons li>div.contentless{
+    font-weight:normal;
+    font-style:normal;
+    text-decoration:none;
+    display:block;
+    font-size:14px;
+    color:#fff;
+    padding:10px 10px 5px 25px;
+}
+
+#yii-debug-toolbar #yii-debug-toolbar-buttons li a:hover {
+    background-color: #FFFFCC;
+    color: #000;
+}
+
+#yii-debug-toolbar #yii-debug-toolbar-buttons small {
+    color:#999;
+}
+
+#yii-debug-toolbar #yii-debug-toolbar-buttons li small {
+    font-size:12px;
+    color:#999;
+    font-style:normal;
+    text-decoration:none;
+    font-variant:small-caps;
+}
+
+#yii-debug-toolbar #yii-debug-toolbar-buttons .yii-debug-toolbar-button.active,
+#yii-debug-toolbar #yii-debug-toolbar-buttons .yii-debug-toolbar-button.active a:hover{
+    background: #474747 url(indicator.png) no-repeat 0 50%;
+    color: #fff;
+
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel{
+    display: block;
+    position:fixed;
+    z-index:10000000;
+    top: 0px;
+    right: 180px;
+    left: 0;
+    bottom: 0;
+    background: #EEEEEE;
+}
+
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-title {
+    position:absolute;
+    background-color:#ffc;
+    color:#666;
+    padding-left:20px;
+    top:0;
+    right:0;
+    left:0;
+    height:50px;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-title .yii-debug-toolbar-panel-close {
+    text-indent:-9999999px;
+    display:block;
+    position:absolute;
+    top:4px;
+    right:15px;
+    height:40px;
+    width:40px;
+    background:url(../close.png) no-repeat center center;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA7dJREFUeNqsWM1PE0EU3+7ShdJKoTRA8UYgIUKM3rmaEI0euXsw0YMHIZEbxBijEiIHLkb/A44SDYlXzkYPGBM+ri1NWz7aUmhp6+9tps10mLfdfrzkl2535r39zc77mvUdHh4abUoUCAD3xP/fQAFItWJkYmLC+e1p8eGPgQcC08ycf8BPgW2vhr0SeQa8AWIe5k4LvATiwCrwtZmS2WT8IfAL+OKRhCoxoftH2GqLyBLwHbhvdC53ha2lVrfmE/DKzbLP5yubplnt7e310f+rq6tqpVLxVatVy0VtHbgNLHohsupGIhQKFQG7v79f+8CLiwsjl8sVAZsxQbYTwFrDwpTwpaj4ptPu6+vLDw4OBkHA014QobOzs3yhUAgyUx4BP2rhq/rIe53GwMBAeXx83DMJEpobi8WCpMtMWeOc9TkwoyMRjUattrMedBkyM+KZN4isqDMDgUCuExIyGbKlGVpRiSzo8kQ4HA4ZXRLGVuzo6GhBJjKviw6dT5TLZSOTyRinp6cGQrV+n67hnEY6nTaur6+1PkM2NWTm5fCd0xDRhh89CKHpXCMijLGxMef6+PjYiRSSUqlUv6/arOlKMlcjQlV0qsGDTZPehpYIxurXRCSRSFByq5NQ56hvhWwj8cm2p7A9UdKYVBX8fn+F2+tIJGIgmzaQkUnYtm0MDw+zvsLYniQiEc2q/WxxwmqRHxrISA9xxiyLDzTGdsRsJwJoK3QPo3vctnhpAzLqTexhiVOg6JAdU5bLy0vHZ+Ro8mg7Q0QO1LvwenZZJycnN3yCIPsMRRYnjO0DU/SY+wprW7fiWmjKJMgnUIcafEaeoxZCJWJI9lH4UjV2u6pSPp/XJR9jaGiIKrERDAbrjllzYOQJZ4zm6ISxuSsntB3gqTyazWZtMowa0aBFb4HegC6aRkZG2C2hLSObmqEdOcVvUdJUZyBlZ7tVa1ASdEUvjW3ZUqvvO82e3kqlUuVOSZANvBFd0fugawM2VKclOT8/tzohQ7pkgzn/rHNdvLbLJkPxeDzHRRIXIaTDkCB57XacoJPZW8bZQpSskslk0Y0QjdEcmstsB8myegrsYbqmENfJU3dOpZyOEwjdCqLIWUyxWKygVzHFccJ2eVkbar/qdq5ZFC3/R5dUb6EBsqQmyEtLuawj0eykRwpPgL0uRO+esLXW7tmX9nEWeAEk2yCQFLqzzb4MeK3Zn4FRsapNEXqGy2eJTTF3VOh27bOE/Ia2pQ81YeCO+P+XknGrH2pq8l+AAQDv/n2Gmq99BgAAAABJRU5ErkJggg==);
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-title .yii-debug-toolbar-panel-close:hover {
+    background-image:url(../close_hover.png);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABCVJREFUeNqsWG1IU1EYfjfd0i1bTc2WFTW3tG2aFWlEf4KkMIrCvhH6U9DnjxTyV0ZEXxIVGBH1JyKIPiBK8kf1syCKwu8M3VQsK7OV6ba2udZ7bmd6d+85827zhYftnnPe5z73nvc95z1X5XQ6IUHLQqQjiul1E8KHGIqHxGw2C7+pcd58E6KMooAzphPxnKJBKbFSIfsRpxAmBWMLKI4iviBOIm5O5qSepL8c8R5xQ6EIqZmobzPlSkhINeIpYhkkb0WUqzreqbmEOBaTOjQGf/0+CHz7Klxqc+aAehrGbkrM2b6IyEVUKRFyMpYI38dW8HS0gc/5kdmfnpcPepsD0vMLeRSEm6ivEzeqJOlLsuIJyzs40Au/Xr+CP64uRXORZraCoXQ1aHMX8YZsRDRG0lcqpA1hl3p4mt+C+/nThILDWLYR9EtXsrraEY6IEHGwHmCJGG16k7AIYsTX0/KO1WWn95QJqZWODHxyws8XjUmnjPtZg8DFsFqpkB2sdWL4zWuYKuNwmVwu1w6xkA2s7GAFpnaGAcxbd8H8snJQa7QTUZ+aCrlr10NexR5Iy8yW+REuwsmwDeL0XSOLjfYW5pNZtldC9orS/4FoK4LWa5cgHP4L9n1HILNoudCuM82F1qsXgcXJSOs1ESFkF7WKe8JBfxifQMVMY8/o+P+Z+TYoPFwNoYAfMh3FE2udz8d8CPJWCLdKM03MbcXpySJTY5EtmsNuFW+uex4/gJFe14SYxUuiRHi/fIaue7f5CzKb20KEGKWtYx4Pl2jM54WW+joY6euR9Xm/DkDT5bMQHB3h+7O5jepEMiAUDDBvRtpCfn9CWUWEuGUbkF7PdSDZQQLTaC+S9Rks+VB4qCoqmxRyu4mQbmlrisEY5hEtLN8ynh2RmBjt74sK4LyK3VwhHO5uNa0xoxYMEtVk02KZbk7uxB400C/ERPOVc1EBrMsxcTdCScYQ68L9ZiiyjryUprC+wM5c0PoaH4EmIwMCv4eh6+6t8VghAWzdtVdYzHoaHjKFEE6GvRTvvmSZvScd8f3hHfjT2z0lS3zaQgtkb6tkde3EN3I/kjX3ET9kwVdSOmV7jaF0Fav5BxEh3X3PyPaVBVaYta48aRGkJtHOt7C6zrPKgMvSoCU2vbhEIEpGBKcw6qQ1LLNmrWaVioRIk2kUtvK4SsWSVaCdl8cbcjxW8UxOZqcRJ2TThITZCO+HZvB2dsQsnnUFNtAtWRpLZ430FKjinH0VHSdCXg8EhwaFS03WbEjR6Sc7TkRCoErp2beKlvwX+EtkKqRkGATEYTXSY4SSkx5x2Eyr7WStnXLVJXr2JfPoQBxEDCYgYJD6Oib7MqC0DLiOyKFPVU9TD2J8lqinY3Oo75R9lhC/oQbRhxoSIDZ63UGK9Xg/1ETsnwADAJrrTk7nZiozAAAAAElFTkSuQmCC);
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel{
+    display: none;
+}
+#yii-debug-toolbar .yii-debug-toolbar-panel-content
+{
+    display:block;
+    position:fixed;
+    margin:0;
+    top:50px;
+    right:200px;
+    bottom:0;
+    left:0px;
+    background-color:#eee;
+    color:#666;
+    z-index:100000000;
+}
+
+/* tabs */
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs{
+    list-style: none;
+    list-style-type: none;
+    padding: 0 20px;
+    margin: 10px 0 0 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li{
+    display: inline-block;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li.active{
+    border: 1px solid #ccc;
+    margin-bottom: -1px;
+    border-bottom: 1px solid #eee;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li a{
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li a:hover,
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li.active a{
+    text-decoration: none;
+}
+
+
+
+/* tabs */
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content .scroll
+{
+    height:100%;
+    overflow:auto;
+    display:block;
+    padding:0 10px;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table {
+    border:1px solid #ccc;
+    border-collapse:collapse;
+    width:100%;
+    background-color:#fff;
+    margin-top:0.8em;
+    overflow: auto;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table thead tr
+{
+    background: #F5F5F5;
+    border-bottom: 1px solid #ccc;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table thead tr th {
+    padding:1px 6px 1px 3px;
+    text-align:center;
+    font-weight:bold;
+    font-size:14px;
+
+}
+
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody td,
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody th {
+    vertical-align:top;
+    padding:2px 3px;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody th {
+    width:12em;
+    text-align:right;
+    color:#666;
+    padding-right:.5em;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr:hover{
+    background-color: #DFFFE0;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content .odd{
+    background-color:#f5f5f5;
+}
+
+#yii-debug-toolbar .hidden{
+    display: none;
+}
+
+#yii-debug-toolbar .collapsible{
+    border-bottom: 1px dashed #ccc;
+    cursor: pointer;
+    background: transparent url('bullet_toggle_plus.png') no-repeat scroll 100% 50%;
+}
+
+#yii-debug-toolbar .collapsed
+{
+    background: transparent url('bullet_toggle_minus.png') no-repeat scroll 100% 50%;
+}
