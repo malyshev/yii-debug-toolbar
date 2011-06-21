@@ -26,6 +26,8 @@ Extract the [`yii-debug-toolbar`](/malyshev/yii-debug-toolbar/) from archive und
 For use [`yii-debug-toolbar`](/malyshev/yii-debug-toolbar/) need to specify new `route` in `log` component:
 
 ``` php
+<?php
+//...
     'log'=>array(
         'class'=>'CLogRouter',
         'routes'=>array(
