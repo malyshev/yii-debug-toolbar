@@ -90,15 +90,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function init()
     {
-        try
-        {
-            Yii::app()->db->enableProfiling = true;
-            Yii::app()->db->enableParamLogging = true;
-        }
-        catch (Exception $e)
-        {
-            // @todo 
-        }
+        
     }
     
     /**
@@ -118,11 +110,13 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
     private function duration($secs)
     {
-        $vals = array('w' => (int) ($secs / 86400 / 7),
-        'd' => $secs / 86400 % 7,
-        'h' => $secs / 3600 % 24,
-        'm' => $secs / 60 % 60,
-        's' => $secs % 60);
+        $vals = array(
+            'y' => (int) ($secs / 86400 / 7),
+            'd' => $secs / 86400 % 7,
+            'h' => $secs / 3600 % 24,
+            'm' => $secs / 60 % 60,
+            's' => $secs % 60
+        );
         $result = array();
         $added = false;
         foreach ($vals as $k => $v)
