@@ -5,8 +5,8 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
-Yii::setPathOfAlias('yii-debug-tolbar-panels', dirname(__FILE__) . '/panels');
-Yii::import('yii-debug-tolbar-panels.*');
+Yii::setPathOfAlias('yii-debug-tolbar', dirname(__FILE__));
+Yii::import('yii-debug-tolbar.panels.*');
 
 /**
  * YiiDebugToolbar represents an ...
@@ -58,7 +58,6 @@ class YiiDebugToolbar extends CWidget
     public function setPanels(array $panels = array())
     {
         $this->_panels = $panels;
-        
         return $this;
     }
 
@@ -71,7 +70,7 @@ class YiiDebugToolbar extends CWidget
     {
         if(null === $this->_panels)
         {
-            $this->setPanels();
+            $this->_panels = array();
         }
         return $this->_panels;
     }
@@ -105,7 +104,7 @@ class YiiDebugToolbar extends CWidget
      */
     public function setAssetsUrl($value)
     {
-            $this->_assetsUrl=$value;
+        $this->_assetsUrl = $value;
     }
     
     /**
@@ -150,7 +149,8 @@ class YiiDebugToolbar extends CWidget
             $cs->registerCssFile($this->cssFile);
         }
         
-        $cs->registerScriptFile($this->assetsUrl . '/yii.debug.toolbar.js', CClientScript::POS_END);
+        $cs->registerScriptFile($this->assetsUrl . '/yii.debug.toolbar.js',
+                CClientScript::POS_END);
 
         return $this;
     }
@@ -168,10 +168,11 @@ class YiiDebugToolbar extends CWidget
             {
                 isset($config['class']) || $config['class'] = $id;
                 $panel = Yii::createComponent($config, $this);
-                if ($panel instanceof ToolbarPanelInterface)
+
+                if (false === ($panel instanceof YiiDebugToolbarPanelInterface))
                 {
                     throw new CException(Yii::t('YiiDebugToolbar', 
-                            'The %class% class must be compatible with DebugToolbarPanelInterface', array(
+                            'The %class% class must be compatible with YiiDebugToolbarPanelInterface', array(
                                 '%class%' => get_class($panel)
                             )));
                 }
@@ -184,7 +185,7 @@ class YiiDebugToolbar extends CWidget
 }
 
 /**
- * DebugToolbarPanelInterface
+ * YiiDebugToolbarPanelInterface
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @author Igor Golovanov <igor.golovanov@gmail.com>
@@ -192,7 +193,7 @@ class YiiDebugToolbar extends CWidget
  * @package YiiDebugToolbar
  * @since 1.1.7
  */
-interface DebugToolbarPanelInterface
+interface YiiDebugToolbarPanelInterface
 {
     /**
      * Get the title of menu.

@@ -18,7 +18,7 @@
  * @since 1.1.7
  */
 abstract class YiiDebugToolbarPanel extends CWidget
-implements DebugToolbarPanelInterface
+implements YiiDebugToolbarPanelInterface
 {
 
     public function dump($var)

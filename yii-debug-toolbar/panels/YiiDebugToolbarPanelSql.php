@@ -22,6 +22,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     private $_groupByToken = true;
 
     private $_dbConnections;
+    
     private $_dbConnectionsCount;
 
     public function getDbConnectionsCount()
@@ -84,6 +85,9 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         return '(' . vsprintf('%s QUERIES IN %0.6fS', Yii::app()->db->getStats()) . ')';
     }
 
+    /**
+     * Initialize panel
+     */
     public function init()
     {
         try
@@ -224,7 +228,13 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         return array_map(array($this, 'formatLogEntry'), $entries);
     }
 
-    public function formatLogEntry($entry)
+    /**
+     * Format log entry
+     *
+     * @param array $entry
+     * @return array
+     */
+    public function formatLogEntry(array $entry)
     {
         $queryString = $entry[0];
         $queryString = substr($queryString, strpos($queryString, '('));
@@ -260,7 +270,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      * @param float $delta time spent for this code block
      * @return array
      */
-    protected function aggregateResult($result,$delta)
+    protected function aggregateResult($result, $delta)
     {
         list($token, $calls, $min, $max, $total) = $result;
 
