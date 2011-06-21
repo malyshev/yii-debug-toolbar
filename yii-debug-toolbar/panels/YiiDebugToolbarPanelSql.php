@@ -116,6 +116,57 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         ));
     }
 
+    private function duration($secs)
+    {
+        $vals = array('w' => (int) ($secs / 86400 / 7),
+        'd' => $secs / 86400 % 7,
+        'h' => $secs / 3600 % 24,
+        'm' => $secs / 60 % 60,
+        's' => $secs % 60);
+        $result = array();
+        $added = false;
+        foreach ($vals as $k => $v)
+        {
+            if ($v > 0 || false !== $added)
+            {
+                $added = true;
+                $result[] = $v . $k;
+            }
+        }
+        return implode(' ', $result);
+    }
+
+    /**
+     * Returns the DB server info bu connection ID.
+     * @param string $connectionId
+     * @return mixed
+     */
+    public function getServerInfo($connectionId)
+    {
+        if (null !== ($connection = Yii::app()->getComponent($connectionId))
+            && false !== ($connection instanceof CDbConnection)
+            && '' !== ($serverInfo = $connection->getServerInfo()))
+        {
+            preg_match_all('/(([\w\s]+)\:\s?(\d+)\s+)/', $serverInfo, $matches, PREG_PATTERN_ORDER);
+            if (4 === count($matches))
+            {
+                $serverInfo = CMap::mergeArray(array(
+                    'Driver' => $connection->getAttribute(PDO::ATTR_DRIVER_NAME),
+                    'Server Version' => $connection->getServerVersion(),
+                ), array_combine(
+                        array_map('trim', $matches[2]),
+                        array_map('trim', $matches[3])
+                    )
+                );
+
+                $serverInfo['Uptime'] = $this->duration($serverInfo['Uptime']);
+
+                return $serverInfo;
+            }
+        }
+        return null;
+    }
+
     /**
      * Processing callstack.
      * 
@@ -133,21 +184,21 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         $results = array();
         $n       = 0;
 
-        foreach($logs as $log)
+        foreach ($logs as $log)
         {
             if(CLogger::LEVEL_PROFILE !== $log[1])
                 continue;
             
             $message = $log[0];
             
-            if(!strncasecmp($message,'begin:',6))
+            if (0 === strncasecmp($message,'begin:',6))
             {
                 $log[0]  = substr($message,6);
                 $log[4]  = $n;
                 $stack[] = $log;
                 $n++;
             }
-            else if(!strncasecmp($message, 'end:', 4))
+            else if (0 === strncasecmp($message, 'end:', 4))
             {
                 $token = substr($message,4);
                 if(null !== ($last = array_pop($stack)) && $last[0] === $token)
@@ -162,7 +213,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         }
         // remaining entries should be closed here
         $now = microtime(true);
-        while(null !== ($last = array_pop($stack)))
+        while (null !== ($last = array_pop($stack)))
             $results[$last[4]] = array($last[0], $now - $last[3], count($stack));
 
         ksort($results);
@@ -186,12 +237,12 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         foreach($logs as $log)
         {
             $message = $log[0];
-            if(!strncasecmp($message, 'begin:', 6))
+            if(0 === strncasecmp($message, 'begin:', 6))
             {
                 $log[0]  =substr($message, 6);
                 $stack[] =$log;
             }
-            else if(!strncasecmp($message,'end:',4))
+            else if(0 === strncasecmp($message,'end:',4))
             {
                 $token = substr($message,4);
                 if(null !== ($last = array_pop($stack)) && $last[0] === $token)
@@ -247,7 +298,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             $params = explode(',', $params);
             $binds  = array();
 
-            foreach($params as $param)
+            foreach ($params as $param)
             {
                 list($key,$value) = explode('=', $param);
                 $binds[trim($key)] = trim($value);
@@ -274,7 +325,8 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     {
         list($token, $calls, $min, $max, $total) = $result;
 
-        switch (true) {
+        switch (true)
+        {
             case ($delta < $min):
                 $min = $delta;
                 break;

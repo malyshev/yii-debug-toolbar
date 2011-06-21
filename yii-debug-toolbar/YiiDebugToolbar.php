@@ -5,8 +5,7 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
-Yii::setPathOfAlias('yii-debug-tolbar', dirname(__FILE__));
-Yii::import('yii-debug-tolbar.panels.*');
+Yii::import('yii-debug-toolbar.panels.*');
 
 /**
  * YiiDebugToolbar represents an ...

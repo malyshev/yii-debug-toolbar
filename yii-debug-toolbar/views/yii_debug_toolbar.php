@@ -33,6 +33,7 @@
         <div class="yii-debug-toolbar-panel-content">
             <div class="scroll">
                 <?php $panel->run(); ?>
+                <br />
             </div>
         </div>
     </div>
