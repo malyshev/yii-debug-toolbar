@@ -26,6 +26,7 @@ Extract the [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) from archive under
 For use [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) need to specify new `route` in `log` component:
 
 ```php
+<?php
 //...
     'log'=>array(
         'class'=>'CLogRouter',
@@ -42,6 +43,7 @@ For use [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) need to specify new `r
 * Enable [Profiling](http://www.yiiframework.com/doc/api/1.1/CDbConnection#enableProfiling-detail "") and [ParamLogging](http://www.yiiframework.com/doc/api/1.1/CDbConnection#enableParamLogging-detail "") for all used DB connections.
 
 ```php
+<?php
 //...
 	'db'=>array(
 	    'connectionString' => 'mysql:host=localhost;dbname=test',
