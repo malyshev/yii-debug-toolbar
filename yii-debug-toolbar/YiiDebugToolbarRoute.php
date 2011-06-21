@@ -13,10 +13,9 @@
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @version $Id$
- * @package
+ * @package YiiDebugToolbar
  * @since 1.1.7
  */
-
 class YiiDebugToolbarRoute extends CLogRoute
 {
 

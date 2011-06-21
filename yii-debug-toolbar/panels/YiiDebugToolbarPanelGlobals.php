@@ -12,28 +12,38 @@
  * Description of YiiDebugToolbarPanelRequest
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
+ * @author Igor Golovanov <igor.golovanov@gmail.com>
  * @version $Id$
- * @package
+ * @package YiiDebugToolbar
  * @since 1.1.7
  */
-
-class YiiDebugToolbarPanelGlobals extends YiiDebugToolbarPanel implements DebugToolbarPanelInterface
+class YiiDebugToolbarPanelGlobals extends YiiDebugToolbarPanel
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getMenuTitle()
     {
         return 'Globals';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getTitle()
     {
         return 'Global Variables';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function init()
-    {
-        
-    }
+    {}
 
+    /**
+     * {@inheritdoc}
+     */
     public function run()
     {
         $this->render('globals', array(

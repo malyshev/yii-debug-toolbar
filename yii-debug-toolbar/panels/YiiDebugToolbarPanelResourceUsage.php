@@ -15,12 +15,12 @@
  * Description of YiiDebugToolbarPanelTime
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
+ * @author Igor Golovanov <igor.golovanov@gmail.com>
  * @version $Id$
- * @package
+ * @package YiiDebugToolbar
  * @since 1.1.7
  */
-
-class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel implements DebugToolbarPanelInterface
+class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel 
 {
     private $_loadTime;
 
@@ -35,15 +35,20 @@ class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel implements 
 
     public function getRequestLoadTime()
     {
-        return ($this->owner->owner->getEndTime()
-                - $_SERVER['REQUEST_TIME']);
+        return ($this->owner->owner->getEndTime() - $_SERVER['REQUEST_TIME']);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getMenuTitle()
     {
         return 'Time';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getMenuSubTitle()
     {
         return vsprintf('%0.6fS', array(
@@ -51,19 +56,25 @@ class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel implements 
         ));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getTitle()
     {
         return 'Resource Usage';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function run()
     {
 
         $resources =  array(
-            'Page Load Time'=>sprintf('%0.3f S',$this->getLoadTime()),
-            'Elapsed Time'=>sprintf('%0.3f S',$this->getRequestLoadTime()),
-            'Memory Usage'=>  number_format(Yii::getLogger()->getMemoryUsage()/1024) . ' KB',
-            'Memory Peak Usage'=>  number_format(memory_get_peak_usage()/1024) . ' KB',
+            'Page Load Time'    =>  sprintf('%0.3f S',$this->getLoadTime()),
+            'Elapsed Time'      =>  sprintf('%0.3f S',$this->getRequestLoadTime()),
+            'Memory Usage'      =>  number_format(Yii::getLogger()->getMemoryUsage()/1024) . ' KB',
+            'Memory Peak Usage' =>  number_format(memory_get_peak_usage()/1024) . ' KB',
         );
 
         if (function_exists('mb_strlen'))
