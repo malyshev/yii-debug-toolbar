@@ -149,8 +149,8 @@ class YiiDebugToolbar extends CWidget
                 $this->cssFile = $this->assetsUrl . '/style.css';
             $cs->registerCssFile($this->cssFile);
         }
-
-        $cs->registerScriptFile($this->assetsUrl . '/yii.debug.toolbar.js');
+        
+        $cs->registerScriptFile($this->assetsUrl . '/yii.debug.toolbar.js', CClientScript::POS_END);
 
         return $this;
     }
