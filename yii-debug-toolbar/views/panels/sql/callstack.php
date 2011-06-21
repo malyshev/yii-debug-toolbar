@@ -23,5 +23,7 @@
     </tbody>
 </table>
 <?php else : ?>
-<p id="yii-debug-toolbar-sql-callstack" class="tabscontent">No SQL queries were recorded during this request.</p>
+<p id="yii-debug-toolbar-sql-callstack" class="tabscontent">
+    No SQL queries were recorded during this request or profiling the SQL is DISABLED.
+</p>
 <?php endif; ?>
