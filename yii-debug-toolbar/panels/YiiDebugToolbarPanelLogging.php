@@ -15,36 +15,56 @@
  * Description of YiiDebugToolbarPanelLogging
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
+ * @author Igor Golovanov <igor.golovanov@gmail.com>
  * @version $Id$
- * @package
+ * @package YiiDebugToolbar
  * @since 1.1.7
  */
-
-class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel implements DebugToolbarPanelInterface
+class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
 {
-    private $_countMessages,
-            $_logs;
+    /**
+     * Message count.
+     *
+     * @var integer
+     */
+    private $_countMessages;
+    
+    /**
+     * Logs.
+     * 
+     * @var array
+     */
+    private $_logs;
 
+    /**
+     * {@inheritdoc}
+     */
     public function getMenuTitle()
     {
         return 'Logging';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getMenuSubTitle()
     {
         return vsprintf('%s MESSAGES', $this->countMessages);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getTitle()
     {
         return 'Log Messages';
     }
 
-    public function getSubTitle()
-    {
-        
-    }
-
+    /**
+     * Get logs.
+     * 
+     * @return array
+     */
     public function getLogs()
     {
         if (null === $this->_logs)
@@ -54,6 +74,11 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel implements DebugT
         return $this->_logs;
     }
 
+    /**
+     * Get count of messages.
+     * 
+     * @return integer
+     */
     public function getCountMessages()
     {
         if (null === $this->_countMessages)
@@ -62,14 +87,22 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel implements DebugT
         }
         return $this->_countMessages;
     }
-    
+
+    /**
+     * {@inheritdoc}
+     */
     public function run()
     {
         $this->render('logging', array(
-            'logs'=>$this->logs
+            'logs' => $this->logs
         ));
     }
 
+    /**
+     * Get filter logs.
+     * 
+     * @return array
+     */
     protected function filterLogs()
     {
         $logs = array();

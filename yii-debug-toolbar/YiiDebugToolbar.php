@@ -14,17 +14,32 @@ Yii::import('yii-debug-tolbar-panels.*');
  * Description of YiiDebugToolbar
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
+ * @author Igor Golovanov <igor.golovanov@gmail.com>
  * @version $Id$
- * @package
+ * @package YiiDebugToolbar
  * @since 1.1.7
  */
-
 class YiiDebugToolbar extends CWidget
 {
+    /**
+     * CSS File.
+     *
+     * @var string
+     */
     public $cssFile;
-    
+
+    /**
+     * The URL of assets.
+     *
+     * @var string
+     */
     private $_assetsUrl;
 
+    /**
+     * Panels.
+     *
+     * @var array
+     */
     private $_panels = array(
         'YiiDebugToolbarPanelServer',
         'YiiDebugToolbarPanelResourceUsage',
@@ -34,18 +49,39 @@ class YiiDebugToolbar extends CWidget
         'YiiDebugToolbarPanelLogging',
     );
 
-    public function setPanels($panels)
+    /**
+     * Setup toolbar panels.
+     * 
+     * @param array $panels Panels.
+     * @return YiiDebugToolbar 
+     */
+    public function setPanels(array $panels = array())
     {
         $this->_panels = $panels;
+        
+        return $this;
     }
 
+    /**
+     * Get toolbar panels.
+     * 
+     * @return array
+     */
     public function getPanels()
     {
+        if(null === $this->_panels)
+        {
+            $this->setPanels();
+        }
         return $this->_panels;
     }
 
     /**
-     * @return string the base URL that contains all published asset files of gii.
+     * Get the URL of assets.
+     *
+     * The base URL that contains all published asset files of gii.
+     *
+     * @return string 
      */
     public function getAssetsUrl()
     {
@@ -62,12 +98,19 @@ class YiiDebugToolbar extends CWidget
     }
 
     /**
-     * @param string $value the base URL that contains all published asset files of gii.
+     * Set the URL of assets.
+     * The base URL that contains all published asset files of gii.
+     *
+     * @param string $value
      */
     public function setAssetsUrl($value)
     {
             $this->_assetsUrl=$value;
     }
+    
+    /**
+     * Initialization.
+     */
     public function init()
     {
         if (false === ($this->owner instanceof CLogRoute))
@@ -75,11 +118,13 @@ class YiiDebugToolbar extends CWidget
             throw new CException('YiiDebugToolbar owner must be instance of CLogRoute');
         }
 
-        $this->createPanels();
-
-        $this->registerClientScripts();
+        $this->createPanels()
+             ->registerClientScripts();
     }
 
+    /**
+     * Run.
+     */
     public function run()
     {
         $this->render('yii_debug_toolbar', array(
@@ -87,6 +132,11 @@ class YiiDebugToolbar extends CWidget
         ));
     }
 
+    /**
+     * Register client scripts.
+     *
+     * @return YiiDebugToolbar
+     */
     private function registerClientScripts()
     {
         $cs = Yii::app()->getClientScript();
@@ -101,11 +151,18 @@ class YiiDebugToolbar extends CWidget
         }
 
         $cs->registerScriptFile($this->assetsUrl . '/yii.debug.toolbar.js');
+
+        return $this;
     }
 
+    /**
+     * Create panels.
+     *
+     * @return YiiDebugToolbar 
+     */
     private function createPanels()
     {
-        foreach ($this->panels as $id=>$config)
+        foreach ($this->getPanels() as $id => $config)
         {
             if (!is_object($config))
             {
@@ -122,17 +179,46 @@ class YiiDebugToolbar extends CWidget
                 $this->_panels[$id] = $panel;
             }
         }
+        return $this;
     }
 }
 
-
+/**
+ * DebugToolbarPanelInterface
+ *
+ * @author Sergey Malyshev <malyshev.php@gmail.com>
+ * @author Igor Golovanov <igor.golovanov@gmail.com>
+ * @version $Id$
+ * @package YiiDebugToolbar
+ * @since 1.1.7
+ */
 interface DebugToolbarPanelInterface
 {
-    public function getMenuTitle();
+    /**
+     * Get the title of menu.
+     *
+     * @return string
+     */
+    function getMenuTitle();
 
-    public function getMenuSubTitle();
+    /**
+     * Get the subtitle of menu.
+     *
+     * @return string
+     */
+    function getMenuSubTitle();
 
-    public function getTitle();
+    /**
+     * Get the title.
+     *
+     * @return string
+     */
+    function getTitle();
 
-    public function getSubTitle();
+    /**
+     * Get the subtitle.
+     *
+     * @return string
+     */
+    function getSubTitle();
 }

@@ -12,12 +12,12 @@
  * Description of YiiDebugToolbarPanelRequest
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
+ * @author Igor Golovanov <igor.golovanov@gmail.com>
  * @version $Id$
- * @package
+ * @package YiiDebugToolbar
  * @since 1.1.7
  */
-
-class YiiDebugToolbarPanelSettings extends YiiDebugToolbarPanel implements DebugToolbarPanelInterface
+class YiiDebugToolbarPanelSettings extends YiiDebugToolbarPanel
 {
     public function getMenuTitle()
     {
