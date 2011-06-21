@@ -19,11 +19,11 @@ Currently, the following panels have been written and are working:
 
 ## Installation
 
-Extract the [`yii-debug-toolbar`](/malyshev/yii-debug-toolbar/) from archive under protected/extensions
+Extract the [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) from archive under protected/extensions
 
 ## Usage and Configuration
 
-For use [`yii-debug-toolbar`](/malyshev/yii-debug-toolbar/) need to specify new `route` in `log` component:
+For use [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) need to specify new `route` in `log` component:
 
 ``` php
 <?php
