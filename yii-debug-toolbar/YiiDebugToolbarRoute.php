@@ -71,11 +71,6 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     }
 
-    public static function classLoader($className)
-    {
-        Yii::autoload($className);
-    }
-
     protected function onBeginRequest($event)
     {
         $this->getToolbarWidget()->init();

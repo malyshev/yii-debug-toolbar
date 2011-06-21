@@ -7,7 +7,7 @@
 
 
 /**
- * YiiDebugToolbarPanelSql represents an ...
+ * YiiDebugToolbarPanelSql class.
  *
  * Description of YiiDebugToolbarPanelSql
  *

@@ -1,15 +1,15 @@
 <?php
 /**
- * YiiDebugToolbarPanelVersions class file.
+ * YiiDebugToolbarPanelServer class file.
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
 
 /**
- * YiiDebugToolbarPanelVersions represents an ...
+ * YiiDebugToolbarPanelServer represents an ...
  *
- * Description of YiiDebugToolbarPanelVersions
+ * Description of YiiDebugToolbarPanelServer
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @author Igor Golovanov <igor.golovanov@gmail.com>

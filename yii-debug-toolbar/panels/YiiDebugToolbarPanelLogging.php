@@ -3,9 +3,6 @@
  * YiiDebugToolbarPanelLogging class file.
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
- * @link http://www.vidomo.com/
- * @copyright Copyright &copy; 2000-2011 Vidomo
- * @license http://www.vidomo.com/terms-of-use
  */
 
 

@@ -1,15 +1,15 @@
 <?php
 /**
- * YiiDebugToolbarPanelRequest class file.
+ * YiiDebugToolbarPanelSettings class file.
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
 
 /**
- * YiiDebugToolbarPanelRequest represents an ...
+ * YiiDebugToolbarPanelSettings class
  *
- * Description of YiiDebugToolbarPanelRequest
+ * Description of YiiDebugToolbarPanelSettings
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @author Igor Golovanov <igor.golovanov@gmail.com>

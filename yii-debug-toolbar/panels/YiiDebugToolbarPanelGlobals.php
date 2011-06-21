@@ -1,15 +1,15 @@
 <?php
 /**
- * YiiDebugToolbarPanelRequest class file.
+ * YiiDebugToolbarPanelGlobals class file.
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
 
 /**
- * YiiDebugToolbarPanelRequest represents an ...
+ * YiiDebugToolbarPanelGlobals class
  *
- * Description of YiiDebugToolbarPanelRequest
+ * Description of YiiDebugToolbarPanelGlobals
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @author Igor Golovanov <igor.golovanov@gmail.com>
