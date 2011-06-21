@@ -1,0 +1,26 @@
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
+<div id="yii-debug-toolbar-sql-servers" class="tabscontent">
+<?php if ($connections) : foreach($connections as $id=>$connection): ?>
+<h4>Connection ID: <?php echo $id ?> (<?php echo get_class($connection)?>)</h4>
+<?php $serverInfo = $this->getServerInfo($id); ?>
+    <table>
+        <tbody>
+            <?php foreach($serverInfo as $param=>$value):?>
+            <tr>
+                <th><?php echo CHtml::encode($param)?></th>
+                <td><?php echo CHtml::encode($value)?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php //YiiDebug::dump($info); ?>
+<?php endforeach; ?>
+<?php else : ?>
+No SQL Servers used during this request.
+<?php endif;?>
+</div>
