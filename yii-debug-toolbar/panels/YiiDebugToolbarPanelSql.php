@@ -111,7 +111,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     private function duration($secs)
     {
         $vals = array(
-            'y' => (int) ($secs / 86400 / 7),
+            'w' => (int) ($secs / 86400 / 7),
             'd' => $secs / 86400 % 7,
             'h' => $secs / 3600 % 24,
             'm' => $secs / 60 % 60,
