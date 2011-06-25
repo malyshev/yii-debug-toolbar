@@ -74,7 +74,7 @@ class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel
             'Memory Peak Usage' =>  number_format(memory_get_peak_usage()/1024) . ' KB',
         );
 
-        if (function_exists('mb_strlen'))
+        if (function_exists('mb_strlen') && isset($_SESSION))
         {
             $resources['Session Size'] = sprintf('%0.3f KB' ,mb_strlen(serialize($_SESSION))/1024);
         }
