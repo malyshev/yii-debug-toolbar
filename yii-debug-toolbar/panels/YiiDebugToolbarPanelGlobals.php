@@ -49,7 +49,7 @@ class YiiDebugToolbarPanelGlobals extends YiiDebugToolbarPanel
         $this->render('globals', array(
             'server' => $_SERVER,
             'cookies' => $_COOKIE,
-            'session' => $_SESSION,
+            'session' => isset($_SESSION) ? $_SESSION : null,
             'post' => $_POST,
             'get' => $_GET,
             'files' => $_FILES,
