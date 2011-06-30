@@ -62,7 +62,7 @@
 </table>
 
 
-<h4>Componets</h4>
+<h4>Components</h4>
 <table>
     <thead>
         <tr>

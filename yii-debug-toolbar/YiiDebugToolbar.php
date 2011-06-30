@@ -76,14 +76,12 @@ class YiiDebugToolbar extends CWidget
 
     /**
      * Get the URL of assets.
-     *
-     * The base URL that contains all published asset files of gii.
-     *
+     * The base URL that contains all published asset files of yii-debug-toolbar.
      * @return string 
      */
     public function getAssetsUrl()
     {
-        if (null === $this->_assetsUrl)
+        if (null === $this->_assetsUrl && 'cli' !== php_sapi_name())
             $this->_assetsUrl = Yii::app()
                 ->getAssetManager()
                 ->publish(dirname(__FILE__) . '/assets', false, -1, YII_DEBUG);
@@ -97,7 +95,7 @@ class YiiDebugToolbar extends CWidget
 
     /**
      * Set the URL of assets.
-     * The base URL that contains all published asset files of gii.
+     * The base URL that contains all published asset files of yii-debug-toolbar.
      *
      * @param string $value
      */

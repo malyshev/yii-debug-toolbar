@@ -71,12 +71,40 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     }
 
-    protected function onBeginRequest($event)
+    protected function onBeginRequest(CEvent $event)
     {
+//        Yii::app()->detachEventHandler('onBeginRequest',
+//                array($this, 'onBeginRequest'));
+//
+//        if(Yii::app()->hasEventHandler('onBeginRequest'))
+//            Yii::app()->onBeginRequest(new CEvent(Yii::app()));
+        
         $this->getToolbarWidget()->init();
+
+//        $this->processRequest();
+//
+//        Yii::app()->end();
     }
 
-    protected function onEndRequest($event)
+    /**
+     * Processes the current request.
+     * It first resolves the request into controller and action,
+     * and then creates the controller to perform the action.
+     */
+    private function processRequest()
+    {
+        if(is_array(Yii::app()->catchAllRequest) && isset(Yii::app()->catchAllRequest[0]))
+        {
+            $route=Yii::app()->catchAllRequest[0];
+            foreach(array_splice(Yii::app()->catchAllRequest,1) as $name=>$value)
+                $_GET[$name]=$value;
+        }
+        else
+            $route=Yii::app()->getUrlManager()->parseUrl(Yii::app()->getRequest());
+        Yii::app()->runController($route);
+    }
+
+    protected function onEndRequest(CEvent $event)
     {
         
     }
