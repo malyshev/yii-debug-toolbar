@@ -85,16 +85,25 @@
             return $this.is(":visible");
         },
 
-        showPanel : function(id)
+        togglePanel : function(id)
         {
+        	var button = $('.' + id);
+        	var panel = $('#' + id);
+        	
+        	if(panel.is(':visible')) {
+        		panel.hide();
+        		button.removeClass('active');
+        		return;
+        	}
+        	
             this.closeAllPannels();
             $('#'+id).show();
-            $('.'+id).addClass('active')
+            $('.'+id).addClass('active');
         },
 
         buttonClicked : function(e)
         {
-            this.showPanel($(e.currentTarget).attr('class').split(' ')[1]);
+            this.togglePanel($(e.currentTarget).attr('class').split(' ')[1]);
         },
 
         closeAllPannels : function()
