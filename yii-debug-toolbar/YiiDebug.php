@@ -33,4 +33,17 @@ class YiiDebug extends CComponent
     {
         Yii::trace(self::dump($message), 'dump');
     }
+
+    public static function getClass($class)
+    {
+        return new ReflectionClass($class);
+    }
+
+    public static function getClassMethod($class,$name)
+    {
+        $class = self::getClass($class);
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+        return $method;
+    }
 }

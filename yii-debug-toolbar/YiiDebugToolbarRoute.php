@@ -79,7 +79,8 @@ class YiiDebugToolbarRoute extends CLogRoute
 //        if(Yii::app()->hasEventHandler('onBeginRequest'))
 //            Yii::app()->onBeginRequest(new CEvent(Yii::app()));
         
-        $this->getToolbarWidget()->init();
+        $this->getToolbarWidget()
+             ->init();
 
 //        $this->processRequest();
 //
