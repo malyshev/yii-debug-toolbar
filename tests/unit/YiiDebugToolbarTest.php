@@ -1,7 +1,28 @@
 <?php
+/**
+ * YiiDebugToolbarTest class file.
+ *
+ * @author Sergey Malyshev <malyshev.php@gmail.com>
+ */
 
+
+/**
+ * YiiDebug represents an ...
+ *
+ * Description of YiiDebug
+ *
+ * @author Sergey Malyshev <malyshev.php@gmail.com>
+ * @author Tibor Katelbach <oceatoon@gmail.com>
+ * @version $Id$
+ * @package YiiDebugToolbar
+ * @since 1.1.7
+ */
 class YiiDebugToolbarTest extends CTestCase
 {
+
+    /**
+     *
+     */
     public function testYiiDebugToolbarRoute()
     {
         $routeObject = new YiiDebugToolbarRoute();
@@ -38,6 +59,11 @@ class YiiDebugToolbarTest extends CTestCase
 
     }
 
+    /**
+     * @param string $class class name
+     * @param string $name class method name
+     * @return ReflectionMethod
+     */
     protected static function getMethod($class,$name)
     {
         $class = new ReflectionClass($class);
