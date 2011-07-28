@@ -73,18 +73,24 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     protected function onBeginRequest(CEvent $event)
     {
-//        Yii::app()->detachEventHandler('onBeginRequest',
-//                array($this, 'onBeginRequest'));
+//        if ('CWebApplication' === get_class(Yii::app()))
+//        {
+//            Yii::app()->detachEventHandler('onBeginRequest',
+//                    array($this, 'onBeginRequest'));
 //
-//        if(Yii::app()->hasEventHandler('onBeginRequest'))
-//            Yii::app()->onBeginRequest(new CEvent(Yii::app()));
+//            if(Yii::app()->hasEventHandler('onBeginRequest'))
+//                Yii::app()->onBeginRequest(new CEvent(Yii::app()));
+//        }
+
         
         $this->getToolbarWidget()
              ->init();
 
-//        $this->processRequest();
-//
-//        Yii::app()->end();
+//        if ('CWebApplication' === get_class(Yii::app()))
+//        {
+//            $this->processRequest();
+//            Yii::app()->end();
+//        }
     }
 
     /**

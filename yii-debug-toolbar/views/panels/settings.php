@@ -28,8 +28,8 @@
 <table>
     <thead>
         <tr>
-            <th width="180">Module ID</th>
-            <th>Configuration</th>
+            <th width="180">Name</th>
+            <th>Value</th>
         </tr>
     </thead>
     <tbody>

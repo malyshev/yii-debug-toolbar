@@ -42,8 +42,8 @@
 
 <script type="text/javascript">
 (function($) {
-	$(function(){
-		yiiDebugToolbar.init();
-	});
+    $(function(){
+        yiiDebugToolbar.init();
+    });
 }(jQuery));
 </script>

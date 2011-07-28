@@ -7,7 +7,7 @@
 
 
 /**
- * YiiDebug represents an ...
+ * YiiDebug class.
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @version $Id$

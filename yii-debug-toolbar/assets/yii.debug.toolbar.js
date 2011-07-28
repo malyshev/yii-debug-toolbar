@@ -23,7 +23,6 @@
 
             var panelId = $('#yii-debug-toolbar').find('ul.yii-debug-toolbar-tabs li.active').attr('type');
 
-
             if (typeof panelId !== 'undefined')
             {
                 var path = panelId.split('-');
