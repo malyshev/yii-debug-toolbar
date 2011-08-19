@@ -141,22 +141,14 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             && false !== ($connection instanceof CDbConnection)
             && '' !== ($serverInfo = $connection->getServerInfo()))
         {
-            preg_match_all('/(([\w\s]+)\:\s?(\d+)\s+)/', $serverInfo, $matches, PREG_PATTERN_ORDER);
-            if (4 === count($matches))
-            {
-                $serverInfo = CMap::mergeArray(array(
-                    'Driver' => $connection->getAttribute(PDO::ATTR_DRIVER_NAME),
-                    'Server Version' => $connection->getServerVersion(),
-                ), array_combine(
-                        array_map('trim', $matches[2]),
-                        array_map('trim', $matches[3])
-                    )
-                );
+            $serverInfo = array(
+                'Driver' => $connection->getAttribute(PDO::ATTR_DRIVER_NAME),
+                'Server Version' => $connection->getServerVersion(),
+            );
 
-                $serverInfo['Uptime'] = $this->duration($serverInfo['Uptime']);
+            $serverInfo['Uptime'] = $this->duration($serverInfo['Uptime']);
 
-                return $serverInfo;
-            }
+            return $serverInfo;
         }
         return null;
     }
