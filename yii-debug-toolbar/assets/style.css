@@ -292,3 +292,7 @@ margin-top:0.8em;
 {
     background: transparent url('bullet_toggle_minus.png') no-repeat scroll 100% 50%;
 }
+
+#yii-debug-toolbar .text-right {
+	text-align:right;
+}

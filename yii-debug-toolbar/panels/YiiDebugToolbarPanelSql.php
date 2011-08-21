@@ -131,7 +131,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     }
 
     /**
-     * Returns the DB server info bu connection ID.
+     * Returns the DB server info by connection ID.
      * @param string $connectionId
      * @return mixed
      */
@@ -141,14 +141,23 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             && false !== ($connection instanceof CDbConnection)
             && '' !== ($serverInfo = $connection->getServerInfo()))
         {
-            $serverInfo = array(
-                'Driver' => $connection->getAttribute(PDO::ATTR_DRIVER_NAME),
-                'Server Version' => $connection->getServerVersion(),
+            $info = array(
+                'Driver' => $connection->getDriverName(),
+                'Server Version' => $connection->getServerVersion()
             );
-
-            $serverInfo['Uptime'] = $this->duration($serverInfo['Uptime']);
-
-            return $serverInfo;
+            
+            $lines = explode('  ', $serverInfo);
+            foreach($lines as $line) {
+                list($key, $value) = explode(': ', $line);
+                
+                $info[$key] = $value;
+            }
+            
+            if(!empty($info['Uptime'])) {
+                $info['Uptime'] = $this->duration($info['Uptime']);
+            }
+            
+            return $info;
         }
         return null;
     }
