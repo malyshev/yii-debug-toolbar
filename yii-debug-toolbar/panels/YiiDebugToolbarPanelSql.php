@@ -64,7 +64,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getMenuSubTitle()
     {
-        return vsprintf('%s queries in %0.4F s.', Yii::app()->db->getStats());
+        return vsprintf('%d queries in %0.4F s.', Yii::app()->db->getStats());
     }
 
     /**
@@ -72,9 +72,11 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getTitle()
     {
-        return vsprintf('SQL Queries from %s connections', array(
-            $this->getDbConnectionsCount()
-        ));
+        $conn=$this->getDbConnectionsCount();
+        return vsprintf(
+            'SQL Queries from %d connection' . ($conn > 1 ? 's' : ''),
+            array($conn)
+        );
     }
 
     /**
@@ -82,7 +84,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getSubTitle()
     {
-        return '(' . vsprintf('%s queries in %0.6F s.', Yii::app()->db->getStats()) . ')';
+        return '(' . vsprintf('%d queries in %0.6F s.', Yii::app()->db->getStats()) . ')';
     }
 
     /**
