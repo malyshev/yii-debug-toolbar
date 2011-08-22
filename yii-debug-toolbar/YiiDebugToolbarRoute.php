@@ -119,7 +119,7 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     protected function onEndRequest(CEvent $event)
     {
-        
+
     }
 
     public function collectLogs($logger, $processLogs=false)

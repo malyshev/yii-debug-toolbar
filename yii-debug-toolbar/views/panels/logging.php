@@ -1,8 +1,4 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 $colors=array(
     CLogger::LEVEL_PROFILE=>'#DFFFE0',
     CLogger::LEVEL_INFO=>'#FFFFDF',
@@ -21,7 +17,7 @@ $colors=array(
     </thead>
     <tbody>
     <?php foreach($logs as $id=>$entry): ?>
-        <tr class="<?php echo ($id%2?'odd':'even') ?>" 
+        <tr class="<?php echo ($id%2?'odd':'even') ?>"
             <?php if(isset($colors[$entry[1]])) : ?>style=" background:<?php echo $colors[$entry[1]]?>"<?php endif;?>>
             <td width="100%" onclick="$('.details', this).toggleClass('hidden');"><?php echo YiiDebugViewHelper::splitLines($entry[0]) ?></td>
             <td nowrap="nowrap" style="text-align: center;"><?php echo $entry[1]?></td>

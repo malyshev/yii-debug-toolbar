@@ -1,10 +1,3 @@
-<?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-?>
 <table>
     <tbody>
         <?php $c=0; foreach ($resources as $key=>$value) : ?>

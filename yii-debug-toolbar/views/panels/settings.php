@@ -1,10 +1,3 @@
-<?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-?>
 <h4>Application Properties</h4>
 <table>
     <thead>

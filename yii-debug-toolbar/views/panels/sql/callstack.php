@@ -1,10 +1,3 @@
-<?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
-
 <?php if (!empty($callstack)) : ?>
 <table id="yii-debug-toolbar-sql-callstack" class="tabscontent">
     <thead>

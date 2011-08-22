@@ -17,7 +17,7 @@
  * @package YiiDebugToolbar
  * @since 1.1.7
  */
-class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel 
+class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel
 {
     private $_loadTime;
 

@@ -1,10 +1,3 @@
-<?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
-
 <ul class="yii-debug-toolbar-tabs">
     <li class="active" type="yii-debug-toolbar-sql-summary"><a href="javascript:;//">Summary</a></li>
     <li type="yii-debug-toolbar-sql-callstack"><a href="javascript:;//">Callstack</a></li>

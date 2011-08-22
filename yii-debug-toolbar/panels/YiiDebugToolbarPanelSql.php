@@ -22,7 +22,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     private $_groupByToken = true;
 
     private $_dbConnections;
-    
+
     private $_dbConnectionsCount;
 
     public function getDbConnectionsCount()
@@ -90,16 +90,16 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function init()
     {
-        
+
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function run()
     {
         $logs = $this->filterLogs();
-        
+
         $this->render('sql', array(
             'connections'       => $this->getDbConnections(),
             'connectionsCount'  => $this->getDbConnectionsCount(),
@@ -164,7 +164,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
     /**
      * Processing callstack.
-     * 
+     *
      * @param array $logs Logs.
      * @return array
      */
@@ -183,9 +183,9 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         {
             if(CLogger::LEVEL_PROFILE !== $log[1])
                 continue;
-            
+
             $message = $log[0];
-            
+
             if (0 === strncasecmp($message,'begin:',6))
             {
                 $log[0]  = substr($message,6);
@@ -218,7 +218,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
     /**
      * Processing summary.
-     * 
+     *
      * @param array $logs Logs.
      * @return array
      */
@@ -329,19 +329,19 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
                 $max = $delta;
                 break;
             default:
-                // nothing 
+                // nothing
                 break;
         }
 
         $calls++;
         $total += $delta;
-        
+
         return array($token, $calls, $min, $max, $total);
     }
 
     /**
      * Get filter logs.
-     * 
+     *
      * @return array
      */
     protected function filterLogs()

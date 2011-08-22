@@ -50,9 +50,9 @@ class YiiDebugToolbar extends CWidget
 
     /**
      * Setup toolbar panels.
-     * 
+     *
      * @param array $panels Panels.
-     * @return YiiDebugToolbar 
+     * @return YiiDebugToolbar
      */
     public function setPanels(array $panels = array())
     {
@@ -62,7 +62,7 @@ class YiiDebugToolbar extends CWidget
 
     /**
      * Get toolbar panels.
-     * 
+     *
      * @return array
      */
     public function getPanels()
@@ -77,7 +77,7 @@ class YiiDebugToolbar extends CWidget
     /**
      * Get the URL of assets.
      * The base URL that contains all published asset files of yii-debug-toolbar.
-     * @return string 
+     * @return string
      */
     public function getAssetsUrl()
     {
@@ -103,7 +103,7 @@ class YiiDebugToolbar extends CWidget
     {
         $this->_assetsUrl = $value;
     }
-    
+
     /**
      * Initialization.
      */
@@ -145,7 +145,7 @@ class YiiDebugToolbar extends CWidget
                 $this->cssFile = $this->assetsUrl . '/style.css';
             $cs->registerCssFile($this->cssFile);
         }
-        
+
         $cs->registerScriptFile($this->assetsUrl . '/yii.debug.toolbar.js',
                 CClientScript::POS_END);
 
@@ -155,7 +155,7 @@ class YiiDebugToolbar extends CWidget
     /**
      * Create panels.
      *
-     * @return YiiDebugToolbar 
+     * @return YiiDebugToolbar
      */
     private function createPanels()
     {
@@ -168,7 +168,7 @@ class YiiDebugToolbar extends CWidget
 
                 if (false === ($panel instanceof YiiDebugToolbarPanelInterface))
                 {
-                    throw new CException(Yii::t('YiiDebugToolbar', 
+                    throw new CException(Yii::t('YiiDebugToolbar',
                             'The %class% class must be compatible with YiiDebugToolbarPanelInterface', array(
                                 '%class%' => get_class($panel)
                             )));

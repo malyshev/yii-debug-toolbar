@@ -1,9 +1,3 @@
-<?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
 <div id="yii-debug-toolbar-sql-servers" class="tabscontent">
 <?php if ($connections) : foreach($connections as $id=>$connection): ?>
 <h4>Connection ID: <?php echo $id ?> (<?php echo get_class($connection)?>)</h4>

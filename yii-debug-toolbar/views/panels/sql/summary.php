@@ -1,10 +1,3 @@
-<?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-?>
 <?php if (!empty($summary)) : ?>
 <table id="yii-debug-toolbar-sql-summary" class="tabscontent">
     <thead>

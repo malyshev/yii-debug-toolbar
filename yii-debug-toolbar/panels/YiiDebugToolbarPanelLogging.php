@@ -25,10 +25,10 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
      * @var integer
      */
     private $_countMessages;
-    
+
     /**
      * Logs.
-     * 
+     *
      * @var array
      */
     private $_logs;
@@ -59,7 +59,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
 
     /**
      * Get logs.
-     * 
+     *
      * @return array
      */
     public function getLogs()
@@ -73,7 +73,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
 
     /**
      * Get count of messages.
-     * 
+     *
      * @return integer
      */
     public function getCountMessages()
@@ -97,7 +97,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
 
     /**
      * Get filter logs.
-     * 
+     *
      * @return array
      */
     protected function filterLogs()

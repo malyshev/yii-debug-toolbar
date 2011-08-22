@@ -1,10 +1,5 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
+/*
 <table>
     <thead>
         <tr>
@@ -139,9 +134,6 @@ No POST data
 <?php endif; ?>
 
 
-
-
-
 <?php if ($files) : $c=0; ?>
 <h4 class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#debug-toolbar-globals-files', this)">FILES</h4>
 <table id="debug-toolbar-globals-files">
@@ -165,4 +157,3 @@ No POST data
 No FILES data
 <?php endif; ?>
 <br /><br />
-

@@ -44,7 +44,7 @@ class YiiDebugToolbarPanelSettings extends YiiDebugToolbarPanel
 
     public function init()
     {
-        
+
     }
 
     protected function getApplicationData()
