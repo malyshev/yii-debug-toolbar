@@ -13,7 +13,7 @@ $colors=array(
 <table id="yii-debug-toolbar-log">
     <thead>
         <tr>
-            <th>Message</th>
+            <th class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#yii-debug-toolbar-log .details', this)">Message (details)</th>
             <th nowrap="nowrap">Level</th>
             <th nowrap="nowrap">Category</th>
             <th nowrap="nowrap">Time</th>
@@ -23,7 +23,7 @@ $colors=array(
     <?php foreach($logs as $id=>$entry): ?>
         <tr class="<?php echo ($id%2?'odd':'even') ?>" 
             <?php if(isset($colors[$entry[1]])) : ?>style=" background:<?php echo $colors[$entry[1]]?>"<?php endif;?>>
-            <td width="100%"><?php echo nl2br($entry[0]) ?></td>
+            <td width="100%" onclick="$('.details', this).toggleClass('hidden');"><?php echo YiiDebugViewHelper::splitLines($entry[0]) ?></td>
             <td nowrap="nowrap" style="text-align: center;"><?php echo $entry[1]?></td>
             <td nowrap="nowrap"><?php echo $entry[2] ?></td>
             <td nowrap="nowrap"><?php echo date('H:i:s.',$entry[3]).sprintf('%06d',(int)(($entry[3]-(int)$entry[3])*1000000));?></td>
