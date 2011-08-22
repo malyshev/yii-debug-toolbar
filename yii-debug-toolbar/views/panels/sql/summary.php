@@ -15,10 +15,10 @@
         <tr class="<?php echo ($id%2?'odd':'even') ?>">
             <td width="100%"><?php echo CHtml::encode($entry[0]); ?></td>
             <td nowrap="nowrap" style="text-align: center;"><?php echo number_format($entry[1]); ?></td>
-            <td nowrap="nowrap"><?php echo sprintf('%0.6f',$entry[4]); ?></td>
-            <td nowrap="nowrap"><?php echo sprintf('%0.6f',$entry[4]/$entry[1]); ?></td>
-            <td nowrap="nowrap"><?php echo sprintf('%0.6f',$entry[2]); ?></td>
-            <td nowrap="nowrap"><?php echo sprintf('%0.6f',$entry[3]);?></td>
+            <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[4]); ?></td>
+            <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[4]/$entry[1]); ?></td>
+            <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[2]); ?></td>
+            <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[3]);?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>

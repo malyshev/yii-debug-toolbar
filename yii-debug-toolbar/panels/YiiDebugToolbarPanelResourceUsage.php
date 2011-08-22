@@ -48,7 +48,7 @@ class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel
      */
     public function getMenuSubTitle()
     {
-        return vsprintf('%0.6f s.', array(
+        return vsprintf('%0.6F s.', array(
             $this->getLoadTime()
         ));
     }
@@ -68,15 +68,15 @@ class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel
     {
 
         $resources =  array(
-            'Page Load Time'    =>  sprintf('%0.3f s.',$this->getLoadTime()),
-            'Elapsed Time'      =>  sprintf('%0.3f s.',$this->getRequestLoadTime()),
+            'Page Load Time'    =>  sprintf('%0.3F s.',$this->getLoadTime()),
+            'Elapsed Time'      =>  sprintf('%0.3F s.',$this->getRequestLoadTime()),
             'Memory Usage'      =>  number_format(Yii::getLogger()->getMemoryUsage()/1024) . ' KB',
             'Memory Peak Usage' =>  number_format(memory_get_peak_usage()/1024) . ' KB',
         );
 
         if (function_exists('mb_strlen') && isset($_SESSION))
         {
-            $resources['Session Size'] = sprintf('%0.3f KB' ,mb_strlen(serialize($_SESSION))/1024);
+            $resources['Session Size'] = sprintf('%0.3F KB' ,mb_strlen(serialize($_SESSION))/1024);
         }
 
         $this->render('resource_usage', array(

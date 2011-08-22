@@ -12,7 +12,7 @@
         <tr class="<?php echo ($id%2?'odd':'even') ?>">
         	<td class="text-right"><?php echo $id; ?></td>
             <td width="100%"><?php echo CHtml::encode($entry[0]); ?></td>
-            <td nowrap="nowrap"><?php echo sprintf('%0.6f',$entry[1]); ?></td>
+            <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[1]); ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
