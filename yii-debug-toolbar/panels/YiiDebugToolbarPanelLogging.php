@@ -46,7 +46,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
      */
     public function getMenuSubTitle()
     {
-        return vsprintf('%s MESSAGES', $this->countMessages);
+        return vsprintf('%s messages', $this->countMessages);
     }
 
     /**
