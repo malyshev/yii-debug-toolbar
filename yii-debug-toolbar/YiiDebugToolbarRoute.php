@@ -19,6 +19,12 @@
 class YiiDebugToolbarRoute extends CLogRoute
 {
 
+    /* The filters are given in an array, each filter being:
+     * - a normal IP (192.168.0.10 or '::1')
+     * - an incomplete IP (192.168.0.* or 192.168.0.)
+     * - a CIDR mask (192.168.0.0/24)
+     * - "*" for everything.
+     */
     public $ipFilters=array('127.0.0.1','::1');
 
     private $_toolbarWidget,
@@ -134,13 +140,49 @@ class YiiDebugToolbarRoute extends CLogRoute
      */
     protected function allowIp($ip)
     {
-        if(empty($this->ipFilters))
-            return false;
-        foreach($this->ipFilters as $filter)
-        {
-            if($filter==='*' || $filter===$ip || (($pos=strpos($filter,'*'))!==false && !strncmp($ip,$filter,$pos)))
+        foreach ($this->ipFilters as $filter) {
+            $filter = trim($filter);
+            // normal or incomplete IPv4
+            if (preg_match('/^[\d\.]*\*?$/', $filter)) {
+                $filter = rtrim($filter, '*');
+                if (strncmp($ip, $filter, strlen($filter)) === 0) {
                     return true;
+                }
+            }
+            // CIDR
+            else if (preg_match('/^([\d\.]+)\/(\d+)$/', $filter, $match)) {
+                if (self::matchIpMask($ip, $match[1], $match[2])) {
+                    return true;
+                }
+            }
+            // IPv6
+            else if ($ip === $filter) {
+                return true;
+            }
         }
         return false;
+    }
+
+    /**
+     * Check if an IP matches a CIDR mask.
+     *
+     * @param int|string $ip IP to check.
+     * @param int|string $matchIp Radical of the mask (e.g. 192.168.0.0).
+     * @param int $maskBits Size of the mask (e.g. 24).
+     */
+    protected static function matchIpMask($ip, $maskIp, $maskBits)
+    {
+        $mask = ~ ( pow(2, 32-$maskBits)-1 );
+        if (!is_int($ip)) {
+            $ip = ip2long($ip);
+        }
+        if (!is_int($maskIp)) {
+            $maskIp = ip2long($maskIp);
+        }
+        if ( ($ip & $mask) === ($maskIp & $mask)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

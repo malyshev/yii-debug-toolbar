@@ -33,7 +33,8 @@ For use [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) need to specify new `r
         'routes'=>array(
             array(
                 'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
-                'ipFilters'=>array('127.0.0.1','192.168.1.215'),
+                // Access is restricted by default to the localhost
+                //'ipFilters'=>array('127.0.0.1','192.168.1.*', 88.23.23.0/24),
             ),
         ),
     ),
