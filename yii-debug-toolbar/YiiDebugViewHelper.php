@@ -19,7 +19,7 @@ class YiiDebugViewHelper
      *
      * The second and following lines are in a block of class "details".
      */
-    public static function splitLines($txt)
+    public static function splitLinesInBlocks($txt)
     {
         $lines = explode("\n", $txt);
         $first = array_shift($lines);
