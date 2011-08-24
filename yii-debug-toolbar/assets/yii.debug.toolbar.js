@@ -3,10 +3,8 @@
 
     yiiDebugToolbar = {
         init : function(){
-
-            $('#yii-debug-toolbar-swither').bind('click',$.proxy( this.toggleToolbar, this ));
-            $('.yii-debug-toolbar-button').bind('click',$.proxy( this.buttonClicked, this ));
-            $('.yii-debug-toolbar-panel-close').bind('click',$.proxy( this.closeButtonClicked, this ));
+            
+            this.registerListeners();
 
             if ($.cookie(COOKIE_NAME)) {
                 $('#yii-debug-toolbar').hide();
@@ -66,35 +64,34 @@
             $target.addClass('active');
 
         },
-
-        toggle : function(elem, sender)
-        {
-            if (typeof elem == 'undefined') return false;
-            $this = $(elem);
-            if($this.is(":visible"))
-            {
-                $this.hide();
-                $(sender).removeClass('collapsed');
+        
+        /**
+         * Toggles the nearby panel section in context of the clicked element
+         */
+        toggleSection: function() {
+            
+            var toToggle = $(this).next();
+            
+            toToggle.toggle();
+            if(toToggle.is(':visible')) {
+                $(this).removeClass('collapsed');
+            } else {
+                $(this).addClass('collapsed');
             }
-            else
-            {
-                $this.show();
-                $(sender).addClass('collapsed');
-            }
-            return $this.is(":visible");
+            
         },
 
         togglePanel : function(id)
         {
-        	var button = $('.' + id);
-        	var panel = $('#' + id);
-        	
-        	if(panel.is(':visible')) {
-        		panel.hide();
-        		button.removeClass('active');
-        		return;
-        	}
-        	
+            var button = $('.' + id);
+            var panel = $('#' + id);
+            
+            if(panel.is(':visible')) {
+                panel.hide();
+                button.removeClass('active');
+                return;
+            }
+            
             this.closeAllPannels();
             $('#'+id).show();
             $('.'+id).addClass('active');
@@ -137,6 +134,15 @@
                     expires: -1
                 });
             }
+        }, 
+        
+        registerListeners: function() {
+            $('#yii-debug-toolbar-swither').bind('click',$.proxy( this.toggleToolbar, this ));
+            $('.yii-debug-toolbar-button').bind('click',$.proxy( this.buttonClicked, this ));
+            $('.yii-debug-toolbar-panel-close').bind('click',$.proxy( this.closeButtonClicked, this ));
+            $('#yii-debug-toolbar .collapsible').bind('click', this.toggleSection);
         }
-    }
+        
+    };
+    
 })( jQuery );

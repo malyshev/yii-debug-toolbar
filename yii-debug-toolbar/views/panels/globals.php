@@ -26,7 +26,7 @@
  */
 ?>
 
-<h4 class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#debug-toolbar-globals-server', this)">SERVER Variables</h4>
+<h4 class="collapsible">SERVER Variables</h4>
 <table id="debug-toolbar-globals-server">
     <thead>
         <tr>
@@ -45,7 +45,7 @@
 </table>
 
 <?php if ($cookies) : $c=0;?>
-<h4 class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#debug-toolbar-globals-cookies', this)">COOKIES Variables</h4>
+<h4 class="collapsible">COOKIES Variables</h4>
 <table id="debug-toolbar-globals-cookies">
     <thead>
         <tr>
@@ -69,7 +69,7 @@ No COOKIE data
 
 
 <?php if ($session) : $c=0; ?>
-<h4 class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#debug-toolbar-globals-session', this)">SESSION Variables</h4>
+<h4 class="collapsible">SESSION Variables</h4>
 <table id="debug-toolbar-globals-session">
     <thead>
         <tr>
@@ -93,7 +93,7 @@ No SESSION data
 
 
 <?php if ($get) : $c=0; ?>
-<h4 class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#debug-toolbar-globals-get', this)">GET Variables</h4>
+<h4 class="collapsible">GET Variables</h4>
 <table id="debug-toolbar-globals-get">
     <thead>
         <tr>
@@ -116,7 +116,7 @@ No GET data
 <?php endif; ?>
 
 <?php if ($post) : $c=0; ?>
-<h4 class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#debug-toolbar-globals-post', this)">POST Variables</h4>
+<h4 class="collapsible">POST Variables</h4>
 <table id="debug-toolbar-globals-post">
     <thead>
         <tr>
@@ -138,12 +138,8 @@ No GET data
 No POST data
 <?php endif; ?>
 
-
-
-
-
 <?php if ($files) : $c=0; ?>
-<h4 class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#debug-toolbar-globals-files', this)">FILES</h4>
+<h4 class="collapsible">FILES</h4>
 <table id="debug-toolbar-globals-files">
     <thead>
         <tr>
