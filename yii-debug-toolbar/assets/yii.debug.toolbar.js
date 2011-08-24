@@ -4,7 +4,7 @@
     yiiDebugToolbar = {
         init : function(){
             
-            this.registerListeners();
+            this.registerEventListeners();
 
             if ($.cookie(COOKIE_NAME)) {
                 $('#yii-debug-toolbar').hide();
@@ -136,7 +136,7 @@
             }
         }, 
         
-        registerListeners: function() {
+        registerEventListeners: function() {
             $('#yii-debug-toolbar-swither').bind('click',$.proxy( this.toggleToolbar, this ));
             $('.yii-debug-toolbar-button').bind('click',$.proxy( this.buttonClicked, this ));
             $('.yii-debug-toolbar-panel-close').bind('click',$.proxy( this.closeButtonClicked, this ));
