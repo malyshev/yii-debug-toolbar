@@ -296,3 +296,8 @@ margin-top:0.8em;
 #yii-debug-toolbar .text-right {
 	text-align:right;
 }
+
+#yii-debug-toolbar-sql-callstack tbody td, 
+#yii-debug-toolbar-sql-summary tbody td {
+	font-family: monospace;
+}

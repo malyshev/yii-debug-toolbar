@@ -284,9 +284,13 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function formatLogEntry(array $entry)
     {
+        // extract query from the entry
         $queryString = $entry[0];
-        $queryString = substr($queryString, strpos($queryString, '('));
-        $queryString = trim($queryString, '()');
+        $sqlStart = strpos($queryString, '(') + 1;
+        $sqlEnd = strrpos($queryString , ')');
+        $sqlLength = $sqlEnd - $sqlStart;
+        
+        $queryString = substr($queryString, $sqlStart, $sqlLength);
 
         if (false !== strpos($queryString, '. Bound with '))
         {
