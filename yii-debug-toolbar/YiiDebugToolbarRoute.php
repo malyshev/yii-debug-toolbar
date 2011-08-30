@@ -26,6 +26,18 @@ class YiiDebugToolbarRoute extends CLogRoute
      * - "*" for everything.
      */
     public $ipFilters=array('127.0.0.1','::1');
+	
+	/**
+	 * This is a list of paths to extra panels.
+	 * Example:
+	 * 'additionalPanels' => array(
+	 *	'append:application.extensions.debug-panels.newPanel', // added panel as last
+	 *	'prepend:application.extensions.debug-panels.newPanel2', // added panel as first
+	 *	'application.extensions.debug-panels.newPanel3' // added panel as last
+	 * )
+	 * @var array 
+	 */
+	public $additionalPanels = array();
 
     private $_toolbarWidget,
             $_startTime,
@@ -52,6 +64,17 @@ class YiiDebugToolbarRoute extends CLogRoute
         if (null === $this->_toolbarWidget)
         {
             $this->_toolbarWidget = Yii::createComponent('YiiDebugToolbar', $this);
+			
+			if(!empty($this->additionalPanels) and is_array($this->additionalPanels)){
+				foreach($this->additionalPanels as $panel){
+					$pos = 'append';
+					if(($dotpos=strpos($panel, ':'))!==false){
+						$pos = substr($panel, 0, $dotpos) == 'prepend' ? 'prepend' : 'append';
+						$panel = substr($panel, $dotpos+1);
+					}
+					$this->_toolbarWidget->{$pos.'Panel'}($panel);
+				}
+			}
         }
         return $this->_toolbarWidget;
     }

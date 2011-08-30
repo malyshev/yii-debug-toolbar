@@ -47,6 +47,22 @@ class YiiDebugToolbar extends CWidget
         'YiiDebugToolbarPanelSql',
         'YiiDebugToolbarPanelLogging',
     );
+	
+	/**
+	 * Adds a panel to the top of the stack
+	 * @param string $panel Name class panel
+	 */
+	public function prependPanel($panel){
+		array_unshift($this->_panels, $panel);
+	}
+	
+	/**
+	 * Adds a panel at the end of the stack
+	 * @param string $panel Name class panel
+	 */
+	public function appendPanel($panel){
+		array_push($this->_panels, $panel);
+	}
 
     /**
      * Setup toolbar panels.
