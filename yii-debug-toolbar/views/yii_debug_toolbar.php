@@ -13,7 +13,7 @@ $allPanelID = array();
                 array_push($allPanelID, $panel->id);
             ?>
             <li class="yii-debug-toolbar-button <?php echo $panel->id ?>">
-                <a href="#<?php echo $panel->id ?>" id="yii-debug-toolbar-tab-<?php echo $panel->id ?>">
+                <a class="yii-debug-toolbar-link" href="#<?php echo $panel->id ?>" id="yii-debug-toolbar-tab-<?php echo $panel->id ?>">
                     <?php echo CHtml::encode($panel->menuTitle); ?>
                     <?php if (!empty($panel->menuSubTitle)): ?>
                     <br />

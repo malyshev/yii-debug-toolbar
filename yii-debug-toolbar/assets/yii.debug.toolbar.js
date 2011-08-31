@@ -147,5 +147,18 @@
         }
         
     };
+
+    $(function(){
+        $('.yii-debug-toolbar-button').live('click', function(){
+            setTimeout(function(){
+                $('a.yii-debug-toolbar-link').each(function(){
+                    $(this).attr('href', '#'+$(this).attr('id').replace('yii-debug-toolbar-tab-',''));
+                    if($(this).parents('li.yii-debug-toolbar-button').hasClass('active')){
+                        $(this).attr('href', '#close');
+                    }
+                });
+            }, 1);
+        });
+    });
     
 })( jQuery );

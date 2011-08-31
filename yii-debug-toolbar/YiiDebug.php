@@ -26,7 +26,9 @@ class YiiDebug extends CComponent
     public static function dump($var)
     {
         is_string($var) && $var = trim($var);
-        CVarDumper::dump($var, 10, true);
+        $dump = CVarDumper::dumpAsString($var, 10, true);
+        $dump = str_replace('&nbsp;', ' ', $dump);
+        echo $dump;
     }
 
     /**
