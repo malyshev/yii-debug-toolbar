@@ -5,7 +5,6 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
-
 /**
  * YiiDebugToolbarRouter represents an ...
  *
@@ -38,6 +37,12 @@ class YiiDebugToolbarRoute extends CLogRoute
 	 * @var array 
 	 */
 	public $additionalPanels = array();
+
+    /**
+     * If true, then after reloading the page will open the current panel.
+     * @var bool
+     */
+    public $openLastPanel = true;
 
     private $_toolbarWidget,
             $_startTime,
