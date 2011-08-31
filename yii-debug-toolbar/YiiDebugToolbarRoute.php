@@ -44,6 +44,12 @@ class YiiDebugToolbarRoute extends CLogRoute
      */
     public $openLastPanel = true;
 
+    /**
+     * If true, the sql query in the list will use syntax highlighting.
+     * @var bool
+     */
+    public $useSQLhighlight = true;
+
     private $_toolbarWidget,
             $_startTime,
             $_endTime;

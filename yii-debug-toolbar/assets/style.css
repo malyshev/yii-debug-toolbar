@@ -301,3 +301,87 @@ margin-top:0.8em;
 #yii-debug-toolbar-sql-summary tbody td {
 	font-family: monospace;
 }
+
+
+
+
+
+/*highlight*/
+.sql-hl-default {
+    color: Black !important;
+}
+.sql-hl-code {
+    color: Gray !important;
+}
+.sql-hl-brackets {
+    color: Olive !important;
+}
+.sql-hl-comment {
+    color: #808080 !important;
+	font-style: italic !important;
+}
+.sql-hl-quotes {
+    color: red !important;
+}
+.sql-hl-string {
+    color: Red !important;
+}
+.sql-hl-identifier {
+    color: Blue !important;
+}
+.sql-hl-builtin {
+    color: Teal !important;
+}
+.sql-hl-reserved {
+    color: Green !important;
+}
+.sql-hl-inlinedoc {
+    color: Blue !important;
+}
+.sql-hl-var {
+    color: #000020 !important;
+}
+.sql-hl-url {
+    color: Blue !important;
+}
+.sql-hl-special {
+    color: Navy !important;
+}
+.sql-hl-number {
+    color: Maroon !important;
+}
+.sql-hl-inlinetags {
+    color: Blue !important;
+}
+.sql-hl-main {
+	font-family: 'Courier New', Courier, monospace !important;
+	font-weight: normal !important;
+}
+.sql-hl-gutter {
+    background-color: #cccccc !important;
+    color: White;
+    width: 10px
+}
+.sql-hl-table {
+    font-family: courier !important;
+    font-size: 12px !important;
+    border: solid 1px #cccccc !important;
+    margin: 3px !important;
+}
+
+.source .copycode
+{
+	text-align: right !important;
+	float: right !important;
+}
+
+.source .copycode a
+{
+	cursor: pointer !important;
+	color: blue !important;
+}
+
+.source .copycode_hover a
+{
+	color: red !important;
+}

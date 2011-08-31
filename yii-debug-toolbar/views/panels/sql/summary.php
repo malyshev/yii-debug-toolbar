@@ -1,4 +1,10 @@
-<?php if (!empty($summary)) : ?>
+<?php if (!empty($summary)) :
+$hl = new CTextHighlighter();
+    $hl->language = 'sql';
+    $hl->showLineNumbers = true;
+    $hl->lineNumberStyle = 'table';
+
+?>
 <table id="yii-debug-toolbar-sql-summary" class="tabscontent">
     <thead>
         <tr>
@@ -11,9 +17,15 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach($summary as $id=>$entry): ?>
+    <?php foreach($summary as $id=>$entry):
+
+        $SQL = $this->owner->owner->useSQLhighlight
+            ? $hl->highlight($entry[0])
+            : CHtml::encode($entry[0]);
+
+        ?>
         <tr class="<?php echo ($id%2?'odd':'even') ?>">
-            <td width="100%"><?php echo CHtml::encode($entry[0]); ?></td>
+            <td width="100%"><?php echo $SQL; ?></td>
             <td nowrap="nowrap" style="text-align: center;"><?php echo number_format($entry[1]); ?></td>
             <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[4]); ?></td>
             <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[4]/$entry[1]); ?></td>
