@@ -1,4 +1,4 @@
-<h4>Application Properties</h4>
+<h4 class="collapsible">Application Properties</h4>
 <table>
     <thead>
         <tr>
@@ -17,7 +17,7 @@
 </table>
 
 
-<h4>Application Params</h4>
+<h4 class="collapsible">Application Params</h4>
 <table>
     <thead>
         <tr>
@@ -36,7 +36,7 @@
 </table>
 
 
-<h4>Modules</h4>
+<h4 class="collapsible">Modules</h4>
 <table>
     <thead>
         <tr>
@@ -55,7 +55,7 @@
 </table>
 
 
-<h4>Components</h4>
+<h4 class="collapsible">Components</h4>
 <table>
     <thead>
         <tr>

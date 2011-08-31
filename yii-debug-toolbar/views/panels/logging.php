@@ -9,7 +9,7 @@ $colors=array(
 <table id="yii-debug-toolbar-log">
     <thead>
         <tr>
-            <th class="collapsible collapsed" onclick="yiiDebugToolbar.toggle('#yii-debug-toolbar-log .details', this)">Message (details)</th>
+            <th class="collapsible collapsed" rel="#yii-debug-toolbar-log .details">Message (details)</th>
             <th nowrap="nowrap">Level</th>
             <th nowrap="nowrap">Category</th>
             <th nowrap="nowrap">Time</th>

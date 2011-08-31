@@ -228,7 +228,7 @@ margin-top:0.8em;
 #yii-debug-toolbar .yii-debug-toolbar-panel-content .scroll
 {
     height:100%;
-    overflow:auto;
+    overflow-y:scroll;
     display:block;
     padding:0 10px;
 }
