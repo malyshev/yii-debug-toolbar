@@ -51,7 +51,7 @@
             <th><?=$asset?></th>
             <td>
                 <a title="Show files" href="#" onclick="jQuery('.details', $(this).parent('td')).toggleClass('hidden'); return false;"><?=$path?></a>
-                <div class='details hidden'>
+                <div class='details hidden' style="padding-left: 1em;">
                     <?=$fileList?>
                 </div>
             </td>
