@@ -6,16 +6,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="odd">
+        <tr class="even">
             <th><?=Yii::t('yii-debug-toolbar', 'Assets path')?></th>
             <td><?=$AM->getBasePath()?></td>
-        </tr><tr class="even">
+        </tr><tr class="odd">
             <th><?=Yii::t('yii-debug-toolbar', 'Exclude files')?></th>
             <td><?=implode(',', $AM->excludeFiles)?></td>
-        </tr><tr class="odd">
+        </tr><tr class="even">
             <th><?=Yii::t('yii-debug-toolbar', 'New dir mode')?></th>
             <td><?=$AM->newDirMode?></td>
-        </tr><tr class="even">
+        </tr><tr class="odd">
             <th><?=Yii::t('yii-debug-toolbar', 'New file mode')?></th>
             <td><?=$AM->newFileMode?></td>
         </tr>
@@ -47,7 +47,7 @@
 			if(preg_match('|yii\.debug\.toolbar\.js|is', $fileList)) $blockAll = true;
 
             ?>
-        <tr class="<?=$i%2?'odd':'even'?>">
+        <tr class="<?=$i%2?'even':'odd'?>">
             <th><?=$asset?></th>
             <td>
                 <a title="<?=Yii::t('yii-debug-toolbar', 'Show files')?>" href="#"

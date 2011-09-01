@@ -292,6 +292,11 @@ margin-top:0.8em;
     text-align: right;
 }
 
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table.phpinfo{}
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table.phpinfo th{
+	text-align: left; color: black; font-size: 14px; border-bottom: 1px solid #CCCCCC; background: #F5F5F5;
+}
+
 #yii-debug-toolbar .yii-debug-toolbar-panel-content .odd{
     background-color:#f5f5f5;
 }
