@@ -24,7 +24,7 @@ class YiiDebugToolbarPanelGlobals extends YiiDebugToolbarPanel
      */
     public function getMenuTitle()
     {
-        return 'Globals';
+        return Yii::t('yii-debug-toolbar', 'Globals');
     }
 
     /**
@@ -32,7 +32,7 @@ class YiiDebugToolbarPanelGlobals extends YiiDebugToolbarPanel
      */
     public function getTitle()
     {
-        return 'Global Variables';
+        return Yii::t('yii-debug-toolbar', 'Global Variables');
     }
 
     /**

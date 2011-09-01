@@ -2,12 +2,12 @@
 <table id="yii-debug-toolbar-sql-summary" class="tabscontent">
     <thead>
         <tr>
-            <th>Query</th>
-            <th nowrap="nowrap">Count</th>
-            <th nowrap="nowrap">Total (s)</th>
-            <th nowrap="nowrap">Avg. (s)</th>
-            <th nowrap="nowrap">Min. (s)</th>
-            <th nowrap="nowrap">Max. (s)</th>
+            <th><?=Yii::t('yii-debug-toolbar','Query')?></th>
+            <th nowrap="nowrap"><?=Yii::t('yii-debug-toolbar','Count')?></th>
+            <th nowrap="nowrap"><?=Yii::t('yii-debug-toolbar','Total (s)')?></th>
+            <th nowrap="nowrap"><?=Yii::t('yii-debug-toolbar','Avg. (s)')?></th>
+            <th nowrap="nowrap"><?=Yii::t('yii-debug-toolbar','Min. (s)')?></th>
+            <th nowrap="nowrap"><?=Yii::t('yii-debug-toolbar','Max. (s)')?></th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +25,6 @@
 </table>
 <?php else : ?>
 <p id="yii-debug-toolbar-sql-summary" class="tabscontent">
-    No SQL queries were recorded during this request or profiling the SQL is DISABLED.
+    <?=Yii::t('yii-debug-toolbar','No SQL queries were recorded during this request or profiling the SQL is DISABLED.')?>
 </p>
 <?php endif; ?>

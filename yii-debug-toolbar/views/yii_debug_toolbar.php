@@ -3,7 +3,7 @@ $allPanelID = array();
 ?>
 
 <div id="yii-debug-toolbar-swither">
-    <a href="javascript:;//">TOOLBAR</a>
+    <a href="javascript:;//"><?=Yii::t('yii-debug-toolbar', 'TOOLBAR')?></a>
 </div>
 <div id="yii-debug-toolbar" style="display:none;">
     <div id="yii-debug-toolbar-buttons">
@@ -28,7 +28,7 @@ $allPanelID = array();
     <?php foreach ($panels as $panel) : ?>
     <div id="<?php echo $panel->id ?>" class="yii-debug-toolbar-panel">
         <div class="yii-debug-toolbar-panel-title">
-        <a href="#close" class="yii-debug-toolbar-panel-close">Close</a>
+        <a href="#close" class="yii-debug-toolbar-panel-close"><?=Yii::t('yii-debug-toolbar', 'Close')?></a>
         <h3>
             <?php echo CHtml::encode($panel->title); ?>
             <?php if ($panel->subTitle) : ?>

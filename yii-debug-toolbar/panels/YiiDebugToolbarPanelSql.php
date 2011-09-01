@@ -62,15 +62,16 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getMenuTitle()
     {
-        return 'SQL';
+        return Yii::t('yii-debug-toolbar', 'SQL');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getMenuSubTitle()
+    public function getMenuSubTitle($f=4)
     {
-        return vsprintf('%d queries in %0.4F s.', Yii::app()->db->getStats());
+        $st = Yii::app()->db->getStats();
+		return Yii::t('yii-debug-toolbar', '{n} query in {s} s.|{n} queries in {s} s.', array($st[0], '{s}'=>vsprintf('%0.'.$f.'F', $st[1])));
     }
 
     /**
@@ -79,10 +80,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     public function getTitle()
     {
         $conn=$this->getDbConnectionsCount();
-        return vsprintf(
-            'SQL Queries from %d connection' . ($conn > 1 ? 's' : ''),
-            array($conn)
-        );
+			return Yii::t('yii-debug-toolbar', 'SQL Queries from {n} connection|SQL Queries from {n} connections', array($conn));
     }
 
     /**
@@ -90,7 +88,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getSubTitle()
     {
-        return '(' . vsprintf('%d queries in %0.6F s.', Yii::app()->db->getStats()) . ')';
+        return '(' . self::getMenuSubTitle(6) . ')';
     }
 
     /**
@@ -150,19 +148,19 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             && '' !== ($serverInfo = $connection->getServerInfo()))
         {
             $info = array(
-                'Driver' => $connection->getDriverName(),
-                'Server Version' => $connection->getServerVersion()
+                Yii::t('yii-debug-toolbar', 'Driver') => $connection->getDriverName(),
+                Yii::t('yii-debug-toolbar', 'Server Version') => $connection->getServerVersion()
             );
             
             $lines = explode('  ', $serverInfo);
             foreach($lines as $line) {
                 list($key, $value) = explode(': ', $line);
                 
-                $info[$key] = $value;
+                $info[Yii::t('yii-debug-toolbar', $key)] = $value;
             }
             
-            if(!empty($info['Uptime'])) {
-                $info['Uptime'] = $this->duration($info['Uptime']);
+            if(!empty($info[Yii::t('yii-debug-toolbar', 'Uptime')])) {
+                $info[Yii::t('yii-debug-toolbar', 'Uptime')] = $this->duration($info[Yii::t('yii-debug-toolbar', 'Uptime')]);
             }
             
             return $info;
@@ -216,8 +214,10 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
                     $results[$last[4]] = array($token, $delta, count($stack));
                 }
                 else
-                    throw new CException(strtr('Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
-                        array('{token}' => $token)));
+                    throw new CException(Yii::t('yii-debug-toolbar',
+							'Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
+                        	array('{token}' => $token)
+						));
             }
         }
         // remaining entries should be closed here
@@ -273,7 +273,8 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
                     }
                 }
                 else
-                    throw new CException(strtr('Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
+                    throw new CException(Yii::t('yii-debug-toolbar',
+						'Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
                         array('{token}' => $token)));
             }
         }

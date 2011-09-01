@@ -95,7 +95,8 @@ class YiiDebugToolbarRoute extends CLogRoute
 
         if ($this->enabled)
         {
-            Yii::app()->attachEventHandler('onBeginRequest', array($this, 'onBeginRequest'));
+
+			Yii::app()->attachEventHandler('onBeginRequest', array($this, 'onBeginRequest'));
             Yii::app()->attachEventHandler('onEndRequest', array($this, 'onEndRequest'));
             Yii::setPathOfAlias('yii-debug-toolbar', dirname(__FILE__));
             Yii::import('yii-debug-toolbar.*');

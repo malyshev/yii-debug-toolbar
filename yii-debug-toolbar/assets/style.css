@@ -28,7 +28,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 180px;
+    width: 190px;
     line-height: 24px;
     background: #192839;
     
@@ -140,7 +140,7 @@ margin-top:0.8em;
     position:fixed;
     z-index:10000000;
     top: 0px;
-    right: 180px;
+    right: 190px;
     left: 0;
     bottom: 0;
     background: #EEEEEE;
@@ -182,12 +182,16 @@ margin-top:0.8em;
     position:fixed;
     margin:0;
     top:50px;
-    right:200px;
+    right:210px;
     bottom:0;
     left:0px;
     background-color:#eee;
     color:#666;
     z-index:100000000;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  .details{
+	padding-left: 1em;
 }
 
 /* tabs */

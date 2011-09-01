@@ -24,7 +24,7 @@ class YiiDebugToolbarPanelServer extends YiiDebugToolbarPanel
      */
     public function getMenuTitle()
     {
-        return 'Server';
+        return Yii::t('yii-debug-toolbar', 'Server');
     }
 
     /**
@@ -32,7 +32,7 @@ class YiiDebugToolbarPanelServer extends YiiDebugToolbarPanel
      */
     public function getMenuSubTitle()
     {
-        return 'Yii ' . Yii::getVersion();
+        return Yii::t('yii-debug-toolbar', 'Yii {n}', array(Yii::getVersion()));
     }
 
     /**
@@ -40,7 +40,7 @@ class YiiDebugToolbarPanelServer extends YiiDebugToolbarPanel
      */
     public function getTitle()
     {
-        return 'Server Info';
+        return Yii::t('yii-debug-toolbar', 'Server Info');
     }
 
     /**

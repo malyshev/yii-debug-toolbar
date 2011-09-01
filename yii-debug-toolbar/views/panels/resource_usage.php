@@ -8,9 +8,3 @@
         <?php ++$c; endforeach;?>
     </tbody>
 </table>
-
-<script type="text/javascript">
-/*$(function(){
-    $('#<?php echo $this->id?>').show();
-});*/
-</script>

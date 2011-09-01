@@ -17,6 +17,7 @@
 
 class YiiDebug extends CComponent
 {
+
     /**
      * Displays a variable.
      * This method achieves the similar functionality as var_dump and print_r

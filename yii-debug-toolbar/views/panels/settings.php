@@ -1,11 +1,11 @@
 <div class="col left">
     
-    <h4 class="collapsible">Application Properties</h4>
+    <h4 class="collapsible"><?=Yii::t('yii-debug-toolbar', 'Application Properties')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180">Property</th>
-                <th>Value</th>
+                <th width="180"><?=Yii::t('yii-debug-toolbar', 'Property')?></th>
+                <th><?=Yii::t('yii-debug-toolbar', 'Value')?></th>
             </tr>
         </thead>
         <tbody>
@@ -18,12 +18,12 @@
         </tbody>
     </table>
 
-    <h4 class="collapsible">Modules</h4>
+    <h4 class="collapsible"><?=Yii::t('yii-debug-toolbar', 'Modules')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180">Module ID</th>
-                <th>Configuration</th>
+                <th width="180"><?=Yii::t('yii-debug-toolbar', 'Module ID')?></th>
+                <th><?=Yii::t('yii-debug-toolbar', 'Configuration')?></th>
             </tr>
         </thead>
         <tbody>
@@ -36,12 +36,12 @@
         </tbody>
     </table>
 
-    <h4 class="collapsible">Application Params</h4>
+    <h4 class="collapsible"><?=Yii::t('yii-debug-toolbar', 'Application Params')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180">Name</th>
-                <th>Value</th>
+                <th width="180"><?=Yii::t('yii-debug-toolbar', 'Name')?></th>
+                <th><?=Yii::t('yii-debug-toolbar', 'Value')?></th>
             </tr>
         </thead>
         <tbody>
@@ -58,12 +58,12 @@
 
 <div class="col right">
 
-    <h4 class="collapsible">Components</h4>
+    <h4 class="collapsible"><?=Yii::t('yii-debug-toolbar', 'Components')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180">Component ID</th>
-                <th>Configuration</th>
+                <th width="180"><?=Yii::t('yii-debug-toolbar', 'Component ID')?></th>
+                <th><?=Yii::t('yii-debug-toolbar', 'Configuration')?></th>
             </tr>
         </thead>
         <tbody>
