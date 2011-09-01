@@ -44,12 +44,6 @@ class YiiDebugToolbarRoute extends CLogRoute
      */
     public $openLastPanel = true;
 
-    /**
-     * If true, the sql query in the list will use syntax highlighting.
-     * @var bool
-     */
-    public $useSQLhighlight = true;
-
     private $_toolbarWidget,
             $_startTime,
             $_endTime;
@@ -113,24 +107,8 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     protected function onBeginRequest(CEvent $event)
     {
-//        if ('CWebApplication' === get_class(Yii::app()))
-//        {
-//            Yii::app()->detachEventHandler('onBeginRequest',
-//                    array($this, 'onBeginRequest'));
-//
-//            if(Yii::app()->hasEventHandler('onBeginRequest'))
-//                Yii::app()->onBeginRequest(new CEvent(Yii::app()));
-//        }
-
-        
         $this->getToolbarWidget()
              ->init();
-
-//        if ('CWebApplication' === get_class(Yii::app()))
-//        {
-//            $this->processRequest();
-//            Yii::app()->end();
-//        }
     }
 
     /**

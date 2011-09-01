@@ -25,6 +25,12 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
     private $_dbConnectionsCount;
 
+    /**
+     * If true, the sql query in the list will use syntax highlighting.
+     * @var bool
+     */
+    public $useSQLhighlight = true;
+
     public function getDbConnectionsCount()
     {
         if (null === $this->_dbConnectionsCount)
@@ -177,6 +183,11 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             return $logs;
         }
 
+        $hl = new CTextHighlighter();
+        $hl->language = 'sql';
+        $hl->showLineNumbers = true;
+        $hl->lineNumberStyle = 'table';
+
         $stack   = array();
         $results = array();
         $n       = 0;
@@ -201,6 +212,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
                 if(null !== ($last = array_pop($stack)) && $last[0] === $token)
                 {
                     $delta = $log[3] - $last[3];
+                    $token = $this->useSQLhighlight ? $hl->highlight($token) : CHtml::encode($token);
                     $results[$last[4]] = array($token, $delta, count($stack));
                 }
                 else
@@ -210,8 +222,9 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         }
         // remaining entries should be closed here
         $now = microtime(true);
-        while (null !== ($last = array_pop($stack)))
+        while (null !== ($last = array_pop($stack))){
             $results[$last[4]] = array($last[0], $now - $last[3], count($stack));
+        }
 
         ksort($results);
 
@@ -230,6 +243,12 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         {
             return $logs;
         }
+
+        $hl = new CTextHighlighter();
+        $hl->language = 'sql';
+        $hl->showLineNumbers = true;
+        $hl->lineNumberStyle = 'table';
+
         $stack = array();
         foreach($logs as $log)
         {
@@ -245,10 +264,13 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
                 if(null !== ($last = array_pop($stack)) && $last[0] === $token)
                 {
                     $delta = $log[3] - $last[3];
+
                     if(isset($results[$token]))
                         $results[$token] = $this->aggregateResult($results[$token], $delta);
-                    else
+                    else{
+                        $token = $this->useSQLhighlight ? $hl->highlight($token) : CHtml::encode($token);
                         $results[$token] = array($token, 1, $delta, $delta, $delta);
+                    }
                 }
                 else
                     throw new CException(strtr('Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
@@ -264,8 +286,10 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
             if(isset($results[$token]))
                 $results[$token] = $this->aggregateResult($results[$token], $delta);
-            else
+            else{
+//                $token = $this->useSQLhighlight ? $hl->highlight($token) : CHtml::encode($token);
                 $results[$token] = array($token, 1, $delta, $delta, $delta);
+            }
         }
 
         $entries = array_values($results);

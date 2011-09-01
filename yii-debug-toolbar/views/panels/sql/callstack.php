@@ -1,9 +1,4 @@
-<?php if (!empty($callstack)) :
-$hl = new CTextHighlighter();
-    $hl->language = 'sql';
-    $hl->showLineNumbers = true;
-    $hl->lineNumberStyle = 'table';
-    ?>
+<?php if (!empty($callstack)) :?>
 <table id="yii-debug-toolbar-sql-callstack" class="tabscontent">
     <thead>
         <tr>
@@ -13,16 +8,10 @@ $hl = new CTextHighlighter();
         </tr>
     </thead>
     <tbody>
-        <?php foreach($callstack as $id=>$entry):
-
-            $SQL = $this->owner->owner->useSQLhighlight
-                ? $hl->highlight($entry[0])
-                : CHtml::encode($entry[0]);
-
-        ?>
+        <?php foreach($callstack as $id=>$entry):?>
         <tr class="<?php echo ($id%2?'odd':'even') ?>">
         	<td class="text-right"><?php echo $id; ?></td>
-            <td width="100%"><?php echo $SQL; ?></td>
+            <td width="100%"><?php echo $entry[0]; ?></td>
             <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[1]); ?></td>
         </tr>
     <?php endforeach; ?>

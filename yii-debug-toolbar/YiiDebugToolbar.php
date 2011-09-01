@@ -44,7 +44,7 @@ class YiiDebugToolbar extends CWidget
         'YiiDebugToolbarPanelResourceUsage',
         'YiiDebugToolbarPanelGlobals',
         'YiiDebugToolbarPanelSettings',
-        'YiiDebugToolbarPanelSql',
+        'YiiDebugToolbarPanelSql' => array('useSQLhighlight'=>true),
         'YiiDebugToolbarPanelLogging',
     );
 	

@@ -38,8 +38,10 @@ $allPanelID = array();
         </div>
         <div class="yii-debug-toolbar-panel-content">
             <div class="scroll">
+                <div class="scrollcontent">
                 <?php $panel->run(); ?>
                 <br />
+                </div>
             </div>
         </div>
     </div>
