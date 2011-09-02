@@ -14,12 +14,12 @@ return array(
 	'Server Info' => 'Серверная информация',
 
 //	resource
-	'Resources' => 'Ресурсы',
+	'Resources' => 'Системные ресурсы',
 	'Total time: {n} s.' => 'Общее время: {n} с.',
 	'Resource Usage' => 'Использованные ресурсы',
-	'Page Load Time' => 'Время загрузки страницы',
-	'Elapsed Time' => 'Затраченное время',
-	'Memory Usage' => 'Использование памяти',
+	'Page Load Time' => 'Время формирования страницы',
+	'Elapsed Time' => 'Время загрузки страницы',
+	'Memory Usage' => 'Использованно памяти',
 	'Memory Peak Usage' => 'Пик использования памяти',
 	'Session Size' => 'Размер сессии',
 

@@ -26,10 +26,9 @@ class YiiDebugToolbarPanelSettings extends YiiDebugToolbarPanel
 
     public function getMenuSubTitle()
     {
-        return 'YII_DEBUG ' . CHtml::label( YII_DEBUG ? Yii::t('yii-debug-toolbar', 'ON') : Yii::t('yii-debug-toolbar', 'OFF'),
-                null, array(
+        return 'YII_DEBUG ' . CHtml::tag( 'span', array(
                     'style'=>sprintf('color:%s;',YII_DEBUG ? 'red':'green')
-                ));
+                ), YII_DEBUG ? Yii::t('yii-debug-toolbar', 'ON') : Yii::t('yii-debug-toolbar', 'OFF'));
     }
 
     public function getTitle()

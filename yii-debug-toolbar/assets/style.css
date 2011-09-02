@@ -325,9 +325,9 @@ margin-top:0.8em;
 	font-family: monospace;
 }
 
-#yii-debug-toolbar div.col{
-    width: 49%;
-}
+#yii-debug-toolbar div.col{ width: 49%; }
+#yii-debug-toolbar div.left{ float: left; }
+#yii-debug-toolbar div.right{ float: right; }
 
 
 
