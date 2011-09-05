@@ -62,7 +62,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getMenuTitle()
     {
-        return Yii::t('yii-debug-toolbar', 'SQL');
+        return YiiDebug::t('SQL');
     }
 
     /**
@@ -71,7 +71,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     public function getMenuSubTitle($f=4)
     {
         $st = Yii::app()->db->getStats();
-		return Yii::t('yii-debug-toolbar', '{n} query in {s} s.|{n} queries in {s} s.', array($st[0], '{s}'=>vsprintf('%0.'.$f.'F', $st[1])));
+		return YiiDebug::t('{n} query in {s} s.|{n} queries in {s} s.', array($st[0], '{s}'=>vsprintf('%0.'.$f.'F', $st[1])));
     }
 
     /**
@@ -80,7 +80,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     public function getTitle()
     {
         $conn=$this->getDbConnectionsCount();
-			return Yii::t('yii-debug-toolbar', 'SQL Queries from {n} connection|SQL Queries from {n} connections', array($conn));
+			return YiiDebug::t('SQL Queries from {n} connection|SQL Queries from {n} connections', array($conn));
     }
 
     /**
@@ -148,19 +148,19 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             && '' !== ($serverInfo = $connection->getServerInfo()))
         {
             $info = array(
-                Yii::t('yii-debug-toolbar', 'Driver') => $connection->getDriverName(),
-                Yii::t('yii-debug-toolbar', 'Server Version') => $connection->getServerVersion()
+                YiiDebug::t('Driver') => $connection->getDriverName(),
+                YiiDebug::t('Server Version') => $connection->getServerVersion()
             );
             
             $lines = explode('  ', $serverInfo);
             foreach($lines as $line) {
                 list($key, $value) = explode(': ', $line);
                 
-                $info[Yii::t('yii-debug-toolbar', $key)] = $value;
+                $info[YiiDebug::t($key)] = $value;
             }
             
-            if(!empty($info[Yii::t('yii-debug-toolbar', 'Uptime')])) {
-                $info[Yii::t('yii-debug-toolbar', 'Uptime')] = $this->duration($info[Yii::t('yii-debug-toolbar', 'Uptime')]);
+            if(!empty($info[YiiDebug::t('Uptime')])) {
+                $info[YiiDebug::t('Uptime')] = $this->duration($info[YiiDebug::t('Uptime')]);
             }
             
             return $info;

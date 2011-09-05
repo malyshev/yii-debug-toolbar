@@ -1,22 +1,22 @@
 <table>
     <thead>
         <tr>
-            <th class="al-r"><?=Yii::t('yii-debug-toolbar', 'Properties')?></th>
+            <th class="al-r"><?=YiiDebug::t('Properties')?></th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <tr class="even">
-            <th><?=Yii::t('yii-debug-toolbar', 'Assets path')?></th>
+            <th><?=YiiDebug::t('Assets path')?></th>
             <td><?=$AM->getBasePath()?></td>
         </tr><tr class="odd">
-            <th><?=Yii::t('yii-debug-toolbar', 'Exclude files')?></th>
+            <th><?=YiiDebug::t('Exclude files')?></th>
             <td><?=implode(',', $AM->excludeFiles)?></td>
         </tr><tr class="even">
-            <th><?=Yii::t('yii-debug-toolbar', 'New dir mode')?></th>
+            <th><?=YiiDebug::t('New dir mode')?></th>
             <td><?=$AM->newDirMode?></td>
         </tr><tr class="odd">
-            <th><?=Yii::t('yii-debug-toolbar', 'New file mode')?></th>
+            <th><?=YiiDebug::t('New file mode')?></th>
             <td><?=$AM->newFileMode?></td>
         </tr>
     </tbody>
@@ -24,10 +24,10 @@
 <table>
     <thead>
         <tr>
-            <th class="al-r"><?=Yii::t('yii-debug-toolbar', 'Load assets')?></th>
-            <th class="al-l"><?=Yii::t('yii-debug-toolbar', 'Path')?></th>
-            <th><?=Yii::t('yii-debug-toolbar', 'Files')?></th>
-            <th><?=Yii::t('yii-debug-toolbar', 'Date create')?></th>
+            <th class="al-r"><?=YiiDebug::t('Load assets')?></th>
+            <th class="al-l"><?=YiiDebug::t('Path')?></th>
+            <th><?=YiiDebug::t('Files')?></th>
+            <th><?=YiiDebug::t('Date create')?></th>
             <th></th>
         </tr>
     </thead>
@@ -50,18 +50,18 @@
         <tr class="<?=$i%2?'even':'odd'?>">
             <th><?=$asset?></th>
             <td>
-                <a title="<?=Yii::t('yii-debug-toolbar', 'Show files')?>" href="#"
+                <a title="<?=YiiDebug::t('Show files')?>" href="#"
 				   onclick="jQuery('.details', $(this).parent('td')).toggleClass('hidden'); return false;"><?=$path?></a>
                 <div class='details hidden'>
                     <?=$fileList?>
                 </div>
             </td>
-            <td class="al-c"><?=Yii::t('yii-debug-toolbar', '{n} file|{n} files', array(count($files)))?></td>
+            <td class="al-c"><?=YiiDebug::t('{n} file|{n} files', array(count($files)))?></td>
             <td class="al-c"><?=$DF->formatDateTime(filemtime($path))?></td>
             <td class="al-c">
                 <a class="deleteAsset" href="<?=$this->owner->assetsUrl?>/ajax.php?deleteasset=<?=$asset?>"
 						onclick="deleteAsset(this, <?=$blockAll?'true':'false'?>); return false;">
-										<?=Yii::t('yii-debug-toolbar', 'Clean')?></a>
+										<?=YiiDebug::t('Clean')?></a>
             </td>
         </tr>
         <?}?>
@@ -78,10 +78,10 @@
 				}
 			}
 			if(data == 'notexists'){
-				alert('<?=Yii::t('yii-debug-toolbar', 'Path not found.')?>');
+				alert('<?=YiiDebug::t('Path not found.')?>');
 			}
 			if(data == 'unknow'){
-				alert('<?=Yii::t('yii-debug-toolbar', 'Unknow error.')?>');
+				alert('<?=YiiDebug::t('Unknow error.')?>');
 			}
 		});
 	}

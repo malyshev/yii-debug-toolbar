@@ -35,7 +35,7 @@ function RemoveDir($path){
 			rmdir($path);
 		}
 	}else{
-		throw new Exception(Yii::t('yii-debug-toolbar', 'Failed to delete folder.'));
+		throw new Exception(YiiDebug::t('Failed to delete folder.'));
 	}
 }
 

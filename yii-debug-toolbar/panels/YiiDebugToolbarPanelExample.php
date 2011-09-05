@@ -1,13 +1,13 @@
 <?
 
 class YiiDebugToolbarPanelExample extends YiiDebugToolbarPanel{
-    function getMenuTitle(){ return Yii::t('yii-debug-toolbar', 'Blank'); }
-    function getMenuSubTitle(){ return Yii::t('yii-debug-toolbar', 'Example panel'); }
-    function getTitle(){ return Yii::t('yii-debug-toolbar', 'Blank page'); }
+    function getMenuTitle(){ return YiiDebug::t('Blank'); }
+    function getMenuSubTitle(){ return YiiDebug::t('Example panel'); }
+    function getTitle(){ return YiiDebug::t('Blank page'); }
     function getSubTitle(){ return ''; }
 	function run(){
-		echo '<h4>'.Yii::t('yii-debug-toolbar', 'Blank page').'</h4>';
-		echo Yii::t('yii-debug-toolbar', 'Example panel').'<br />';
+		echo '<h4>'.YiiDebug::t('Blank page').'</h4>';
+		echo YiiDebug::t('Example panel').'<br />';
         echo date('d.m.Y H:i');
 	}
 }

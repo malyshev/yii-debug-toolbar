@@ -1,9 +1,9 @@
 <?
 
 class YiiDebugToolbarPanelAssets extends YiiDebugToolbarPanel{
-    function getMenuTitle(){ return Yii::t('yii-debug-toolbar', 'Assets'); }
-    function getMenuSubTitle(){ return Yii::t('yii-debug-toolbar', 'Manage assets files'); }
-    function getTitle(){ return Yii::t('yii-debug-toolbar', 'Assets Manager'); }
+    function getMenuTitle(){ return YiiDebug::t('Assets'); }
+    function getMenuSubTitle(){ return YiiDebug::t('Manage assets files'); }
+    function getTitle(){ return YiiDebug::t('Assets Manager'); }
     function getSubTitle(){ return ''; }
 	function run(){
 

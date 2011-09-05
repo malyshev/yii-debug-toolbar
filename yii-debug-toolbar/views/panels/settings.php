@@ -1,11 +1,11 @@
 <div class="col left">
     
-    <h4 class="collapsible"><?=Yii::t('yii-debug-toolbar', 'Application Properties')?></h4>
+    <h4 class="collapsible"><?=YiiDebug::t('Application Properties')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180"><?=Yii::t('yii-debug-toolbar', 'Property')?></th>
-                <th><?=Yii::t('yii-debug-toolbar', 'Value')?></th>
+                <th width="180"><?=YiiDebug::t('Property')?></th>
+                <th><?=YiiDebug::t('Value')?></th>
             </tr>
         </thead>
         <tbody>
@@ -18,12 +18,12 @@
         </tbody>
     </table>
 
-    <h4 class="collapsible"><?=Yii::t('yii-debug-toolbar', 'Modules')?></h4>
+    <h4 class="collapsible"><?=YiiDebug::t('Modules')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180"><?=Yii::t('yii-debug-toolbar', 'Module ID')?></th>
-                <th><?=Yii::t('yii-debug-toolbar', 'Configuration')?></th>
+                <th width="180"><?=YiiDebug::t('Module ID')?></th>
+                <th><?=YiiDebug::t('Configuration')?></th>
             </tr>
         </thead>
         <tbody>
@@ -36,12 +36,12 @@
         </tbody>
     </table>
 
-    <h4 class="collapsible"><?=Yii::t('yii-debug-toolbar', 'Application Params')?></h4>
+    <h4 class="collapsible"><?=YiiDebug::t('Application Params')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180"><?=Yii::t('yii-debug-toolbar', 'Name')?></th>
-                <th><?=Yii::t('yii-debug-toolbar', 'Value')?></th>
+                <th width="180"><?=YiiDebug::t('Name')?></th>
+                <th><?=YiiDebug::t('Value')?></th>
             </tr>
         </thead>
         <tbody>
@@ -58,12 +58,12 @@
 
 <div class="col right">
 
-    <h4 class="collapsible"><?=Yii::t('yii-debug-toolbar', 'Components')?></h4>
+    <h4 class="collapsible"><?=YiiDebug::t('Components')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180"><?=Yii::t('yii-debug-toolbar', 'Component ID')?></th>
-                <th><?=Yii::t('yii-debug-toolbar', 'Configuration')?></th>
+                <th width="180"><?=YiiDebug::t('Component ID')?></th>
+                <th><?=YiiDebug::t('Configuration')?></th>
             </tr>
         </thead>
         <tbody>

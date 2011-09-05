@@ -53,4 +53,8 @@ class YiiDebug extends CComponent
         $method->setAccessible(true);
         return $method;
     }
+
+	public static function t($str,$params=array(),$dic='yii-debug-toolbar') {
+		return Yii::t("YiiDebug.".$dic, $str, $params);
+	}
 }

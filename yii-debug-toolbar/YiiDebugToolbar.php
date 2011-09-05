@@ -127,7 +127,7 @@ class YiiDebugToolbar extends CWidget
     {
         if (false === ($this->owner instanceof CLogRoute))
         {
-            throw new CException(Yii::t('yii-debug-toolbar', 'YiiDebugToolbar owner must be instance of CLogRoute'));
+            throw new CException(YiiDebug::t('YiiDebugToolbar owner must be instance of CLogRoute'));
         }
 
         $this->createPanels()

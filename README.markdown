@@ -48,7 +48,6 @@ For use [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) need to specify new `r
 ```
 
 * Make sure your IP is listed in the `ipFilters` setting. If you are working locally this option not required.
-* To apply the translation, copy the folder with the translation to your language folder from the "yii-debug-toolbar/language/" to "/protected/messages/".
 * Enable [Profiling](http://www.yiiframework.com/doc/api/1.1/CDbConnection#enableProfiling-detail "") and [ParamLogging](http://www.yiiframework.com/doc/api/1.1/CDbConnection#enableParamLogging-detail "") for all used DB connections.
 
 ```php
