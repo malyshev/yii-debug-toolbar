@@ -28,7 +28,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 180px;
+    width: 190px;
     line-height: 24px;
     background: #192839;
     
@@ -140,7 +140,7 @@ margin-top:0.8em;
     position:fixed;
     z-index:10000000;
     top: 0px;
-    right: 180px;
+    right: 190px;
     left: 0;
     bottom: 0;
     background: #EEEEEE;
@@ -182,12 +182,16 @@ margin-top:0.8em;
     position:fixed;
     margin:0;
     top:50px;
-    right:200px;
+    right:210px;
     bottom:0;
     left:0px;
     background-color:#eee;
     color:#666;
     z-index:100000000;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  .details{
+	padding-left: 1em;
 }
 
 /* tabs */
@@ -227,8 +231,8 @@ margin-top:0.8em;
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content .scroll
 {
-    height:100%;
-    overflow:auto;
+    width:100%;height:100%;
+    overflow: auto;
     display:block;
     padding:0 10px;
 }
@@ -264,7 +268,7 @@ margin-top:0.8em;
 }
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content tbody th {
-    width:12em;
+    width:14em;
     text-align:right;
     color:#666;
     padding-right:.5em;
@@ -272,6 +276,25 @@ margin-top:0.8em;
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr:hover{
     background-color: #DFFFE0;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  td.al-l,
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-l{
+    text-align: left;
+}
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  td.al-c,
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-c{
+    text-align: center;
+}
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  td.al-r,
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-r{
+    text-align: right;
+    text-align: right;
+}
+
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table.phpinfo{}
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table.phpinfo th{
+	text-align: left; color: black; font-size: 14px; border-bottom: 1px solid #CCCCCC; background: #F5F5F5;
 }
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content .odd{
@@ -300,4 +323,91 @@ margin-top:0.8em;
 #yii-debug-toolbar-sql-callstack tbody td, 
 #yii-debug-toolbar-sql-summary tbody td {
 	font-family: monospace;
+}
+
+#yii-debug-toolbar div.col{ width: 49%; }
+#yii-debug-toolbar div.left{ float: left; }
+#yii-debug-toolbar div.right{ float: right; }
+
+
+
+
+/*highlight*/
+.sql-hl-default {
+    color: Black !important;
+}
+.sql-hl-code {
+    color: Gray !important;
+}
+.sql-hl-brackets {
+    color: Olive !important;
+}
+.sql-hl-comment {
+    color: #808080 !important;
+	font-style: italic !important;
+}
+.sql-hl-quotes {
+    color: red !important;
+}
+.sql-hl-string {
+    color: Red !important;
+}
+.sql-hl-identifier {
+    color: Blue !important;
+}
+.sql-hl-builtin {
+    color: Teal !important;
+}
+.sql-hl-reserved {
+    color: Green !important;
+}
+.sql-hl-inlinedoc {
+    color: Blue !important;
+}
+.sql-hl-var {
+    color: #000020 !important;
+}
+.sql-hl-url {
+    color: Blue !important;
+}
+.sql-hl-special {
+    color: Navy !important;
+}
+.sql-hl-number {
+    color: Maroon !important;
+}
+.sql-hl-inlinetags {
+    color: Blue !important;
+}
+.sql-hl-main {
+	font-family: 'Courier New', Courier, monospace !important;
+	font-weight: normal !important;
+}
+.sql-hl-gutter {
+    background-color: #cccccc !important;
+    color: White;
+    width: 10px
+}
+.sql-hl-table {
+    font-family: courier !important;
+    font-size: 12px !important;
+    border: solid 1px #cccccc !important;
+    margin: 3px !important;
+}
+
+.source .copycode
+{
+	text-align: right !important;
+	float: right !important;
+}
+
+.source .copycode a
+{
+	cursor: pointer !important;
+	color: blue !important;
+}
+
+.source .copycode_hover a
+{
+	color: red !important;
 }

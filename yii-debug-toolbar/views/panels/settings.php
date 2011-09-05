@@ -1,74 +1,85 @@
-<h4>Application Properties</h4>
-<table>
-    <thead>
-        <tr>
-            <th width="180">Property</th>
-            <th>Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php $c=0; foreach ($application as $key=>$value) : ?>
-        <tr class="<?php echo ($c%2?'odd':'even') ?>">
-            <th><?php echo $key; ?></th>
-            <td><?php echo $this->dump($value); ?></td>
-        </tr>
-        <?php ++$c; endforeach;?>
-    </tbody>
-</table>
+<div class="col left">
+    
+    <h4 class="collapsible"><?=YiiDebug::t('Application Properties')?></h4>
+    <table>
+        <thead>
+            <tr>
+                <th width="180"><?=YiiDebug::t('Property')?></th>
+                <th><?=YiiDebug::t('Value')?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $c=0; foreach ($application as $key=>$value) : ?>
+            <tr class="<?php echo ($c%2?'odd':'even') ?>">
+                <th><?php echo $key; ?></th>
+                <td><?php echo $this->dump($value); ?></td>
+            </tr>
+            <?php ++$c; endforeach;?>
+        </tbody>
+    </table>
+
+    <h4 class="collapsible"><?=YiiDebug::t('Modules')?></h4>
+    <table>
+        <thead>
+            <tr>
+                <th width="180"><?=YiiDebug::t('Module ID')?></th>
+                <th><?=YiiDebug::t('Configuration')?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $c=0; foreach ($modules as $key=>$value) : ?>
+            <tr class="<?php echo ($c%2?'odd':'even') ?>">
+                <th><?php echo $key; ?></th>
+                <td><?php echo $this->dump($value); ?></td>
+            </tr>
+            <?php ++$c; endforeach;?>
+        </tbody>
+    </table>
+
+    <h4 class="collapsible"><?=YiiDebug::t('Application Params')?></h4>
+    <table>
+        <thead>
+            <tr>
+                <th width="180"><?=YiiDebug::t('Name')?></th>
+                <th><?=YiiDebug::t('Value')?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $c=0; foreach ($params as $key=>$value) : ?>
+            <tr class="<?php echo ($c%2?'odd':'even') ?>">
+                <th><?php echo $key; ?></th>
+                <td><?php echo $this->dump($value); ?></td>
+            </tr>
+            <?php ++$c; endforeach;?>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="col right">
+
+    <h4 class="collapsible"><?=YiiDebug::t('Components')?></h4>
+    <table>
+        <thead>
+            <tr>
+                <th width="180"><?=YiiDebug::t('Component ID')?></th>
+                <th><?=YiiDebug::t('Configuration')?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $c=0; foreach ($components as $key=>$value) : ?>
+            <tr class="<?php echo ($c%2?'odd':'even') ?>">
+                <th><?php echo $key; ?></th>
+                <td><?php echo $this->dump($value); ?></td>
+            </tr>
+            <?php ++$c; endforeach;?>
+        </tbody>
+    </table>
+
+</div>
 
 
-<h4>Application Params</h4>
-<table>
-    <thead>
-        <tr>
-            <th width="180">Name</th>
-            <th>Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php $c=0; foreach ($params as $key=>$value) : ?>
-        <tr class="<?php echo ($c%2?'odd':'even') ?>">
-            <th><?php echo $key; ?></th>
-            <td><?php echo $this->dump($value); ?></td>
-        </tr>
-        <?php ++$c; endforeach;?>
-    </tbody>
-</table>
 
 
-<h4>Modules</h4>
-<table>
-    <thead>
-        <tr>
-            <th width="180">Module ID</th>
-            <th>Configuration</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php $c=0; foreach ($modules as $key=>$value) : ?>
-        <tr class="<?php echo ($c%2?'odd':'even') ?>">
-            <th><?php echo $key; ?></th>
-            <td><?php echo $this->dump($value); ?></td>
-        </tr>
-        <?php ++$c; endforeach;?>
-    </tbody>
-</table>
 
 
-<h4>Components</h4>
-<table>
-    <thead>
-        <tr>
-            <th width="180">Component ID</th>
-            <th>Configuration</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php $c=0; foreach ($components as $key=>$value) : ?>
-        <tr class="<?php echo ($c%2?'odd':'even') ?>">
-            <th><?php echo $key; ?></th>
-            <td><?php echo $this->dump($value); ?></td>
-        </tr>
-        <?php ++$c; endforeach;?>
-    </tbody>
-</table>

@@ -17,6 +17,7 @@
 
 class YiiDebug extends CComponent
 {
+
     /**
      * Displays a variable.
      * This method achieves the similar functionality as var_dump and print_r
@@ -26,7 +27,9 @@ class YiiDebug extends CComponent
     public static function dump($var)
     {
         is_string($var) && $var = trim($var);
-        CVarDumper::dump($var, 10, true);
+        $dump = CVarDumper::dumpAsString($var, 10, true);
+        $dump = str_replace('&nbsp;', ' ', $dump);
+        echo $dump;
     }
 
     /**
@@ -50,4 +53,8 @@ class YiiDebug extends CComponent
         $method->setAccessible(true);
         return $method;
     }
+
+	public static function t($str,$params=array(),$dic='yii-debug-toolbar') {
+		return Yii::t("YiiDebug.".$dic, $str, $params);
+	}
 }

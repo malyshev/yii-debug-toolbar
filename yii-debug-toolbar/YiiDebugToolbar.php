@@ -44,9 +44,25 @@ class YiiDebugToolbar extends CWidget
         'YiiDebugToolbarPanelResourceUsage',
         'YiiDebugToolbarPanelGlobals',
         'YiiDebugToolbarPanelSettings',
-        'YiiDebugToolbarPanelSql',
+        'YiiDebugToolbarPanelSql' => array('useSQLhighlight'=>true),
         'YiiDebugToolbarPanelLogging',
     );
+	
+	/**
+	 * Adds a panel to the top of the stack
+	 * @param string $panel Name class panel
+	 */
+	public function prependPanel($panel){
+		array_unshift($this->_panels, $panel);
+	}
+	
+	/**
+	 * Adds a panel at the end of the stack
+	 * @param string $panel Name class panel
+	 */
+	public function appendPanel($panel){
+		array_push($this->_panels, $panel);
+	}
 
     /**
      * Setup toolbar panels.
@@ -111,7 +127,7 @@ class YiiDebugToolbar extends CWidget
     {
         if (false === ($this->owner instanceof CLogRoute))
         {
-            throw new CException('YiiDebugToolbar owner must be instance of CLogRoute');
+            throw new CException(YiiDebug::t('YiiDebugToolbar owner must be instance of CLogRoute'));
         }
 
         $this->createPanels()
@@ -168,7 +184,7 @@ class YiiDebugToolbar extends CWidget
 
                 if (false === ($panel instanceof YiiDebugToolbarPanelInterface))
                 {
-                    throw new CException(Yii::t('YiiDebugToolbar',
+                    throw new CException(Yii::t('yii-debug-toolbar',
                             'The %class% class must be compatible with YiiDebugToolbarPanelInterface', array(
                                 '%class%' => get_class($panel)
                             )));

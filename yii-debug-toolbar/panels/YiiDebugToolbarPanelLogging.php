@@ -38,7 +38,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
      */
     public function getMenuTitle()
     {
-        return 'Logging';
+        return YiiDebug::t('Logging');
     }
 
     /**
@@ -46,7 +46,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
      */
     public function getMenuSubTitle()
     {
-        return vsprintf('%d messages', $this->countMessages);
+        return YiiDebug::t('{n} message|{n} messages', array($this->countMessages));
     }
 
     /**
@@ -54,7 +54,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
      */
     public function getTitle()
     {
-        return 'Log Messages';
+        return YiiDebug::t('Log Messages');
     }
 
     /**

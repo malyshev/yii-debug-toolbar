@@ -5,7 +5,6 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
-
 /**
  * YiiDebugToolbarRouter represents an ...
  *
@@ -26,6 +25,24 @@ class YiiDebugToolbarRoute extends CLogRoute
      * - "*" for everything.
      */
     public $ipFilters=array('127.0.0.1','::1');
+	
+	/**
+	 * This is a list of paths to extra panels.
+	 * Example:
+	 * 'additionalPanels' => array(
+	 *	'append:application.extensions.debug-panels.newPanel', // added panel as last
+	 *	'prepend:application.extensions.debug-panels.newPanel2', // added panel as first
+	 *	'application.extensions.debug-panels.newPanel3' // added panel as last
+	 * )
+	 * @var array 
+	 */
+	public $additionalPanels = array();
+
+    /**
+     * If true, then after reloading the page will open the current panel.
+     * @var bool
+     */
+    public $openLastPanel = true;
 
     private $_toolbarWidget,
             $_startTime,
@@ -52,6 +69,17 @@ class YiiDebugToolbarRoute extends CLogRoute
         if (null === $this->_toolbarWidget)
         {
             $this->_toolbarWidget = Yii::createComponent('YiiDebugToolbar', $this);
+			
+			if(!empty($this->additionalPanels) and is_array($this->additionalPanels)){
+				foreach($this->additionalPanels as $panel){
+					$pos = 'append';
+					if(($dotpos=strpos($panel, ':'))!==false){
+						$pos = substr($panel, 0, $dotpos) == 'prepend' ? 'prepend' : 'append';
+						$panel = substr($panel, $dotpos+1);
+					}
+					$this->_toolbarWidget->{$pos.'Panel'}($panel);
+				}
+			}
         }
         return $this->_toolbarWidget;
     }
@@ -67,7 +95,8 @@ class YiiDebugToolbarRoute extends CLogRoute
 
         if ($this->enabled)
         {
-            Yii::app()->attachEventHandler('onBeginRequest', array($this, 'onBeginRequest'));
+
+			Yii::app()->attachEventHandler('onBeginRequest', array($this, 'onBeginRequest'));
             Yii::app()->attachEventHandler('onEndRequest', array($this, 'onEndRequest'));
             Yii::setPathOfAlias('yii-debug-toolbar', dirname(__FILE__));
             Yii::import('yii-debug-toolbar.*');
@@ -79,24 +108,8 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     protected function onBeginRequest(CEvent $event)
     {
-//        if ('CWebApplication' === get_class(Yii::app()))
-//        {
-//            Yii::app()->detachEventHandler('onBeginRequest',
-//                    array($this, 'onBeginRequest'));
-//
-//            if(Yii::app()->hasEventHandler('onBeginRequest'))
-//                Yii::app()->onBeginRequest(new CEvent(Yii::app()));
-//        }
-
-        
         $this->getToolbarWidget()
              ->init();
-
-//        if ('CWebApplication' === get_class(Yii::app()))
-//        {
-//            $this->processRequest();
-//            Yii::app()->end();
-//        }
     }
 
     /**

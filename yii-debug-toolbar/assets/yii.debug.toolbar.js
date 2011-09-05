@@ -2,6 +2,7 @@
     var COOKIE_NAME = 'yii-debug-toolbar';
 
     yiiDebugToolbar = {
+
         init : function(){
             
             this.registerEventListeners();
@@ -68,17 +69,15 @@
         /**
          * Toggles the nearby panel section in context of the clicked element
          */
-        toggleSection: function() {
-            
-            var toToggle = $(this).next();
-            
+        toggleSection: function(toToggle, object) {
+            object = $(object);
+            toToggle = !toToggle ? object.next() : $(toToggle);
             toToggle.toggle();
             if(toToggle.is(':visible')) {
-                $(this).removeClass('collapsed');
+                object.removeClass('collapsed');
             } else {
-                $(this).addClass('collapsed');
+                object.addClass('collapsed');
             }
-            
         },
 
         togglePanel : function(id)
@@ -140,9 +139,26 @@
             $('#yii-debug-toolbar-swither').bind('click',$.proxy( this.toggleToolbar, this ));
             $('.yii-debug-toolbar-button').bind('click',$.proxy( this.buttonClicked, this ));
             $('.yii-debug-toolbar-panel-close').bind('click',$.proxy( this.closeButtonClicked, this ));
-            $('#yii-debug-toolbar .collapsible').bind('click', this.toggleSection);
+            $('#yii-debug-toolbar .collapsible').bind('click', function(){ yiiDebugToolbar.toggleSection($(this).attr('rel'), this); });
+        },
+
+        toggleDetails: function(selector, cell){
+            $(selector).toggleClass('hidden');
         }
         
     };
+
+    $(function(){
+        $('.yii-debug-toolbar-button').live('click', function(){
+            setTimeout(function(){
+                $('a.yii-debug-toolbar-link').each(function(){
+                    $(this).attr('href', '#'+$(this).attr('id').replace('yii-debug-toolbar-tab-',''));
+                    if($(this).parents('li.yii-debug-toolbar-button').hasClass('active')){
+                        $(this).attr('href', '#close');
+                    }
+                });
+            }, 1);
+        });
+    });
     
 })( jQuery );

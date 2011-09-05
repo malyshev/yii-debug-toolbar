@@ -25,6 +25,12 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
     private $_dbConnectionsCount;
 
+    /**
+     * If true, the sql query in the list will use syntax highlighting.
+     * @var bool
+     */
+    public $useSQLhighlight = true;
+
     public function getDbConnectionsCount()
     {
         if (null === $this->_dbConnectionsCount)
@@ -56,15 +62,16 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getMenuTitle()
     {
-        return 'SQL';
+        return YiiDebug::t('SQL');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getMenuSubTitle()
+    public function getMenuSubTitle($f=4)
     {
-        return vsprintf('%d queries in %0.4F s.', Yii::app()->db->getStats());
+        $st = Yii::app()->db->getStats();
+		return YiiDebug::t('{n} query in {s} s.|{n} queries in {s} s.', array($st[0], '{s}'=>vsprintf('%0.'.$f.'F', $st[1])));
     }
 
     /**
@@ -73,10 +80,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     public function getTitle()
     {
         $conn=$this->getDbConnectionsCount();
-        return vsprintf(
-            'SQL Queries from %d connection' . ($conn > 1 ? 's' : ''),
-            array($conn)
-        );
+			return YiiDebug::t('SQL Queries from {n} connection|SQL Queries from {n} connections', array($conn));
     }
 
     /**
@@ -84,7 +88,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getSubTitle()
     {
-        return '(' . vsprintf('%d queries in %0.6F s.', Yii::app()->db->getStats()) . ')';
+        return '(' . self::getMenuSubTitle(6) . ')';
     }
 
     /**
@@ -144,19 +148,19 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             && '' !== ($serverInfo = $connection->getServerInfo()))
         {
             $info = array(
-                'Driver' => $connection->getDriverName(),
-                'Server Version' => $connection->getServerVersion()
+                YiiDebug::t('Driver') => $connection->getDriverName(),
+                YiiDebug::t('Server Version') => $connection->getServerVersion()
             );
             
             $lines = explode('  ', $serverInfo);
             foreach($lines as $line) {
                 list($key, $value) = explode(': ', $line);
                 
-                $info[$key] = $value;
+                $info[YiiDebug::t($key)] = $value;
             }
             
-            if(!empty($info['Uptime'])) {
-                $info['Uptime'] = $this->duration($info['Uptime']);
+            if(!empty($info[YiiDebug::t('Uptime')])) {
+                $info[YiiDebug::t('Uptime')] = $this->duration($info[YiiDebug::t('Uptime')]);
             }
             
             return $info;
@@ -176,6 +180,11 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         {
             return $logs;
         }
+
+        $hl = new CTextHighlighter();
+        $hl->language = 'sql';
+        $hl->showLineNumbers = true;
+        $hl->lineNumberStyle = 'table';
 
         $stack   = array();
         $results = array();
@@ -201,17 +210,21 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
                 if(null !== ($last = array_pop($stack)) && $last[0] === $token)
                 {
                     $delta = $log[3] - $last[3];
+                    $token = $this->useSQLhighlight ? $hl->highlight($token) : CHtml::encode($token);
                     $results[$last[4]] = array($token, $delta, count($stack));
                 }
                 else
-                    throw new CException(strtr('Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
-                        array('{token}' => $token)));
+                    throw new CException(Yii::t('yii-debug-toolbar',
+							'Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
+                        	array('{token}' => $token)
+						));
             }
         }
         // remaining entries should be closed here
         $now = microtime(true);
-        while (null !== ($last = array_pop($stack)))
+        while (null !== ($last = array_pop($stack))){
             $results[$last[4]] = array($last[0], $now - $last[3], count($stack));
+        }
 
         ksort($results);
 
@@ -230,6 +243,12 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         {
             return $logs;
         }
+
+        $hl = new CTextHighlighter();
+        $hl->language = 'sql';
+        $hl->showLineNumbers = true;
+        $hl->lineNumberStyle = 'table';
+
         $stack = array();
         foreach($logs as $log)
         {
@@ -245,13 +264,17 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
                 if(null !== ($last = array_pop($stack)) && $last[0] === $token)
                 {
                     $delta = $log[3] - $last[3];
+
                     if(isset($results[$token]))
                         $results[$token] = $this->aggregateResult($results[$token], $delta);
-                    else
+                    else{
+                        $token = $this->useSQLhighlight ? $hl->highlight($token) : CHtml::encode($token);
                         $results[$token] = array($token, 1, $delta, $delta, $delta);
+                    }
                 }
                 else
-                    throw new CException(strtr('Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
+                    throw new CException(Yii::t('yii-debug-toolbar',
+						'Mismatching code block "{token}". Make sure the calls to Yii::beginProfile() and Yii::endProfile() be properly nested.',
                         array('{token}' => $token)));
             }
         }
@@ -264,8 +287,10 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
             if(isset($results[$token]))
                 $results[$token] = $this->aggregateResult($results[$token], $delta);
-            else
+            else{
+//                $token = $this->useSQLhighlight ? $hl->highlight($token) : CHtml::encode($token);
                 $results[$token] = array($token, 1, $delta, $delta, $delta);
+            }
         }
 
         $entries = array_values($results);
