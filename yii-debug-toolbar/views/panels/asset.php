@@ -1,38 +1,38 @@
 <table>
     <thead>
         <tr>
-            <th class="al-r"><?=YiiDebug::t('Properties')?></th>
+            <th class="al-r"><?php echo YiiDebug::t('Properties')?></th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <tr class="even">
-            <th><?=YiiDebug::t('Assets path')?></th>
-            <td><?=$AM->getBasePath()?></td>
+            <th><?php echo YiiDebug::t('Assets path')?></th>
+            <td><?php echo $AM->getBasePath()?></td>
         </tr><tr class="odd">
-            <th><?=YiiDebug::t('Exclude files')?></th>
-            <td><?=implode(',', $AM->excludeFiles)?></td>
+            <th><?php echo YiiDebug::t('Exclude files')?></th>
+            <td><?php echo implode(',', $AM->excludeFiles)?></td>
         </tr><tr class="even">
-            <th><?=YiiDebug::t('New dir mode')?></th>
-            <td><?=$AM->newDirMode?></td>
+            <th><?php echo YiiDebug::t('New dir mode')?></th>
+            <td><?php echo $AM->newDirMode?></td>
         </tr><tr class="odd">
-            <th><?=YiiDebug::t('New file mode')?></th>
-            <td><?=$AM->newFileMode?></td>
+            <th><?php echo YiiDebug::t('New file mode')?></th>
+            <td><?php echo $AM->newFileMode?></td>
         </tr>
     </tbody>
 </table>
 <table>
     <thead>
         <tr>
-            <th class="al-r"><?=YiiDebug::t('Load assets')?></th>
-            <th class="al-l"><?=YiiDebug::t('Path')?></th>
-            <th><?=YiiDebug::t('Files')?></th>
-            <th><?=YiiDebug::t('Date create')?></th>
+            <th class="al-r"><?php echo YiiDebug::t('Load assets')?></th>
+            <th class="al-l"><?php echo YiiDebug::t('Path')?></th>
+            <th><?php echo YiiDebug::t('Files')?></th>
+            <th><?php echo YiiDebug::t('Date create')?></th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <?
+        <?php
         
         $DF = new CDateFormatter(Yii::app()->sourceLanguage);
         $i=0;
@@ -47,24 +47,24 @@
 			if(preg_match('|yii\.debug\.toolbar\.js|is', $fileList)) $blockAll = true;
 
             ?>
-        <tr class="<?=$i%2?'even':'odd'?>">
-            <th><?=$asset?></th>
+        <tr class="<?php echo $i%2?'even':'odd'?>">
+            <th><?php echo $asset?></th>
             <td>
-                <a title="<?=YiiDebug::t('Show files')?>" href="#"
-				   onclick="jQuery('.details', $(this).parent('td')).toggleClass('hidden'); return false;"><?=$path?></a>
+                <a title="<?php echo YiiDebug::t('Show files')?>" href="#"
+				   onclick="jQuery('.details', $(this).parent('td')).toggleClass('hidden'); return false;"><?php echo $path?></a>
                 <div class='details hidden'>
-                    <?=$fileList?>
+                    <?php echo $fileList?>
                 </div>
             </td>
-            <td class="al-c"><?=YiiDebug::t('{n} file|{n} files', array(count($files)))?></td>
-            <td class="al-c"><?=$DF->formatDateTime(filemtime($path))?></td>
+            <td class="al-c"><?php echo YiiDebug::t('{n} file|{n} files', array(count($files)))?></td>
+            <td class="al-c"><?php echo $DF->formatDateTime(filemtime($path))?></td>
             <td class="al-c">
-                <a class="deleteAsset" href="<?=$this->owner->assetsUrl?>/ajax.php?deleteasset=<?=$asset?>"
-						onclick="deleteAsset(this, <?=$blockAll?'true':'false'?>); return false;">
-										<?=YiiDebug::t('Clean')?></a>
+                <a class="deleteAsset" href="<?php echo $this->owner->assetsUrl?>/ajax.php?deleteasset=<?php echo $asset?>"
+						onclick="deleteAsset(this, <?php echo $blockAll?'true':'false'?>); return false;">
+										<?php echo YiiDebug::t('Clean')?></a>
             </td>
         </tr>
-        <?}?>
+        <?php } ?>
     </tbody>
 </table>
 
@@ -78,10 +78,10 @@
 				}
 			}
 			if(data == 'notexists'){
-				alert('<?=YiiDebug::t('Path not found.')?>');
+				alert('<?php echo YiiDebug::t('Path not found.')?>');
 			}
 			if(data == 'unknow'){
-				alert('<?=YiiDebug::t('Unknow error.')?>');
+				alert('<?php echo YiiDebug::t('Unknow error.')?>');
 			}
 		});
 	}

@@ -1,9 +1,9 @@
-<?
+<?php
 $allPanelID = array();
 ?>
 
 <div id="yii-debug-toolbar-swither">
-    <a href="javascript:;//"><?=YiiDebug::t('TOOLBAR')?></a>
+    <a href="javascript:;//"><?php echo YiiDebug::t('TOOLBAR')?></a>
 </div>
 <div id="yii-debug-toolbar" style="display:none;">
     <div id="yii-debug-toolbar-buttons">
@@ -28,7 +28,7 @@ $allPanelID = array();
     <?php foreach ($panels as $panel) : ?>
     <div id="<?php echo $panel->id ?>" class="yii-debug-toolbar-panel">
         <div class="yii-debug-toolbar-panel-title">
-        <a href="#close" class="yii-debug-toolbar-panel-close"><?=YiiDebug::t('Close')?></a>
+        <a href="#close" class="yii-debug-toolbar-panel-close"><?php echo YiiDebug::t('Close')?></a>
         <h3>
             <?php echo CHtml::encode($panel->title); ?>
             <?php if ($panel->subTitle) : ?>
@@ -50,19 +50,19 @@ $allPanelID = array();
 
 <script type="text/javascript">
 
-    var $allPanelID = <?=json_encode($allPanelID)?>;
+    var $allPanelID = <?php echo json_encode($allPanelID); ?>;
     var hash = '';
 
 (function($) {
     $(function(){
         yiiDebugToolbar.init();
 
-        <?if($this->owner->openLastPanel){?>
+        <?php if($this->owner->openLastPanel){ ?>
         hash = location.hash.replace('#','');
         if($allPanelID.indexOf(hash) != -1){
             $('#yii-debug-toolbar-tab-'+hash).trigger('click');
         }
-        <?}?>
+        <?php } ?>
     });
 }(jQuery));
 </script>

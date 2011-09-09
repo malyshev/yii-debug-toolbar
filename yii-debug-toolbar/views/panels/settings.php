@@ -1,11 +1,11 @@
 <div class="col left">
     
-    <h4 class="collapsible"><?=YiiDebug::t('Application Properties')?></h4>
+    <h4 class="collapsible"><?php echo YiiDebug::t('Application Properties')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180"><?=YiiDebug::t('Property')?></th>
-                <th><?=YiiDebug::t('Value')?></th>
+                <th width="180"><?php echo YiiDebug::t('Property')?></th>
+                <th><?php echo YiiDebug::t('Value')?></th>
             </tr>
         </thead>
         <tbody>
@@ -18,12 +18,12 @@
         </tbody>
     </table>
 
-    <h4 class="collapsible"><?=YiiDebug::t('Modules')?></h4>
+    <h4 class="collapsible"><?php echo YiiDebug::t('Modules')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180"><?=YiiDebug::t('Module ID')?></th>
-                <th><?=YiiDebug::t('Configuration')?></th>
+                <th width="180"><?php echo YiiDebug::t('Module ID')?></th>
+                <th><?php echo YiiDebug::t('Configuration')?></th>
             </tr>
         </thead>
         <tbody>
@@ -36,12 +36,12 @@
         </tbody>
     </table>
 
-    <h4 class="collapsible"><?=YiiDebug::t('Application Params')?></h4>
+    <h4 class="collapsible"><?php echo YiiDebug::t('Application Params')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180"><?=YiiDebug::t('Name')?></th>
-                <th><?=YiiDebug::t('Value')?></th>
+                <th width="180"><?php echo YiiDebug::t('Name')?></th>
+                <th><?php echo YiiDebug::t('Value')?></th>
             </tr>
         </thead>
         <tbody>
@@ -58,12 +58,12 @@
 
 <div class="col right">
 
-    <h4 class="collapsible"><?=YiiDebug::t('Components')?></h4>
+    <h4 class="collapsible"><?php echo YiiDebug::t('Components')?></h4>
     <table>
         <thead>
             <tr>
-                <th width="180"><?=YiiDebug::t('Component ID')?></th>
-                <th><?=YiiDebug::t('Configuration')?></th>
+                <th width="180"><?php echo YiiDebug::t('Component ID')?></th>
+                <th><?php echo YiiDebug::t('Configuration')?></th>
             </tr>
         </thead>
         <tbody>

@@ -1,4 +1,4 @@
-<?
+<?php
 
 class YiiDebugToolbarPanelAssets extends YiiDebugToolbarPanel{
     function getMenuTitle(){ return YiiDebug::t('Assets'); }
