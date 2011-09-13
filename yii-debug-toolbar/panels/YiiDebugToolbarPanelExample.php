@@ -1,4 +1,4 @@
-<?
+<?php
 
 class YiiDebugToolbarPanelExample extends YiiDebugToolbarPanel{
     function getMenuTitle(){ return YiiDebug::t('Blank'); }

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../../../yii-1.1.8.r3324/framework/yii.php';

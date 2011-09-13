@@ -10,10 +10,10 @@ $colors=array(
     <thead>
         <tr>
             <th class="collapsible collapsed al-l" rel="#yii-debug-toolbar-log .details">
-				<?=YiiDebug::t('Message (details)')?></th>
-            <th nowrap="nowrap"><?=YiiDebug::t('Level')?></th>
-            <th nowrap="nowrap" class="al-l"><?=YiiDebug::t('Category')?></th>
-            <th nowrap="nowrap"><?=YiiDebug::t('Time')?></th>
+				<?php echo YiiDebug::t('Message (details)')?></th>
+            <th nowrap="nowrap"><?php echo YiiDebug::t('Level')?></th>
+            <th nowrap="nowrap" class="al-l"><?php echo YiiDebug::t('Category')?></th>
+            <th nowrap="nowrap"><?php echo YiiDebug::t('Time')?></th>
         </tr>
     </thead>
     <tbody>

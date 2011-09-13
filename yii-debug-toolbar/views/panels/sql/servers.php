@@ -1,6 +1,6 @@
 <div id="yii-debug-toolbar-sql-servers" class="tabscontent">
 <?php if ($connections) : foreach($connections as $id=>$connection): ?>
-<h4><?=Yii::t('yii-debug-toolbar','Connection ID')?>: <?php echo $id ?> (<?php echo get_class($connection)?>)</h4>
+<h4><?php echo Yii::t('yii-debug-toolbar','Connection ID')?>: <?php echo $id ?> (<?php echo get_class($connection)?>)</h4>
 <?php $serverInfo = $this->getServerInfo($id); $c=1;?>
     <table>
         <tbody>
