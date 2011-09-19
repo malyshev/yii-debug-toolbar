@@ -48,7 +48,7 @@ class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel
      */
     public function getMenuSubTitle()
     {
-        return YiiDebug::t('Total time: {n} s.', array(vsprintf('%0.6F',$this->getLoadTime())));
+		return YiiDebug::t('Total time: {n} s.', array(vsprintf('%0.6F',$this->getLoadTime())));
     }
 
     /**
