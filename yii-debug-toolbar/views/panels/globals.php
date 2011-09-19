@@ -1,5 +1,3 @@
-<div class="col left">
-
     <h4 class="collapsible">SERVER <?php echo YiiDebug::t('Variables')?></h4>
     <table id="debug-toolbar-globals-server">
         <thead>
@@ -64,10 +62,6 @@
     <h4>SESSION Variables</h4>
     <?php echo YiiDebug::t('No SESSION data')?>
     <?php endif; ?>
-
-</div>
-
-<div class="col right">
 
     <?php if ($get) : $c=0; ?>
     <h4 class="collapsible">GET <?php echo YiiDebug::t('Variables')?></h4>
@@ -138,5 +132,3 @@
     <h4>FILES</h4>
     <?php echo YiiDebug::t('No FILES data')?>
     <?php endif; ?>
-
-</div>
