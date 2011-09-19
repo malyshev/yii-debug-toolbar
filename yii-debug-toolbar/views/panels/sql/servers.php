@@ -13,7 +13,7 @@
             <?php } ?>
         <?php else: ?>
             <tr class="<?php echo ($c%2?'odd':'even') ?>">
-                <th>SQLite doesn't support this info.</th>
+                <th>Used DB driver doesn't provide info.</th>
             </tr>
         <?php endif; ?>
         </tbody>
