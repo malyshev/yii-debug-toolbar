@@ -13,17 +13,21 @@
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @author Igor Golovanov <igor.golovanov@gmail.com>
- * @version $Id$
  * @package YiiDebugToolbar
  * @since 1.1.7
  */
 class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 {
-     /**
+    /**
      * If true, the sql query in the list will use syntax highlighting.
-     * @var bool
+     * 
+     * @var boolean
      */
     public $highlightSql = true;
+
+    private $_countLimit = 1;
+
+    private $_timeLimit = 0.01;
 
     private $_groupByToken = true;
 
@@ -32,6 +36,26 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     private $_dbConnectionsCount;
 
     private $_textHighlighter;
+
+    public function getCountLimit()
+    {
+        return $this->_countLimit;
+    }
+
+    public function setCountLimit($value)
+    {
+        $this->_countLimit = CPropertyValue::ensureInteger($value);
+    }
+
+    public function getTimeLimit()
+    {
+        return $this->_timeLimit;
+    }
+
+    public function setTimeLimit($value)
+    {
+        $this->_timeLimit = CPropertyValue::ensureFloat($value);
+    }
 
     public function getDbConnectionsCount()
     {

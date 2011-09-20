@@ -12,7 +12,7 @@
     </thead>
     <tbody>
     <?php foreach($summary as $id=>$entry):?>
-        <tr class="<?php echo ($id%2?'odd':'even') ?>">
+        <tr class="<?php echo ($id%2?'odd':'even') ?><?php echo ($entry[1]>$this->countLimit || ($entry[4]/$entry[1] > $this->timeLimit) ?' warning':'') ?>">
             <td width="100%"><?php echo $entry[0]; ?></td>
             <td nowrap="nowrap" style="text-align: center;"><?php echo number_format($entry[1]); ?></td>
             <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[4]); ?></td>

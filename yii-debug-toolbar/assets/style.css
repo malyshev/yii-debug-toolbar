@@ -301,6 +301,10 @@ margin-top:0.8em;
     background-color:#f5f5f5;
 }
 
+#yii-debug-toolbar .yii-debug-toolbar-panel-content .warning{
+    background-color:#FFEEEE;
+}
+
 #yii-debug-toolbar .hidden{
     display: none;
 }
