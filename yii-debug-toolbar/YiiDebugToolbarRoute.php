@@ -23,6 +23,7 @@ class YiiDebugToolbarRoute extends CLogRoute
         'YiiDebugToolbarPanelResourceUsage',
         'YiiDebugToolbarPanelGlobals',
         'YiiDebugToolbarPanelSettings',
+        'YiiDebugToolbarPanelViews',
         'YiiDebugToolbarPanelSql',
         'YiiDebugToolbarPanelLogging',
     );
@@ -58,11 +59,11 @@ class YiiDebugToolbarRoute extends CLogRoute
             $_endTime;
 
 
+
     public function setPanels(array $pannels)
     {
         $selfPanels = array_fill_keys($this->_panels, array());
         $this->_panels = array_merge($selfPanels, $pannels);
-        
     }
 
     public function getPanels()
