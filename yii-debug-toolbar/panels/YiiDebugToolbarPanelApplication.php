@@ -17,10 +17,8 @@ Yii::import('yii-debug-toolbar.components.YiiDebugViewRenderer');
  * @package
  * @since 1.1.7
  */
-class YiiDebugToolbarPanelViews extends YiiDebugToolbarPanel
+class YiiDebugToolbarPanelApplication extends YiiDebugToolbarPanel
 {
-
-
     public function init()
     {
         parent::init();
@@ -40,12 +38,46 @@ class YiiDebugToolbarPanelViews extends YiiDebugToolbarPanel
         ), false);
     }
 
+    public function run()
+    {
+        $this->render('application', array());
+    }
+
+    public function getControllersData()
+    {
+        $viewRenderer = Yii::app()->getComponent('viewRenderer');
+
+        if ($viewRenderer instanceof YiiDebugViewRenderer)
+        {
+            $data = array();
+            $debugStackTrace = $viewRenderer->debugStackTrace;
+
+            foreach ($debugStackTrace as $class=>$callStack)
+            {
+                $reflection = new ReflectionClass($class);
+                if($reflection->isSubclassOf('CController'))
+                {
+                    $data[$class] = new ArrayObject(array_merge($callStack, array(
+                        'reflection'=>$reflection,
+                    )));
+                }
+            }
+            return $data;
+        }
+        return null;
+    }
+
+    public function getWidgetsData()
+    {
+        
+    }
+
      /**
      * {@inheritdoc}
      */
     public function getMenuTitle()
     {
-        return YiiDebug::t('View renderer');
+        return YiiDebug::t('Web Application');
     }
 
     /**
@@ -61,7 +93,7 @@ class YiiDebugToolbarPanelViews extends YiiDebugToolbarPanel
      */
     public function getTitle()
     {
-        return YiiDebug::t('View renderer');
+        return YiiDebug::t('Web Application');
     }
 
     /**
@@ -69,6 +101,6 @@ class YiiDebugToolbarPanelViews extends YiiDebugToolbarPanel
      */
     public function getSubTitle()
     {
-        return '(0)';
+        return false;
     }
 }

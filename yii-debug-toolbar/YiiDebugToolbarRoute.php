@@ -23,7 +23,7 @@ class YiiDebugToolbarRoute extends CLogRoute
         'YiiDebugToolbarPanelResourceUsage',
         'YiiDebugToolbarPanelGlobals',
         'YiiDebugToolbarPanelSettings',
-        'YiiDebugToolbarPanelViews',
+        'YiiDebugToolbarPanelApplication',
         'YiiDebugToolbarPanelSql',
         'YiiDebugToolbarPanelLogging',
     );

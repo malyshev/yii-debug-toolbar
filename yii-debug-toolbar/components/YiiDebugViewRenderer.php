@@ -24,6 +24,8 @@ class YiiDebugViewRenderer extends CViewRenderer
 
     private $_fileExtension = '.php';
 
+    protected $_debugStackTrace = array();
+
     public function renderFile($context, $sourceFile, $data, $return)
     {
         $this->collectDebugInfo($context, $sourceFile, $data);
@@ -139,18 +141,41 @@ class YiiDebugViewRenderer extends CViewRenderer
         if(is_a($context, 'YiiDebugToolbar') || false !== ($context instanceof YiiDebugToolbarPanel))
             return;
 
+
         $contextClass = get_class($context);
-        $reflect = new ReflectionClass($contextClass);
+        $backTrace = debug_backtrace(true);
+        $backTraceItem = null;
 
-        #_dc($reflect->getFileName());
+        while($backTraceItem = array_shift($backTrace))
+        {
+            if($backTraceItem['object'] && is_a($backTraceItem['object'], get_class($context)) && in_array($backTraceItem['function'], array(
+                'render',
+                'renderPartial'
+            )) )
+            {
+                break;
+            }
+        }
 
-        #_dc(get_class($context));
 
-        #_dc($context->getViewPath());
+        if(false === isset($this->_debugStackTrace[$contextClass]))
+        {
+            $this->_debugStackTrace[$contextClass] = array();
+        }
 
-        #_dc($sourceFile);
-        #die;
-        //_dc($data);
+        array_push($this->_debugStackTrace[$contextClass], array(
+            'context'=>$context,
+            'sourceFile'=>$sourceFile,
+            'data'=>$data,
+            'backTrace'=>$backTraceItem
+        ));
+        
+    }
+
+
+    public function getDebugStackTrace()
+    {
+        return $this->_debugStackTrace;
     }
 
     

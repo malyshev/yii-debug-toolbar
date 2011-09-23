@@ -18,7 +18,6 @@
         <?php endif; ?>
         </tbody>
     </table>
-    <?php //YiiDebug::dump($info); ?>
 <?php endforeach; ?>
 <?php else : ?>
 No SQL Servers used during this request.
