@@ -140,6 +140,8 @@
             $('.yii-debug-toolbar-button').bind('click',$.proxy( this.buttonClicked, this ));
             $('.yii-debug-toolbar-panel-close').bind('click',$.proxy( this.closeButtonClicked, this ));
             $('#yii-debug-toolbar .collapsible').bind('click', function(){ yiiDebugToolbar.toggleSection($(this).attr('rel'), this); });
+            $('#yii-debug-toolbar .collapsible.collapsed').next().hide();
+
         },
 
         toggleDetails: function(selector, cell){

@@ -141,8 +141,6 @@ class YiiDebugViewRenderer extends CViewRenderer
         if(is_a($context, 'YiiDebugToolbar') || false !== ($context instanceof YiiDebugToolbarPanel))
             return;
 
-
-        $contextClass = get_class($context);
         $backTrace = debug_backtrace(true);
         $backTraceItem = null;
 
@@ -157,19 +155,17 @@ class YiiDebugViewRenderer extends CViewRenderer
             }
         }
 
-
-        if(false === isset($this->_debugStackTrace[$contextClass]))
-        {
-            $this->_debugStackTrace[$contextClass] = array();
-        }
-
-        array_push($this->_debugStackTrace[$contextClass], array(
+        array_push($this->_debugStackTrace, array(
             'context'=>$context,
+            'contextProperties'=>  get_object_vars($context),
+            'action'=> $context instanceof CController ? $context->action : null,
+            'actionParams'=> $context instanceof CController ? $context->actionParams : null,
+            'route'=> $context instanceof CController ? $context->route : null,
             'sourceFile'=>$sourceFile,
             'data'=>$data,
-            'backTrace'=>$backTraceItem
+            'backTrace'=>$backTraceItem,
+            'reflection' => new ReflectionObject($context)
         ));
-        
     }
 
 

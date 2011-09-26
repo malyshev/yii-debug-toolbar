@@ -312,16 +312,34 @@ margin-top:0.8em;
 #yii-debug-toolbar .collapsible{
     border-bottom: 1px dashed #ccc;
     cursor: pointer;
+    background: transparent url('bullet_toggle_minus.png') no-repeat scroll 100% 50%;
+}
+
+#yii-debug-toolbar p.collapsible{
+    border-bottom: 1px dashed #ccc;
+    cursor: pointer;
+    background: none;
+    background: transparent url('arrow_expand.gif') no-repeat scroll 0% 50%;
+    padding: 0 0 0 20px;
+
+}
+
+#yii-debug-toolbar .collapsible.collapsed
+{
     background: transparent url('bullet_toggle_plus.png') no-repeat scroll 100% 50%;
 }
 
-#yii-debug-toolbar .collapsed
+#yii-debug-toolbar p.collapsible.collapsed
 {
-    background: transparent url('bullet_toggle_minus.png') no-repeat scroll 100% 50%;
+    background: transparent url('arrow_collapse.gif') no-repeat scroll 0% 50%;
 }
 
 #yii-debug-toolbar .text-right {
 	text-align:right;
+}
+
+#yii-debug-toolbar pre, #yii-debug-toolbar pre code{
+    padding: 0;
 }
 
 #yii-debug-toolbar-sql-callstack tbody td, 

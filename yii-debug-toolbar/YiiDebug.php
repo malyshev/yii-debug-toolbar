@@ -24,12 +24,10 @@ class YiiDebug extends CComponent
      * but is more robust when handling complex objects such as Yii controllers.
      * @param mixed $var variable to be dumped
      */
-    public static function dump($var)
+    public static function dump($var, $depth=10)
     {
         is_string($var) && $var = trim($var);
-        $dump = CVarDumper::dumpAsString($var, 10, true);
-        $dump = str_replace('&nbsp;', ' ', $dump);
-        echo $dump;
+        echo str_replace('&nbsp;', ' ', CVarDumper::dumpAsString($var, $depth, true));
     }
 
     /**
