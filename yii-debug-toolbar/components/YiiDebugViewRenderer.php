@@ -15,7 +15,7 @@
  * @package
  * @since 1.1.7
  */
-class YiiDebugViewRenderer extends CViewRenderer
+class YiiDebugViewRenderer extends CComponent
 {
 
     private $_isProxy;
