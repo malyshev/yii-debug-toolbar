@@ -141,31 +141,29 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     protected function onBeginRequest(CEvent $event)
     {
-//        foreach ($this->_proxyMap as $name=>$config)
-//        {
-//            
-//        }
-//
-//        _dc($this->_proxyMap);
-//        die;
-
-        $viewRenderer = Yii::app()->getComponent('viewRenderer');
-
-        if (null !== ($viewRenderer))
-        {
-            Yii::app()->setComponent('viewRenderer', null);
-        }
-
-        Yii::app()->setComponents(array(
-            'viewRenderer' => array(
-                'class'=>'YiiDebugViewRenderer',
-                'instance' => $viewRenderer
-            )
-        ), false);
+        $this->initComponents();
 
         $this->getToolbarWidget()
              ->init();
     }
+
+    protected function initComponents()
+    {
+        foreach ($this->_proxyMap as $name=>$class)
+        {
+            $instance = Yii::app()->getComponent($name);
+            if (null !== ($instance))
+            {
+                Yii::app()->setComponent($name, null);
+            }
+            $this->_proxyMap[$name] = array(
+                'class'=>$class,
+                'instance' => $instance
+            );
+        }
+        Yii::app()->setComponents($this->_proxyMap, false);
+    }
+
 
     /**
      * Processes the current request.
