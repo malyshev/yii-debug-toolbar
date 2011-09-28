@@ -59,6 +59,10 @@ class YiiDebugToolbarRoute extends CLogRoute
             $_endTime;
 
 
+    private $_proxyMap = array(
+        'viewRenderer' => 'YiiDebugViewRenderer'
+    );
+
 
     public function setPanels(array $pannels)
     {
@@ -127,14 +131,38 @@ class YiiDebugToolbarRoute extends CLogRoute
             Yii::app()->attachEventHandler('onEndRequest', array($this, 'onEndRequest'));
             Yii::setPathOfAlias('yii-debug-toolbar', dirname(__FILE__));
             Yii::import('yii-debug-toolbar.*');
+            Yii::app()->setImport(array(
+                'yii-debug-toolbar.components.ProxyComponent'
+            ));
             $this->categories = '';
             $this->levels='';
         }
-
     }
 
     protected function onBeginRequest(CEvent $event)
     {
+//        foreach ($this->_proxyMap as $name=>$config)
+//        {
+//            
+//        }
+//
+//        _dc($this->_proxyMap);
+//        die;
+
+        $viewRenderer = Yii::app()->getComponent('viewRenderer');
+
+        if (null !== ($viewRenderer))
+        {
+            Yii::app()->setComponent('viewRenderer', null);
+        }
+
+        Yii::app()->setComponents(array(
+            'viewRenderer' => array(
+                'class'=>'YiiDebugViewRenderer',
+                'instance' => $viewRenderer
+            )
+        ), false);
+
         $this->getToolbarWidget()
              ->init();
     }

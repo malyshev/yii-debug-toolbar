@@ -19,6 +19,8 @@
     background:transparent;
     font-family:sans-serif;
     text-align:left;
+    list-style: none;
+    list-style-type: none;
 }
 
 #yii-debug-toolbar{
@@ -350,7 +352,6 @@ margin-top:0.8em;
 #yii-debug-toolbar div.col{ width: 49%; }
 #yii-debug-toolbar div.left{ float: left; }
 #yii-debug-toolbar div.right{ float: right; }
-
 
 
 
