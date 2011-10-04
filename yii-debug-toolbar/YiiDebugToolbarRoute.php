@@ -130,9 +130,9 @@ class YiiDebugToolbarRoute extends CLogRoute
             Yii::app()->attachEventHandler('onBeginRequest', array($this, 'onBeginRequest'));
             Yii::app()->attachEventHandler('onEndRequest', array($this, 'onEndRequest'));
             Yii::setPathOfAlias('yii-debug-toolbar', dirname(__FILE__));
-            Yii::import('yii-debug-toolbar.*');
             Yii::app()->setImport(array(
-                'yii-debug-toolbar.components.ProxyComponent'
+                'yii-debug-toolbar.*',
+                'yii-debug-toolbar.components.*'
             ));
             $this->categories = '';
             $this->levels='';
