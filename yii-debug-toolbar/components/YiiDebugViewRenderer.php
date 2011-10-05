@@ -61,7 +61,7 @@ class YiiDebugViewRenderer extends ProxyComponent
 
         while($backTraceItem = array_shift($backTrace))
         {
-            if($backTraceItem['object'] && is_a($backTraceItem['object'], get_class($context)) && in_array($backTraceItem['function'], array(
+            if(isset($backTraceItem['object']) && $backTraceItem['object'] && is_a($backTraceItem['object'], get_class($context)) && in_array($backTraceItem['function'], array(
                 'render',
                 'renderPartial'
             )) )
