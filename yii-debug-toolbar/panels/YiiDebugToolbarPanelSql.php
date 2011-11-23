@@ -37,6 +37,20 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
     private $_textHighlighter;
 
+    public function  __construct($owner = null)
+    {
+        parent::__construct($owner);
+
+        try
+        {
+            Yii::app()->db;
+        }
+        catch (Exception $e)
+        {
+            $this->_dbConnections = false;
+        }
+    }
+
     public function getCountLimit()
     {
         return $this->_countLimit;
@@ -96,8 +110,12 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getMenuSubTitle($f=4)
     {
-        $st = Yii::app()->db->getStats();
-        return YiiDebug::t('{n} query in {s} s.|{n} queries in {s} s.', array($st[0], '{s}'=>vsprintf('%0.'.$f.'F', $st[1])));
+        if (false !== $this->_dbConnections)
+        {
+            $st = Yii::app()->db->getStats();
+            return YiiDebug::t('{n} query in {s} s.|{n} queries in {s} s.', array($st[0], '{s}'=>vsprintf('%0.'.$f.'F', $st[1])));
+        }
+        return YiiDebug::t('No active connections');
     }
 
     /**
@@ -105,8 +123,12 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getTitle()
     {
-        $conn=$this->getDbConnectionsCount();
+        if (false !== $this->_dbConnections)
+        {
+            $conn=$this->getDbConnectionsCount();
             return YiiDebug::t('SQL Queries from {n} connection|SQL Queries from {n} connections', array($conn));
+        }
+        return YiiDebug::t('No active connections');
     }
 
     /**
@@ -114,7 +136,9 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function getSubTitle()
     {
-        return '(' . self::getMenuSubTitle(6) . ')';
+        return  false !== $this->_dbConnections
+                ?  ('(' . self::getMenuSubTitle(6) . ')')
+                : null;
     }
 
     /**
@@ -130,6 +154,11 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function run()
     {
+        if (false === $this->_dbConnections)
+        {
+            return;
+        }
+
         $logs = $this->filterLogs();
 
         $this->render('sql', array(
