@@ -23,6 +23,24 @@ implements YiiDebugToolbarPanelInterface
 
     const VIEWS_PATH = '/views/panels';
 
+    private $_enabled = true;
+
+    /**
+     * @param boolean $value set is panel enabled
+     */
+    public function setEnabled($value)
+    {
+        $this->_enabled = CPropertyValue::ensureBoolean($value);
+    }
+
+    /**
+     * @return boolean $value is panel enabled
+     */
+    public function getEnabled()
+    {
+        return $this->_enabled;
+    }
+
     /**
      * Displays a variable.
      * This method achieves the similar functionality as var_dump and print_r
