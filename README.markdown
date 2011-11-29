@@ -66,7 +66,7 @@ For use [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) need to specify new `r
 See: [issues](/malyshev/yii-debug-toolbar/issues)
 
 ## Working preview
-<img src="http://farm3.static.flickr.com/2672/5853614867_a0dc947c43_z.jpg" alt="Screenshot1" />
-<img src="http://farm6.static.flickr.com/5101/5854171184_9312bf5f18_z.jpg" alt="Screenshot2" />
+<img src="http://farm7.static.flickr.com/6177/6168425725_87de9089e7_z.jpg" alt="Screenshot1" />
+<img src="http://farm8.staticflickr.com/7034/6417218835_21f8c4a558_z.jpg" alt="Screenshot2" />
 
 
