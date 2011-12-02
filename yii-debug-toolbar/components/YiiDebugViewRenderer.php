@@ -74,7 +74,9 @@ class YiiDebugViewRenderer extends ProxyComponent
             'context'=>$context,
             'contextProperties'=>  get_object_vars($context),
             'action'=> $context instanceof CController ? $context->action : null,
-            'actionParams'=> $context instanceof CController ? $context->actionParams : null,
+            'actionParams'=> ($context instanceof CController && !method_exists($context, 'getActionParams'))
+                ? $context->actionParams
+                : null,
             'route'=> $context instanceof CController ? $context->route : null,
             'sourceFile'=>$sourceFile,
             'data'=>$data,
