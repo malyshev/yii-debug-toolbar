@@ -434,3 +434,57 @@ margin-top:0.8em;
 {
 	color: red !important;
 }
+
+
+#yii-debug-toolbar #resource-usage{
+    border-top: 1px double #EEEEEE;
+    
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 190px;
+   
+}
+
+#yii-debug-toolbar #resource-usage h1{
+    padding: 0;
+    margin: 0;
+    color: #EEEEEE;
+    font-weight: bold;
+    background: transparent url(chronometer.png) no-repeat center right;
+    margin: 5px 0;
+}
+
+#yii-debug-toolbar #resource-usage .panel{
+    padding: 0 10px 10px;
+}
+
+#yii-debug-toolbar #resource-usage .panel ul{
+    display: block;
+    margin: 5px 0;
+    padding-top: 10px;
+}
+
+#yii-debug-toolbar #resource-usage .panel li{
+    display: block;
+    line-height: 18px;
+    height: 16px;
+    clear: both;
+}
+
+#yii-debug-toolbar #resource-usage .panel ul,
+#yii-debug-toolbar #resource-usage .panel li,
+#yii-debug-toolbar #resource-usage .panel li label,
+#yii-debug-toolbar #resource-usage .panel li span{
+    font-size: 9px;
+    color: #fff;
+}
+
+#yii-debug-toolbar #resource-usage .panel li label{
+    float: left;
+}
+
+#yii-debug-toolbar #resource-usage .panel li span{
+    float: right;
+    color: #CE4E4E;
+}

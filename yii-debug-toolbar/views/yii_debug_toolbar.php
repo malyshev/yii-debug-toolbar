@@ -23,6 +23,14 @@ $allPanelID = array();
             </li>
             <?php endforeach; ?>
         </ul>
+        <div id="resource-usage">
+                <?php $this->widget('YiiDebugToolbarResourceUsage', array(
+                    'title'=>'Resource usage',
+                    'htmlOptions'=>array(
+                        'class'=>'panel'
+                    )
+                )); ?>
+        </div>
     </div>
 
     <?php foreach ($panels as $panel) : ?>

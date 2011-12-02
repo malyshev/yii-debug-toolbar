@@ -20,7 +20,6 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     private $_panels = array(
         'YiiDebugToolbarPanelServer',
-        'YiiDebugToolbarPanelResourceUsage',
         'YiiDebugToolbarPanelGlobals',
         'YiiDebugToolbarPanelSettings',
         'YiiDebugToolbarPanelViewsRendering',
@@ -62,7 +61,6 @@ class YiiDebugToolbarRoute extends CLogRoute
     private $_proxyMap = array(
         'viewRenderer' => 'YiiDebugViewRenderer'
     );
-
 
     public function setPanels(array $pannels)
     {
