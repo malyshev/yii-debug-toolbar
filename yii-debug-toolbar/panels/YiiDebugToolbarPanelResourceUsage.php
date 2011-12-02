@@ -69,7 +69,7 @@ class YiiDebugToolbarPanelResourceUsage extends YiiDebugToolbarPanel
             YiiDebug::t('Page Load Time')    =>  sprintf('%0.3F s.',$this->getLoadTime()),
             YiiDebug::t('Elapsed Time')      =>  sprintf('%0.3F s.',$this->getRequestLoadTime()),
             YiiDebug::t('Memory Usage')      =>  number_format(Yii::getLogger()->getMemoryUsage()/1024) . ' KB',
-            YiiDebug::t('Memory Peak Usage') =>  number_format(memory_get_peak_usage()/1024) . ' KB',
+            YiiDebug::t('Memory Peak Usage') => function_exists('memory_get_peak_usage') ? number_format(memory_get_peak_usage()/1024) . ' KB' : 'N/A',
         );
 
         if (function_exists('mb_strlen') && isset($_SESSION))

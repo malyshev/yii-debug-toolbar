@@ -50,7 +50,7 @@ $allPanelID = array();
 
 <script type="text/javascript">
 
-    var $allPanelID = <?php echo json_encode($allPanelID); ?>;
+    var $allPanelID = <?php echo CJavaScript::encode($allPanelID); ?>;
     var hash = '';
 
 (function($) {
