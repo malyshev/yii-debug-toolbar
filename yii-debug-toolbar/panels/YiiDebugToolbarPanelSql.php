@@ -210,8 +210,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             
             $lines = explode('  ', $serverInfo);
             foreach($lines as $line) {
-                list($key, $value) = explode(': ', $line);
-                
+                list($key, $value) = explode(': ', $line, 2);
                 $info[YiiDebug::t($key)] = $value;
             }
             
@@ -367,7 +366,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
             foreach ($params as $param)
             {
-                list($key,$value) = explode('=', $param);
+                list($key,$value) = explode('=', $param, 2);
                 $binds[trim($key)] = trim($value);
             }
 

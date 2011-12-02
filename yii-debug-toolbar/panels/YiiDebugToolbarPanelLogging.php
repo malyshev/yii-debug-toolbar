@@ -104,7 +104,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
     {
         $logs = array();
         foreach ($this->owner->getLogs() as $entry)
-        {
+        {            
             if (CLogger::LEVEL_PROFILE !== $entry[1] &&  false === strpos($entry[2], 'system.db.CDbCommand'))
             {
                 $logs[] = $entry;
