@@ -22,6 +22,8 @@ class ProxyComponent extends CComponent
 
     private $_isProxy;
 
+    protected $_abstractAttributes = array();
+
     public function init()
     {
     }
@@ -77,6 +79,10 @@ class ProxyComponent extends CComponent
         {
             return $this->_instance->$name = $value;
         }
+        else if (array_key_exists($name, $this->_abstractAttributes))
+        {
+            return $this->_abstractAttributes[$name] = $value;
+        }
 
         return parent::__set($name, $value);
     }
@@ -100,6 +106,10 @@ class ProxyComponent extends CComponent
         else if (false !== $this->getIsProxy() && false !== property_exists($this->_instance, $name))
         {
             return $this->_instance->$name;
+        }
+        else if (array_key_exists($name, $this->_abstractAttributes))
+        {
+            return $this->_abstractAttributes[$name] ;
         }
 
         return parent::__get($name);
