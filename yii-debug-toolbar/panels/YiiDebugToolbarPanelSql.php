@@ -367,7 +367,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
             foreach ($params as $param)
             {
-                list($key,$value) = explode('=', $param);
+                list($key,$value) = explode('=', $param, 2);
                 $binds[trim($key)] = trim($value);
             }
 
