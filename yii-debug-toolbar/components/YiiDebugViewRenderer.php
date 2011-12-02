@@ -21,11 +21,12 @@ class YiiDebugViewRenderer extends ProxyComponent
     private $_fileExtension = '.php';
 
     protected $_debugStackTrace = array();
-
-    public function getFileExtension()
-    {
-        return $this->_fileExtension;
-    }
+    
+    protected $_abstractAttributes = array(
+        'useRuntimePath'=>true,
+        'filePermission'=>0755,
+        'fileExtension'=>'.php',
+    );
 
     public function getDebugStackTrace()
     {
@@ -35,12 +36,11 @@ class YiiDebugViewRenderer extends ProxyComponent
     public function renderFile($context, $sourceFile, $data, $return)
     {
         $this->collectDebugInfo($context, $sourceFile, $data);
-
         if (false !== $this->getIsProxy())
         {
             return $this->instance->renderFile($context,$sourceFile,$data,$return);
         }
-         return $context->renderInternal($sourceFile,$data,$return);
+        return $context->renderInternal($sourceFile,$data,$return);
     }
 
     public function generateViewFile($sourceFile, $viewFile)
