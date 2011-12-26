@@ -200,7 +200,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     {
         if (null !== ($connection = Yii::app()->getComponent($connectionId))
             && false !== ($connection instanceof CDbConnection)
-            && 'sqlite' !== $connection->driverName
+            && !in_array($connection->driverName, array('sqlite', 'oci', 'dblib'))
             && '' !== ($serverInfo = $connection->getServerInfo()))
         {
             $info = array(

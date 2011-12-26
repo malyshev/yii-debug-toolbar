@@ -135,16 +135,10 @@ class YiiDebugToolbar extends CWidget
     {
         $content = '';
 
-        try {
-            $content .= $this->render('yii_debug_toolbar', array(
-                'panels' => $this->getPanels()
-            ), true);
-        }
-        catch (Exception $e)
-        {
-            throw new CException($e->getMessage(), $e->getCode(), $e->getPrevious());
-        }
-
+        $content .= $this->render('yii_debug_toolbar', array(
+            'panels' => $this->getPanels()
+        ), true);
+        
         echo $content;
     }
 
