@@ -32,14 +32,14 @@ class ProxyComponent extends CComponent
     {
         if (null === $this->_isProxy)
         {
-            $this->_isProxy = (null !== $this->_instance && !is_a($this->_instance, get_class($this)));
+            $this->_isProxy = (null !== $this->_instance && !($this->_instance instanceof $this));
         }
         return $this->_isProxy;
     }
 
     public function setInstance($value)
     {
-        if (null === $this->_instance)
+        if (null === $this->_instance && false !== is_object($value))
         {
             $this->abstract = array_merge($this->abstract, get_object_vars($value));
             $this->_instance = $value;

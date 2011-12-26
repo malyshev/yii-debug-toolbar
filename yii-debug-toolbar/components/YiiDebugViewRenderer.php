@@ -57,7 +57,7 @@ class YiiDebugViewRenderer extends ProxyComponent
 
     protected function collectDebugInfo($context, $sourceFile, $data)
     {
-        if(is_a($context, 'YiiDebugToolbar') || false !== ($context instanceof YiiDebugToolbarPanel))
+        if($context instanceof YiiDebugToolbar || false !== ($context instanceof YiiDebugToolbarPanel))
             return;
 
         $backTrace = debug_backtrace(true);
@@ -65,7 +65,7 @@ class YiiDebugViewRenderer extends ProxyComponent
 
         while($backTraceItem = array_shift($backTrace))
         {
-            if(isset($backTraceItem['object']) && $backTraceItem['object'] && is_a($backTraceItem['object'], get_class($context)) && in_array($backTraceItem['function'], array(
+            if(isset($backTraceItem['object']) && $backTraceItem['object'] && ($backTraceItem['object'] instanceof $context) && in_array($backTraceItem['function'], array(
                 'render',
                 'renderPartial'
             )) )
