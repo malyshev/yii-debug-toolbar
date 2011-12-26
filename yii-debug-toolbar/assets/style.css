@@ -91,7 +91,6 @@ margin-top:0.8em;
 }
 
 #yii-debug-toolbar #yii-debug-toolbar-buttons ul li{
-    border-bottom:1px solid #222;
     color:#fff;
     display:block;
     font-weight:bold;

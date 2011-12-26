@@ -121,7 +121,7 @@ class YiiDebugToolbarRoute extends CLogRoute
         parent::init();
 
         $this->enabled && $this->enabled = ($this->allowIp(Yii::app()->request->userHostAddress)
-                && !Yii::app()->getRequest()->getIsAjaxRequest());
+                && !Yii::app()->getRequest()->getIsAjaxRequest() && (Yii::app() instanceof CWebApplication));
 
         if ($this->enabled)
         {

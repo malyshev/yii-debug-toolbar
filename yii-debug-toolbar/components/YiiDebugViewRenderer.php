@@ -25,7 +25,7 @@ class YiiDebugViewRenderer extends ProxyComponent
     );
 
     protected $_debugStackTrace = array();
-
+//
 //    public function getFileExtension()
 //    {
 //        return $this->_fileExtension;

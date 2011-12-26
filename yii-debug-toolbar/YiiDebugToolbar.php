@@ -43,22 +43,6 @@ class YiiDebugToolbar extends CWidget
     private $_panels;
     
     /**
-     * Adds a panel to the top of the stack
-     * @param string $panel Name class panel
-     */
-    public function prependPanel($panel){
-        array_unshift($this->_panels, $panel);
-    }
-    
-    /**
-     * Adds a panel at the end of the stack
-     * @param string $panel Name class panel
-     */
-    public function appendPanel($panel){
-        array_push($this->_panels, $panel);
-    }
-
-    /**
      * Setup toolbar panels.
      *
      * @param array $panels Panels.
@@ -133,9 +117,7 @@ class YiiDebugToolbar extends CWidget
      */
     public function run()
     {
-        $content = '';
-
-        $content .= $this->render('yii_debug_toolbar', array(
+        $content = $this->render('yii_debug_toolbar', array(
             'panels' => $this->getPanels()
         ), true);
         

@@ -41,6 +41,7 @@ class ProxyComponent extends CComponent
     {
         if (null === $this->_instance)
         {
+            $this->abstract = array_merge($this->abstract, get_object_vars($value));
             $this->_instance = $value;
         }
     }
