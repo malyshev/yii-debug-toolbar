@@ -4,7 +4,7 @@
     yiiDebugToolbar = {
 
         init : function(){
-            
+
             this.registerEventListeners();
 
             if ($.cookie(COOKIE_NAME)) {
@@ -41,10 +41,10 @@
                 }
             }
 
-            
+
         },
 
-        toggleTabs : function(e) 
+        toggleTabs : function(e)
         {
             e.preventDefault();
             var $target = $(e.currentTarget);
@@ -65,7 +65,7 @@
             $target.addClass('active');
 
         },
-        
+
         /**
          * Toggles the nearby panel section in context of the clicked element
          */
@@ -84,13 +84,13 @@
         {
             var button = $('.' + id);
             var panel = $('#' + id);
-            
+
             if(panel.is(':visible')) {
                 panel.hide();
                 button.removeClass('active');
                 return;
             }
-            
+
             this.closeAllPannels();
             $('#'+id).show();
             $('.'+id).addClass('active');
@@ -133,8 +133,8 @@
                     expires: -1
                 });
             }
-        }, 
-        
+        },
+
         registerEventListeners: function() {
             $('#yii-debug-toolbar-swither').bind('click',$.proxy( this.toggleToolbar, this ));
             $('.yii-debug-toolbar-button').bind('click',$.proxy( this.buttonClicked, this ));
@@ -147,20 +147,7 @@
         toggleDetails: function(selector, cell){
             $(selector).toggleClass('hidden');
         }
-        
+
     };
 
-    $(function(){
-        $('.yii-debug-toolbar-button').live('click', function(){
-            setTimeout(function(){
-                $('a.yii-debug-toolbar-link').each(function(){
-                    $(this).attr('href', '#'+$(this).attr('id').replace('yii-debug-toolbar-tab-',''));
-                    if($(this).parents('li.yii-debug-toolbar-button').hasClass('active')){
-                        $(this).attr('href', '#close');
-                    }
-                });
-            }, 1);
-        });
-    });
-    
 })( jQuery );

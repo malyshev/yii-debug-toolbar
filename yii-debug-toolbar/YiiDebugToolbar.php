@@ -117,11 +117,9 @@ class YiiDebugToolbar extends CWidget
      */
     public function run()
     {
-        $content = $this->render('yii_debug_toolbar', array(
+        $this->render('yii_debug_toolbar', array(
             'panels' => $this->getPanels()
-        ), true);
-        
-        echo $content;
+        ));
     }
 
     /**
@@ -138,11 +136,11 @@ class YiiDebugToolbar extends CWidget
         if (false !== $this->cssFile)
         {
             if (null === $this->cssFile)
-                $this->cssFile = $this->assetsUrl . '/style.css';
+                $this->cssFile = $this->assetsUrl . '/yii.debugtoolbar.css';
             $cs->registerCssFile($this->cssFile);
         }
 
-        $cs->registerScriptFile($this->assetsUrl . '/yii.debug.toolbar.js',
+        $cs->registerScriptFile($this->assetsUrl . '/yii.debugtoolbar.js',
                 CClientScript::POS_END);
 
         return $this;

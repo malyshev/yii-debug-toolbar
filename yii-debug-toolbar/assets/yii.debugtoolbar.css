@@ -33,7 +33,7 @@
     width: 190px;
     line-height: 24px;
     background: #192839;
-    
+
 }
 
 #yii-debug-toolbar-swither{
@@ -343,7 +343,7 @@ margin-top:0.8em;
     padding: 0;
 }
 
-#yii-debug-toolbar-sql-callstack tbody td, 
+#yii-debug-toolbar-sql-callstack tbody td,
 #yii-debug-toolbar-sql-summary tbody td {
 	font-family: monospace;
 }
@@ -437,12 +437,12 @@ margin-top:0.8em;
 
 #yii-debug-toolbar #resource-usage{
     border-top: 1px double #EEEEEE;
-    
+
     position: absolute;
     right: 0px;
     bottom: 0px;
     width: 190px;
-   
+
 }
 
 #yii-debug-toolbar #resource-usage h1{
