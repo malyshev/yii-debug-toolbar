@@ -1,4 +1,4 @@
-    <h4 class="collapsible">SERVER <?php echo YiiDebug::t('Variables')?></h4>
+    <h4 class="collapsible"><?php echo YiiDebug::t('Request Server Parameters')?></h4>
     <table id="debug-toolbar-globals-server">
         <thead>
             <tr>

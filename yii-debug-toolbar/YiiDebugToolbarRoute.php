@@ -20,7 +20,7 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     private $_panels = array(
         'YiiDebugToolbarPanelServer',
-        'YiiDebugToolbarPanelGlobals',
+        'YiiDebugToolbarPanelRequest',
         'YiiDebugToolbarPanelSettings',
         'YiiDebugToolbarPanelViewsRendering',
         'YiiDebugToolbarPanelSql',
