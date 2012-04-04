@@ -85,20 +85,6 @@ class YiiDebugToolbarRoute extends CLogRoute
                 'class'=>'YiiDebugToolbar',
                 'panels'=> $this->panels
             ), $this);
-
-            
-            if(!empty($this->additionalPanels) and is_array($this->additionalPanels))
-            {
-                foreach($this->additionalPanels as $panel)
-                {
-                    $pos = 'append';
-                    if(($dotpos=strpos($panel, ':'))!==false){
-                            $pos = substr($panel, 0, $dotpos) == 'prepend' ? 'prepend' : 'append';
-                            $panel = substr($panel, $dotpos+1);
-                    }
-                    $this->_toolbarWidget->{$pos.'Panel'}($panel);
-                }
-            }
         }
         return $this->_toolbarWidget;
     }
