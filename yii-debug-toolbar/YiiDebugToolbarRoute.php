@@ -27,7 +27,8 @@ class YiiDebugToolbarRoute extends CLogRoute
         'YiiDebugToolbarPanelLogging',
     );
 
-    /* The filters are given in an array, each filter being:
+    /** 
+     * The filters are given in an array, each filter being:
      * - a normal IP (192.168.0.10 or '::1')
      * - an incomplete IP (192.168.0.* or 192.168.0.)
      * - a CIDR mask (192.168.0.0/24)
