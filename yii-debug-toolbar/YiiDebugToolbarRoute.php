@@ -36,18 +36,6 @@ class YiiDebugToolbarRoute extends CLogRoute
     public $ipFilters=array('127.0.0.1','::1');
     
     /**
-     * This is a list of paths to extra panels.
-     * Example:
-     * 'additionalPanels' => array(
-     *    'append:application.extensions.debug-panels.newPanel', // added panel as last
-     *    'prepend:application.extensions.debug-panels.newPanel2', // added panel as first
-     *    'application.extensions.debug-panels.newPanel3' // added panel as last
-     * )
-     * @var array
-     */
-    public $additionalPanels = array();
-
-    /**
      * If true, then after reloading the page will open the current panel.
      * @var bool
      */
