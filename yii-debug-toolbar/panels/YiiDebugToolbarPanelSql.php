@@ -361,14 +361,15 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         {
             list($query, $params) = explode('. Bound with ', $queryString);
 
-            $params = explode(',', $params);
-            $binds  = array();
+	        $binds  = array();
+	        $matchResult = preg_match_all("/(?<key>[a-z0-9\.\_\-\:]+)=(?<value>[\d\.e\-\+]+|''|'.+?(?<!\\\)')/ims", $params, $paramsMatched, PREG_SET_ORDER);
 
-            foreach ($params as $param)
-            {
-                list($key,$value) = explode('=', $param, 2);
-                $binds[trim($key)] = trim($value);
+            if ($matchResult) {
+                foreach ($paramsMatched as $paramsMatch)
+	                if (isset($paramsMatch['key'], $paramsMatch['value']))
+                        $binds[trim($paramsMatch['key'])] = trim($paramsMatch['value']);
             }
+
 
             $entry[0] = strtr($query, $binds);
         }
