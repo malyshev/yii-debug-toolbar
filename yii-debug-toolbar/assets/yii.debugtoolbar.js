@@ -118,7 +118,7 @@
             if($('#yii-debug-toolbar').is(":visible"))
             {
                 $('#yii-debug-toolbar').hide();
-                $('#yii-debug-toolbar-swither a').removeClass('close');
+                $('#yii-debug-toolbar-switcher a').removeClass('close');
                 $.cookie(COOKIE_NAME, 'hide', {
                     path: '/',
                     expires: 10
@@ -127,7 +127,7 @@
             else
             {
                 $('#yii-debug-toolbar').show();
-                $('#yii-debug-toolbar-swither a').addClass('close');
+                $('#yii-debug-toolbar-switcher a').addClass('close');
                 $.cookie(COOKIE_NAME, null, {
                     path: '/',
                     expires: -1
@@ -136,7 +136,7 @@
         },
 
         registerEventListeners: function() {
-            $('#yii-debug-toolbar-swither').bind('click',$.proxy( this.toggleToolbar, this ));
+            $('#yii-debug-toolbar-switcher').bind('click',$.proxy( this.toggleToolbar, this ));
             $('.yii-debug-toolbar-button').bind('click',$.proxy( this.buttonClicked, this ));
             $('.yii-debug-toolbar-panel-close').bind('click',$.proxy( this.closeButtonClicked, this ));
             $('#yii-debug-toolbar .collapsible').bind('click', function(){ yiiDebugToolbar.toggleSection($(this).attr('rel'), this); });
