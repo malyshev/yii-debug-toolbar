@@ -279,6 +279,13 @@ line-height:50px;
     background-color:#FFFFCC;
 }
 
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr.selected{
+    background-color:#e5e5e5;
+}
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr.selected:hover{
+    background-color:#EEEEBB;
+}
+
 #yii-debug-toolbar .yii-debug-toolbar-panel-content  td.al-l,
 #yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-l{
     text-align:left;
