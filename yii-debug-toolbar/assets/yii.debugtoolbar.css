@@ -39,7 +39,7 @@
 
 }
 
-#yii-debug-toolbar-swither{
+#yii-debug-toolbar-switcher{
     display:block;
     position:fixed;
     z-index:1000000;
@@ -52,7 +52,7 @@
 
 }
 
-#yii-debug-toolbar-swither a{
+#yii-debug-toolbar-switcher a{
     background:transparent url(panel.png) no-repeat scroll center center;
     text-indent:-999999px;
     z-index:100000000;
@@ -62,7 +62,7 @@
     line-height:24px;
     padding:4px 0 0 4px;
 }
-#yii-debug-toolbar-swither a.close{
+#yii-debug-toolbar-switcher a.close{
     background:transparent url(panel-close.png) no-repeat scroll center center;
 }
 
