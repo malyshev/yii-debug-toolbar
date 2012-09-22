@@ -27,7 +27,7 @@ class YiiDebugToolbarRoute extends CLogRoute
         'YiiDebugToolbarPanelLogging',
     );
 
-    /** 
+    /**
      * The filters are given in an array, each filter being:
      * - a normal IP (192.168.0.10 or '::1')
      * - an incomplete IP (192.168.0.* or 192.168.0.)
@@ -35,12 +35,25 @@ class YiiDebugToolbarRoute extends CLogRoute
      * - "*" for everything.
      */
     public $ipFilters=array('127.0.0.1','::1');
-    
+
     /**
      * If true, then after reloading the page will open the current panel.
      * @var bool
      */
     public $openLastPanel = true;
+
+    /**
+     * Whitelist for response content types. DebugToolbarRoute won't write any
+     * output if the server generates output that isn't listed here (json, xml,
+     * files, ...)
+     * @var array of content type strings (in lower case)
+     */
+    public $contentTypeWhitelist = array(
+      // Yii framework doesn't seem to send content-type header by default.
+      '',
+      'text/html',
+      'application/xhtml+xml',
+    );
 
     private $_toolbarWidget,
             $_startTime,
@@ -169,7 +182,24 @@ class YiiDebugToolbarRoute extends CLogRoute
     protected function processLogs($logs)
     {
         $this->_endTime = microtime(true);
+        // disable log route based on white list
+        $this->enabled = $this->enabled && $this->checkContentTypeWhitelist();
         $this->enabled && $this->getToolbarWidget()->run();
+    }
+
+    private function checkContentTypeWhitelist()
+    {
+      $contentType = '';
+
+      foreach (headers_list() as $header) {
+        list($key, $value) = explode(': ', $header);
+        if (strtolower($key) === 'content-type') {
+          $contentType = strtolower($value);
+          break;
+        }
+      }
+
+      return in_array( $contentType, $this->contentTypeWhitelist );
     }
 
     /**
