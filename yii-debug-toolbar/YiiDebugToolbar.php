@@ -157,12 +157,13 @@ class YiiDebugToolbar extends CWidget
         {
             if (!is_object($config))
             {
+                if (is_string($config))
+                {
+                    $config = array('class' => $config);
+                }
                 if(is_array($config))
                 {
-                    if (is_string($config))
-                    {
-                        $config = array('class' => $config);
-                    }
+                    isset($config['class']) || $config['class'] = $id;
                     if (isset($config['enabled']) && false === $config['enabled'])
                     {
                         unset($this->_panels[$id]);
