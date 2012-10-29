@@ -366,8 +366,8 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
 
             if ($matchResult) {
                 foreach ($paramsMatched as $paramsMatch)
-	                if (isset($paramsMatch['key'], $paramsMatch['value']))
-                        $binds[trim($paramsMatch['key'])] = trim($paramsMatch['value']);
+	                if (isset($paramsMatch['key'], $paramsMatch['value']))                        
+                        $binds[':' . trim($paramsMatch['key'],': ')] = trim($paramsMatch['value']);
             }
 
 
