@@ -192,7 +192,8 @@ class YiiDebugToolbarRoute extends CLogRoute
       $contentType = '';
 
       foreach (headers_list() as $header) {
-        list($key, $value) = explode(': ', $header);
+        list($key, $value) = explode(':', $header);
+        $value = ltrim($value, ' ');
         if (strtolower($key) === 'content-type') {
           // Split encoding if exists
           $contentType = explode(";", strtolower($value));
