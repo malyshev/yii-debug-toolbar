@@ -57,7 +57,46 @@ class YiiDebugViewRenderer extends ProxyComponent
 
     protected function getDebugBacktrace()
     {
-      debug_backtrace(true);
+      // @see "http://www.php.net/manual/en/function.debug-backtrace.php"
+      // 
+      // debug_backtrace Changelog
+      // 
+      // Version  Description
+      // 5.4.0    Added the optional parameter limit.
+      // 5.3.6    The parameter provide_object changed to options and
+      //          additional option DEBUG_BACKTRACE_IGNORE_ARGS is added.
+      // 5.2.5    Added the optional parameter provide_object.
+      // 5.1.1    Added the current object as a possible return element.
+      if (PHP_VERSION_ID >= 50400)
+      {
+        // signature is:
+        // array debug_backtrace ([ int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT [, int $limit = 0 ]] )
+        // 
+        // possible values for $options:
+        // - DEBUG_BACKTRACE_PROVIDE_OBJECT
+        // - DEBUG_BACKTRACE_IGNORE_ARGS
+        // - DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS
+        $debugBacktrace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT );
+      }
+      elseif (PHP_VERSION_ID >= 50306)
+      {
+        // signature is:
+        // array debug_backtrace ([ int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT ] )
+        // 
+        // possible values for $options:
+        // - DEBUG_BACKTRACE_PROVIDE_OBJECT
+        // - DEBUG_BACKTRACE_IGNORE_ARGS
+        // - DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS
+        $debugBacktrace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT );
+      }
+      else
+      {
+        // signature is:
+        // array debug_backtrace ( )
+        $debugBacktrace = debug_backtrace();
+      }
+      
+      return $debugBacktrace;
     }
     
     protected function collectDebugInfo($context, $sourceFile, $data)
