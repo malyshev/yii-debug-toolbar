@@ -55,12 +55,17 @@ class YiiDebugViewRenderer extends ProxyComponent
         }
     }
 
+    protected function getDebugBacktrace()
+    {
+      debug_backtrace(true);
+    }
+    
     protected function collectDebugInfo($context, $sourceFile, $data)
     {
         if($context instanceof YiiDebugToolbar || false !== ($context instanceof YiiDebugToolbarPanel))
             return;
 
-        $backTrace = debug_backtrace(true);
+        $backTrace = $this->getDebugBacktrace();
         $backTraceItem = null;
 
         while($backTraceItem = array_shift($backTrace))
