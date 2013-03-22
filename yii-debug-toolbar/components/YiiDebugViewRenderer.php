@@ -89,7 +89,13 @@ class YiiDebugViewRenderer extends ProxyComponent
         // - DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS
         $debugBacktrace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT );
       }
-      else
+      elseif (version_compare(PHP_VERSION, '5.2.5', '>='))
+      {
+        // signature is:
+        // array debug_backtrace ([ bool $provide_object = TRUE ] )
+        $debugBacktrace = debug_backtrace( true );
+      }
+      else /* version < 5.2.5 */
       {
         // signature is:
         // array debug_backtrace ( )
