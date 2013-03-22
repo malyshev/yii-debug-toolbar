@@ -54,7 +54,7 @@ class YiiDebugViewRenderer extends ProxyComponent
             return $this->instance->generateViewFile($sourceFile, $viewFile);
         }
     }
-
+    
     protected function getDebugBacktrace()
     {
       // @see "http://www.php.net/manual/en/function.debug-backtrace.php"
@@ -67,7 +67,7 @@ class YiiDebugViewRenderer extends ProxyComponent
       //          additional option DEBUG_BACKTRACE_IGNORE_ARGS is added.
       // 5.2.5    Added the optional parameter provide_object.
       // 5.1.1    Added the current object as a possible return element.
-      if (PHP_VERSION_ID >= 50400)
+      if (version_compare(PHP_VERSION, '5.4.0', '>='))
       {
         // signature is:
         // array debug_backtrace ([ int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT [, int $limit = 0 ]] )
@@ -78,7 +78,7 @@ class YiiDebugViewRenderer extends ProxyComponent
         // - DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS
         $debugBacktrace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT );
       }
-      elseif (PHP_VERSION_ID >= 50306)
+      elseif (version_compare(PHP_VERSION, '5.3.6', '>='))
       {
         // signature is:
         // array debug_backtrace ([ int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT ] )
