@@ -17,6 +17,22 @@
 
 class YiiDebug extends CComponent
 {
+    const PATH_ALIAS = 'yii-debug-toolbar';
+    
+    private static $_route;
+    
+    public static function setRoute(YiiDebugToolbarRoute $route)
+    {
+        if (null === self::$_route)
+        {
+            self::$_route = $route;
+        }
+    }
+    
+    public static function getRoute()
+    {
+       return self::$_route; 
+    }
 
     /**
      * Displays a variable.
@@ -38,6 +54,58 @@ class YiiDebug extends CComponent
     {
         Yii::trace(self::dump($message), 'dump');
     }
+    
+    public static function proxyComponent($class, $proxy)
+    {
+        $applicationComponents = Yii::app()->getComponents(false);
+        $componentClass = null;
+        foreach ($applicationComponents as $id=>$component)
+        {
+            if (false !== is_array($component) && array_key_exists('class', $component))
+            {
+                $componentClass = $component['class'];
+            }
+            else if (false !== is_object($component))
+            {
+                $componentClass = get_class($component);
+            }
+            else if (false !== is_string($component))
+            {
+                $componentClass = $component;
+            }
+            
+            if ($componentClass && (is_subclass_of($componentClass, $class) || $componentClass === $class))
+            {
+                if (is_object($component))
+                {
+                    Yii::app()->setComponent($id, null);
+                }
+                
+                Yii::app()->setComponent($id, array(
+                    'class' => $proxy,
+                    'instance' => $component
+                ), false);
+            }
+        }
+    }
+    
+    public static function proxyComponentById($id, $proxy)
+    {
+        $applicationComponents = Yii::app()->getComponents(false);
+        if (array_key_exists($id, $applicationComponents))
+        {
+            $component = $applicationComponents[$id];
+            if (is_object($component))
+            {
+                Yii::app()->setComponent($id, null);
+            }
+            
+            Yii::app()->setComponent($id, array(
+                'class' => $proxy,
+                'instance' => $component
+            ), false);
+        }
+    }
 
     public static function getClass($class)
     {
@@ -51,7 +119,28 @@ class YiiDebug extends CComponent
         $method->setAccessible(true);
         return $method;
     }
-
+    
+    public static function createCallback($action, $params = array(), $callback = null)
+    {
+        static $callbackId = 0;
+        $callbackName = 'debug_callback_' . $callbackId;
+        $cs = Yii::app()->clientScript;
+        $url = Yii::app()->createUrl(self::getRoute()->controllerId . '/' . $action);
+        $params = CJSON::encode($params);
+        $callback = $callback;
+        $callbackFunction = self::createCallbackFunction($url, $params, $callback);
+        $cs->registerScript(__CLASS__.'#1'.$callbackName, "var $callbackName = $callbackFunction");
+        $callbackId++;
+        return $callbackName . '(this)';
+    }
+    
+    private static function createCallbackFunction($url, $params, $callback)
+    {
+        return <<<EOD
+function(e){yiiDebugToolbar.callback(e, '$url', $params, $callback)}
+EOD;
+    }    
+    
     public static function t($str,$params=array(),$dic='yii-debug-toolbar') {
         return Yii::t("YiiDebug.".$dic, $str, $params);
     }

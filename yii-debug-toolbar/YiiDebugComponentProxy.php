@@ -1,21 +1,22 @@
 <?php
 /**
- * ProxyComponent class file.
+ * YiiDebugComponentProxy class file.
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
 /**
- * ProxyComponent represents an ...
+ * YiiDebugComponentProxy represents an ...
  *
- * Description of ProxyComponent
+ * Description of YiiDebugComponentProxy
  *
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  * @version $Id$
  * @package
  * @since 1.1.7
  */
-class ProxyComponent extends CComponent
+
+class YiiDebugComponentProxy extends CComponent
 {
 
     private $_instance;
@@ -39,6 +40,11 @@ class ProxyComponent extends CComponent
 
     public function setInstance($value)
     {
+        if (null === $this->_instance)
+        {
+            $this->_instance = $value;
+        }
+        
         if (null === $this->_instance && false !== is_object($value))
         {
             $this->abstract = array_merge($this->abstract, get_object_vars($value));
@@ -48,14 +54,19 @@ class ProxyComponent extends CComponent
 
     public function getInstance()
     {
+        if (null !== $this->_instance && !is_object($this->_instance))
+        {
+            $this->_instance = Yii::createComponent($this->_instance);
+            $this->abstract = array_merge($this->abstract, get_object_vars($this->_instance));
+        }
         return $this->_instance;
     }
 
     public function  __call($name, $parameters)
     {
-        if (false !== $this->getIsProxy() && false !== method_exists($this->_instance, $name))
+        if (false !== $this->getIsProxy() && false !== method_exists($this->instance, $name))
         {
-            return call_user_func_array(array($this->_instance, $name), $parameters);
+            return call_user_func_array(array($this->instance, $name), $parameters);
         }
 
         return parent::__call($name, $parameters);
@@ -72,13 +83,13 @@ class ProxyComponent extends CComponent
         {
             return $this->$name = $value;
         }
-        else if (false !== $this->getIsProxy() && false !== method_exists($this->_instance, $setter))
+        else if (false !== $this->getIsProxy() && false !== method_exists($this->instance, $setter))
         {
-            return call_user_func_array(array($this->_instance, $setter), array($value));
+            return call_user_func_array(array($this->instance, $setter), array($value));
         }
-        else if (false !== $this->getIsProxy() && false !== property_exists($this->_instance, $name))
+        else if (false !== $this->getIsProxy() && false !== property_exists($this->instance, $name))
         {
-            return $this->_instance->$name = $value;
+            return $this->instance->$name = $value;
         }
         else if (false === $this->getIsProxy() && false !== array_key_exists ($name, $this->abstract))
         {
@@ -100,13 +111,13 @@ class ProxyComponent extends CComponent
         {
             return $this->$name;
         }
-        else if (false !== $this->getIsProxy() && false !== method_exists($this->_instance, $getter))
+        else if (false !== $this->getIsProxy() && false !== method_exists($this->instance, $getter))
         {
-            return call_user_func(array($this->_instance, $getter));
+            return call_user_func(array($this->instance, $getter));
         }
-        else if (false !== $this->getIsProxy() && false !== property_exists($this->_instance, $name))
+        else if (false !== $this->getIsProxy() && false !== property_exists($this->instance, $name))
         {
-            return $this->_instance->$name;
+            return $this->instance->$name;
         }
         else if (false === $this->getIsProxy() && false !== array_key_exists ($name, $this->abstract))
         {

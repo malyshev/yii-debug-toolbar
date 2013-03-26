@@ -144,8 +144,22 @@
             $('#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr').bind('click', function(){ $(this).toggleClass('selected'); });
         },
 
-        toggleDetails: function(selector, cell){
+        toggleDetails: function(selector, cell) {
             $(selector).toggleClass('hidden');
+        },
+        
+        callback : function(el, url, params, callback) {
+            var $el = $(el);
+            $.ajax({
+                url : url,
+                type : 'POST',
+                data : params,
+                success : function(data) {
+                    if ('function' == typeof callback) {
+                        callback(data);
+                    }
+                }
+            });
         }
 
     };

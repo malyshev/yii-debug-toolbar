@@ -5,7 +5,6 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
-
 /**
  * YiiDebugToolbarPanelSql class.
  *
@@ -24,7 +23,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      * @var boolean
      */
     public $highlightSql = true;
-
+    
     private $_countLimit = 1;
 
     private $_timeLimit = 0.01;
@@ -34,21 +33,16 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     private $_dbConnections;
 
     private $_dbConnectionsCount;
+    
+    private $_queryCount;
 
     private $_textHighlighter;
-
-    public function  __construct($owner = null)
+    
+    public static function actions()
     {
-        parent::__construct($owner);
-
-        try
-        {
-            Yii::app()->db;
-        }
-        catch (Exception $e)
-        {
-            $this->_dbConnections = false;
-        }
+        return array(
+            'explain' => YiiDebug::PATH_ALIAS . '.panels.sql.YiiDebugExplainAction'
+        );
     }
 
     public function getCountLimit()
@@ -96,6 +90,16 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         }
         return $this->_dbConnections;
     }
+    
+    public function getQueryCount()
+    {
+        if (null === $this->_queryCount)
+        {
+            $this->_queryCount = array(0, 0);
+        }
+        
+        return $this->_queryCount;
+    }
 
     /**
      * {@inheritdoc}
@@ -112,8 +116,8 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     {
         if (false !== $this->_dbConnections)
         {
-            $st = Yii::app()->db->getStats();
-            return YiiDebug::t('{n} query in {s} s.|{n} queries in {s} s.', array($st[0], '{s}'=>vsprintf('%0.'.$f.'F', $st[1])));
+            $queryCount = $this->getQueryCount();
+            return YiiDebug::t('{n} query in {s} s.|{n} queries in {s} s.', array($queryCount[0], '{s}'=>vsprintf('%0.'.$f.'F', $queryCount[1])));
         }
         return YiiDebug::t('No active connections');
     }
@@ -146,7 +150,8 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
      */
     public function init()
     {
-
+        parent::init();
+        YiiDebug::proxyComponent('CDbConnection', YiiDebug::PATH_ALIAS . '.panels.sql.YiiDebugDbCommand');
     }
 
     /**
@@ -291,7 +296,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         {
             return $logs;
         }
-        $stack = array();
+        $stack = $results = array();
         foreach($logs as $log)
         {
             $message = $log[0];
@@ -306,10 +311,12 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
                 if(null !== ($last = array_pop($stack)) && $last[0] === $token)
                 {
                     $delta = $log[3] - $last[3];
-
-                    if(isset($results[$token]))
+                    if(false !== isset($results[$token]))
+                    {
                         $results[$token] = $this->aggregateResult($results[$token], $delta);
-                    else{
+                    }
+                    else
+                    {
                         $results[$token] = array($token, 1, $delta, $delta, $delta);
                     }
                 }
@@ -360,16 +367,14 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         if (false !== strpos($queryString, '. Bound with '))
         {
             list($query, $params) = explode('. Bound with ', $queryString);
-
-	        $binds  = array();
-	        $matchResult = preg_match_all("/(?<key>[a-z0-9\.\_\-\:]+)=(?<value>[\d\.e\-\+]+|''|'.+?(?<!\\\)')/ims", $params, $paramsMatched, PREG_SET_ORDER);
-
-            if ($matchResult) {
+            $binds  = array();
+            $matchResult = preg_match_all("/(?<key>[a-z0-9\.\_\-\:]+)=(?<value>[\d\.e\-\+]+|''|'.+?(?<!\\\)')/ims", $params, $paramsMatched, PREG_SET_ORDER);
+            if ($matchResult) 
+            {
                 foreach ($paramsMatched as $paramsMatch)
 	                if (isset($paramsMatch['key'], $paramsMatch['value']))                        
                         $binds[':' . trim($paramsMatch['key'],': ')] = trim($paramsMatch['value']);
             }
-
 
             $entry[0] = strtr($query, $binds);
         }
@@ -377,6 +382,8 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
         {
             $entry[0] = $queryString;
         }
+        
+        $entry['query'] = base64_encode($queryString);
 
         if(false !== CPropertyValue::ensureBoolean($this->highlightSql))
         {

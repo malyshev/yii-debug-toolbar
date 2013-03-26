@@ -31,7 +31,7 @@ class YiiDebugToolbarPanelViewsRendering extends YiiDebugToolbarPanel
     public function init()
     {
         parent::init();
-
+        YiiDebug::proxyComponentById('viewRenderer', YiiDebug::PATH_ALIAS . '.panels.viewsRendering.YiiDebugViewRenderer');
         $this->_viewRenderer = Yii::app()->getComponent('viewRenderer');
     }
 

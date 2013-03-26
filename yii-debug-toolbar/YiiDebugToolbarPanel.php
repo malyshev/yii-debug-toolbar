@@ -17,8 +17,7 @@
  * @package YiiDebugToolbar
  * @since 1.1.7
  */
-abstract class YiiDebugToolbarPanel extends CWidget
-implements YiiDebugToolbarPanelInterface
+abstract class YiiDebugToolbarPanel extends CWidget implements YiiDebugToolbarPanelInterface
 {
 
     const VIEWS_PATH = '/views/panels';

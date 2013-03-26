@@ -84,7 +84,7 @@ class YiiDebugToolbarPanelLogging extends YiiDebugToolbarPanel
         }
         return $this->_countMessages;
     }
-
+    
     /**
      * {@inheritdoc}
      */

@@ -26,7 +26,7 @@
 
 }
 
-#yii-debug-toolbar{
+#yii-debug-toolbar {
     display:block;
     position:fixed;
     z-index:10000;
@@ -39,7 +39,7 @@
 
 }
 
-#yii-debug-toolbar-switcher{
+#yii-debug-toolbar-switcher {
     display:block;
     position:fixed;
     z-index:1000000;
@@ -52,7 +52,7 @@
 
 }
 
-#yii-debug-toolbar-switcher a{
+#yii-debug-toolbar-switcher a {
     background:transparent url(panel.png) no-repeat scroll center center;
     text-indent:-999999px;
     z-index:100000000;
@@ -62,11 +62,11 @@
     line-height:24px;
     padding:4px 0 0 4px;
 }
-#yii-debug-toolbar-switcher a.close{
+#yii-debug-toolbar-switcher a.close {
     background:transparent url(panel-close.png) no-repeat scroll center center;
 }
 
-#yii-debug-toolbar p{
+#yii-debug-toolbar p {
     padding:5px 0;
 }
 
@@ -85,17 +85,17 @@ line-height:50px;
 }
 
 
-#yii-debug-toolbar #yii-debug-toolbar-buttons{
+#yii-debug-toolbar #yii-debug-toolbar-buttons {
     opacity:0.9;
 }
 
-#yii-debug-toolbar #yii-debug-toolbar-buttons ul{
+#yii-debug-toolbar #yii-debug-toolbar-buttons ul {
     margin:0;
     padding:0;
     list-style:none;
 }
 
-#yii-debug-toolbar #yii-debug-toolbar-buttons ul li{
+#yii-debug-toolbar #yii-debug-toolbar-buttons ul li {
     color:#fff;
     display:block;
     font-weight:bold;
@@ -107,7 +107,7 @@ line-height:50px;
 }
 
 #yii-debug-toolbar #yii-debug-toolbar-buttons li>a,
-#yii-debug-toolbar #yii-debug-toolbar-buttons li>div.contentless{
+#yii-debug-toolbar #yii-debug-toolbar-buttons li>div.contentless {
     font-weight:normal;
     font-style:normal;
     text-decoration:none;
@@ -135,13 +135,13 @@ line-height:50px;
 }
 
 #yii-debug-toolbar #yii-debug-toolbar-buttons .yii-debug-toolbar-button.active,
-#yii-debug-toolbar #yii-debug-toolbar-buttons .yii-debug-toolbar-button.active a:hover{
+#yii-debug-toolbar #yii-debug-toolbar-buttons .yii-debug-toolbar-button.active a:hover {
     background:#474747 url(indicator.png) no-repeat 0 50%;
     color:#fff;
 
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel{
+#yii-debug-toolbar .yii-debug-toolbar-panel {
     display:block;
     position:fixed;
     z-index:10000000;
@@ -179,11 +179,11 @@ line-height:50px;
     background-image:url(close_hover.png);
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel{
+#yii-debug-toolbar .yii-debug-toolbar-panel {
     display:none;
 }
 #yii-debug-toolbar .yii-debug-toolbar-panel-content
-{
+ {
     display:block;
     position:fixed;
     margin:0;
@@ -196,12 +196,12 @@ line-height:50px;
     z-index:100000000;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content  .details{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  .details {
 	padding-left:1em;
 }
 
 /* tabs */
-#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs {
     list-style:none;
     list-style-type:none;
     padding:0 20px;
@@ -209,17 +209,17 @@ line-height:50px;
     border-bottom:1px solid #ccc;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li {
     display:inline-block;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li.active{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li.active {
     border:1px solid #ccc;
     margin-bottom:-1px;
     border-bottom:1px solid #eee;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li a{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li a {
     display:block;
     height:25px;
     line-height:25px;
@@ -227,7 +227,7 @@ line-height:50px;
 }
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li a:hover,
-#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li.active a{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content ul.yii-debug-toolbar-tabs li.active a {
     text-decoration:none;
 }
 
@@ -236,7 +236,7 @@ line-height:50px;
 /* tabs */
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content .scroll
-{
+ {
     width:100%;height:100%;
     overflow:auto;
     display:block;
@@ -247,7 +247,7 @@ line-height:50px;
 #yii-debug-toolbar .yii-debug-toolbar-panel-content table,
 #yii-debug-toolbar .yii-debug-toolbar-panel-content tr,
 #yii-debug-toolbar .yii-debug-toolbar-panel-content th,
-#yii-debug-toolbar .yii-debug-toolbar-panel-content td{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content td {
     border: 1px solid #ccc;
     border-collapse: collapse;
 }
@@ -260,7 +260,7 @@ line-height:50px;
 }
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content table thead tr
-{
+ {
     background:#F5F5F5;
 }
 
@@ -275,55 +275,55 @@ line-height:50px;
     font-weight: bold;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr:hover{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr:hover {
     background-color:#FFFFCC;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr.selected{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr.selected {
     background-color:#e5e5e5;
 }
-#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr.selected:hover{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content tbody tr.selected:hover {
     background-color:#EEEEBB;
 }
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content  td.al-l,
-#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-l{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-l {
     text-align:left;
 }
 #yii-debug-toolbar .yii-debug-toolbar-panel-content  td.al-c,
-#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-c{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-c {
     text-align:center;
 }
 #yii-debug-toolbar .yii-debug-toolbar-panel-content  td.al-r,
-#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-r{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content  th.al-r {
     text-align:right;
     text-align:right;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content table.phpinfo{}
-#yii-debug-toolbar .yii-debug-toolbar-panel-content table.phpinfo th{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table.phpinfo {}
+#yii-debug-toolbar .yii-debug-toolbar-panel-content table.phpinfo th {
 	text-align:left; color:black; font-size:14px; border-bottom:1px solid #CCCCCC; background:#F5F5F5;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content .odd{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content .odd {
     background-color:#f5f5f5;
 }
 
-#yii-debug-toolbar .yii-debug-toolbar-panel-content .warning{
+#yii-debug-toolbar .yii-debug-toolbar-panel-content .warning {
     background-color:#FFEEEE;
 }
 
-#yii-debug-toolbar .hidden{
+#yii-debug-toolbar .hidden {
     display:none;
 }
 
-#yii-debug-toolbar .collapsible{
+#yii-debug-toolbar .collapsible {
     border-bottom:1px dashed #ccc;
     cursor:pointer;
     background:transparent url('bullet_toggle_minus.png') no-repeat scroll 100% 50%;
 }
 
-#yii-debug-toolbar p.collapsible{
+#yii-debug-toolbar p.collapsible {
     border-bottom:1px dashed #ccc;
     cursor:pointer;
     background:none;
@@ -333,12 +333,12 @@ line-height:50px;
 }
 
 #yii-debug-toolbar .collapsible.collapsed
-{
+ {
     background:transparent url('bullet_toggle_plus.png') no-repeat scroll 100% 50%;
 }
 
 #yii-debug-toolbar p.collapsible.collapsed
-{
+ {
     background:transparent url('arrow_collapse.gif') no-repeat scroll 0% 50%;
 }
 
@@ -346,7 +346,7 @@ line-height:50px;
 	text-align:right;
 }
 
-#yii-debug-toolbar pre, #yii-debug-toolbar pre code{
+#yii-debug-toolbar pre, #yii-debug-toolbar pre code {
     padding:0;
 }
 
@@ -355,9 +355,9 @@ line-height:50px;
 	font-family:monospace;
 }
 
-#yii-debug-toolbar div.col{ width:49%; }
-#yii-debug-toolbar div.left{ float:left; }
-#yii-debug-toolbar div.right{ float:right; }
+#yii-debug-toolbar div.col { width:49%; }
+#yii-debug-toolbar div.left { float:left; }
+#yii-debug-toolbar div.right { float:right; }
 
 
 
@@ -425,24 +425,24 @@ line-height:50px;
 }
 
 .source .copycode
-{
+ {
 	text-align:right !important;
 	float:right !important;
 }
 
 .source .copycode a
-{
+ {
 	cursor:pointer !important;
 	color:blue !important;
 }
 
 .source .copycode_hover a
-{
+ {
 	color:red !important;
 }
 
 
-#yii-debug-toolbar #resource-usage{
+#yii-debug-toolbar #resource-usage {
     border-top:1px double #EEEEEE;
 
     position:absolute;
@@ -452,7 +452,7 @@ line-height:50px;
 
 }
 
-#yii-debug-toolbar #resource-usage h1{
+#yii-debug-toolbar #resource-usage h1 {
     padding:0;
     margin:0;
     color:#EEEEEE;
@@ -461,17 +461,17 @@ line-height:50px;
     margin:5px 0;
 }
 
-#yii-debug-toolbar #resource-usage .panel{
+#yii-debug-toolbar #resource-usage .panel {
     padding:0 10px 10px;
 }
 
-#yii-debug-toolbar #resource-usage .panel ul{
+#yii-debug-toolbar #resource-usage .panel ul {
     display:block;
     margin:5px 0;
     padding-top:10px;
 }
 
-#yii-debug-toolbar #resource-usage .panel li{
+#yii-debug-toolbar #resource-usage .panel li {
     display:block;
     line-height:18px;
     height:16px;
@@ -481,16 +481,597 @@ line-height:50px;
 #yii-debug-toolbar #resource-usage .panel ul,
 #yii-debug-toolbar #resource-usage .panel li,
 #yii-debug-toolbar #resource-usage .panel li label,
-#yii-debug-toolbar #resource-usage .panel li span{
+#yii-debug-toolbar #resource-usage .panel li span {
     font-size:9px;
     color:#fff;
 }
 
-#yii-debug-toolbar #resource-usage .panel li label{
+#yii-debug-toolbar #resource-usage .panel li label {
     float:left;
 }
 
-#yii-debug-toolbar #resource-usage .panel li span{
+#yii-debug-toolbar #resource-usage .panel li span {
     float:right;
     color:#C0695D;
+}
+
+
+#yii-debug-toolbar [class^="icon-"], #yii-debug-toolbar [class*=" icon-"] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url("glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+}
+
+#yii-debug-toolbar .icon-question-sign {
+    background-position: -96px -96px;
+}
+
+
+#yii-debug-toolbar .icon-glass {
+    background-position: 0 0;
+}
+
+#yii-debug-toolbar .icon-music {
+  background-position: -24px 0;
+}
+
+#yii-debug-toolbar .icon-search {
+  background-position: -48px 0;
+}
+
+#yii-debug-toolbar .icon-envelope {
+  background-position: -72px 0;
+}
+
+#yii-debug-toolbar .icon-heart {
+  background-position: -96px 0;
+}
+
+#yii-debug-toolbar .icon-star {
+  background-position: -120px 0;
+}
+
+#yii-debug-toolbar .icon-star-empty {
+  background-position: -144px 0;
+}
+
+#yii-debug-toolbar .icon-user {
+  background-position: -168px 0;
+}
+
+#yii-debug-toolbar .icon-film {
+  background-position: -192px 0;
+}
+
+#yii-debug-toolbar .icon-th-large {
+  background-position: -216px 0;
+}
+
+#yii-debug-toolbar .icon-th {
+  background-position: -240px 0;
+}
+
+#yii-debug-toolbar .icon-th-list {
+  background-position: -264px 0;
+}
+
+#yii-debug-toolbar .icon-ok {
+  background-position: -288px 0;
+}
+
+#yii-debug-toolbar .icon-remove {
+  background-position: -312px 0;
+}
+
+#yii-debug-toolbar .icon-zoom-in {
+  background-position: -336px 0;
+}
+
+#yii-debug-toolbar .icon-zoom-out {
+  background-position: -360px 0;
+}
+
+#yii-debug-toolbar .icon-off {
+  background-position: -384px 0;
+}
+
+#yii-debug-toolbar .icon-signal {
+  background-position: -408px 0;
+}
+
+#yii-debug-toolbar .icon-cog {
+  background-position: -432px 0;
+}
+
+#yii-debug-toolbar .icon-trash {
+  background-position: -456px 0;
+}
+
+#yii-debug-toolbar .icon-home {
+  background-position: 0 -24px;
+}
+
+#yii-debug-toolbar .icon-file {
+  background-position: -24px -24px;
+}
+
+#yii-debug-toolbar .icon-time {
+  background-position: -48px -24px;
+}
+
+#yii-debug-toolbar .icon-road {
+  background-position: -72px -24px;
+}
+
+#yii-debug-toolbar .icon-download-alt {
+  background-position: -96px -24px;
+}
+
+#yii-debug-toolbar .icon-download {
+  background-position: -120px -24px;
+}
+
+#yii-debug-toolbar .icon-upload {
+  background-position: -144px -24px;
+}
+
+#yii-debug-toolbar .icon-inbox {
+  background-position: -168px -24px;
+}
+
+#yii-debug-toolbar .icon-play-circle {
+  background-position: -192px -24px;
+}
+
+#yii-debug-toolbar .icon-repeat {
+  background-position: -216px -24px;
+}
+
+#yii-debug-toolbar .icon-refresh {
+  background-position: -240px -24px;
+}
+
+#yii-debug-toolbar .icon-list-alt {
+  background-position: -264px -24px;
+}
+
+#yii-debug-toolbar .icon-lock {
+  background-position: -287px -24px;
+}
+
+#yii-debug-toolbar .icon-flag {
+  background-position: -312px -24px;
+}
+
+#yii-debug-toolbar .icon-headphones {
+  background-position: -336px -24px;
+}
+
+#yii-debug-toolbar .icon-volume-off {
+  background-position: -360px -24px;
+}
+
+#yii-debug-toolbar .icon-volume-down {
+  background-position: -384px -24px;
+}
+
+#yii-debug-toolbar .icon-volume-up {
+  background-position: -408px -24px;
+}
+
+#yii-debug-toolbar .icon-qrcode {
+  background-position: -432px -24px;
+}
+
+#yii-debug-toolbar .icon-barcode {
+  background-position: -456px -24px;
+}
+
+#yii-debug-toolbar .icon-tag {
+  background-position: 0 -48px;
+}
+
+#yii-debug-toolbar .icon-tags {
+  background-position: -25px -48px;
+}
+
+#yii-debug-toolbar .icon-book {
+  background-position: -48px -48px;
+}
+
+#yii-debug-toolbar .icon-bookmark {
+  background-position: -72px -48px;
+}
+
+#yii-debug-toolbar .icon-print {
+  background-position: -96px -48px;
+}
+
+#yii-debug-toolbar .icon-camera {
+  background-position: -120px -48px;
+}
+
+#yii-debug-toolbar .icon-font {
+  background-position: -144px -48px;
+}
+
+#yii-debug-toolbar .icon-bold {
+  background-position: -167px -48px;
+}
+
+#yii-debug-toolbar .icon-italic {
+  background-position: -192px -48px;
+}
+
+#yii-debug-toolbar .icon-text-height {
+  background-position: -216px -48px;
+}
+
+#yii-debug-toolbar .icon-text-width {
+  background-position: -240px -48px;
+}
+
+#yii-debug-toolbar .icon-align-left {
+  background-position: -264px -48px;
+}
+
+#yii-debug-toolbar .icon-align-center {
+  background-position: -288px -48px;
+}
+
+#yii-debug-toolbar .icon-align-right {
+  background-position: -312px -48px;
+}
+
+#yii-debug-toolbar .icon-align-justify {
+  background-position: -336px -48px;
+}
+
+#yii-debug-toolbar .icon-list {
+  background-position: -360px -48px;
+}
+
+#yii-debug-toolbar .icon-indent-left {
+  background-position: -384px -48px;
+}
+
+#yii-debug-toolbar .icon-indent-right {
+  background-position: -408px -48px;
+}
+
+#yii-debug-toolbar .icon-facetime-video {
+  background-position: -432px -48px;
+}
+
+#yii-debug-toolbar .icon-picture {
+  background-position: -456px -48px;
+}
+
+#yii-debug-toolbar .icon-pencil {
+  background-position: 0 -72px;
+}
+
+#yii-debug-toolbar .icon-map-marker {
+  background-position: -24px -72px;
+}
+
+#yii-debug-toolbar .icon-adjust {
+  background-position: -48px -72px;
+}
+
+#yii-debug-toolbar .icon-tint {
+  background-position: -72px -72px;
+}
+
+#yii-debug-toolbar .icon-edit {
+  background-position: -96px -72px;
+}
+
+#yii-debug-toolbar .icon-share {
+  background-position: -120px -72px;
+}
+
+#yii-debug-toolbar .icon-check {
+  background-position: -144px -72px;
+}
+
+#yii-debug-toolbar .icon-move {
+  background-position: -168px -72px;
+}
+
+#yii-debug-toolbar .icon-step-backward {
+  background-position: -192px -72px;
+}
+
+#yii-debug-toolbar .icon-fast-backward {
+  background-position: -216px -72px;
+}
+
+#yii-debug-toolbar .icon-backward {
+  background-position: -240px -72px;
+}
+
+#yii-debug-toolbar .icon-play {
+  background-position: -264px -72px;
+}
+
+#yii-debug-toolbar .icon-pause {
+  background-position: -288px -72px;
+}
+
+#yii-debug-toolbar .icon-stop {
+  background-position: -312px -72px;
+}
+
+#yii-debug-toolbar .icon-forward {
+  background-position: -336px -72px;
+}
+
+#yii-debug-toolbar .icon-fast-forward {
+  background-position: -360px -72px;
+}
+
+#yii-debug-toolbar .icon-step-forward {
+  background-position: -384px -72px;
+}
+
+#yii-debug-toolbar .icon-eject {
+  background-position: -408px -72px;
+}
+
+#yii-debug-toolbar .icon-chevron-left {
+  background-position: -432px -72px;
+}
+
+#yii-debug-toolbar .icon-chevron-right {
+  background-position: -456px -72px;
+}
+
+#yii-debug-toolbar .icon-plus-sign {
+  background-position: 0 -96px;
+}
+
+#yii-debug-toolbar .icon-minus-sign {
+  background-position: -24px -96px;
+}
+
+#yii-debug-toolbar .icon-remove-sign {
+  background-position: -48px -96px;
+}
+
+#yii-debug-toolbar .icon-ok-sign {
+  background-position: -72px -96px;
+}
+
+#yii-debug-toolbar .icon-question-sign {
+  background-position: -96px -96px;
+}
+
+#yii-debug-toolbar .icon-info-sign {
+  background-position: -120px -96px;
+}
+
+#yii-debug-toolbar .icon-screenshot {
+  background-position: -144px -96px;
+}
+
+#yii-debug-toolbar .icon-remove-circle {
+  background-position: -168px -96px;
+}
+
+#yii-debug-toolbar .icon-ok-circle {
+  background-position: -192px -96px;
+}
+
+#yii-debug-toolbar .icon-ban-circle {
+  background-position: -216px -96px;
+}
+
+#yii-debug-toolbar .icon-arrow-left {
+  background-position: -240px -96px;
+}
+
+#yii-debug-toolbar .icon-arrow-right {
+  background-position: -264px -96px;
+}
+
+#yii-debug-toolbar .icon-arrow-up {
+  background-position: -289px -96px;
+}
+
+#yii-debug-toolbar .icon-arrow-down {
+  background-position: -312px -96px;
+}
+
+#yii-debug-toolbar .icon-share-alt {
+  background-position: -336px -96px;
+}
+
+#yii-debug-toolbar .icon-resize-full {
+  background-position: -360px -96px;
+}
+
+#yii-debug-toolbar .icon-resize-small {
+  background-position: -384px -96px;
+}
+
+#yii-debug-toolbar .icon-plus {
+  background-position: -408px -96px;
+}
+
+#yii-debug-toolbar .icon-minus {
+  background-position: -433px -96px;
+}
+
+#yii-debug-toolbar .icon-asterisk {
+  background-position: -456px -96px;
+}
+
+#yii-debug-toolbar .icon-exclamation-sign {
+  background-position: 0 -120px;
+}
+
+#yii-debug-toolbar .icon-gift {
+  background-position: -24px -120px;
+}
+
+#yii-debug-toolbar .icon-leaf {
+  background-position: -48px -120px;
+}
+
+#yii-debug-toolbar .icon-fire {
+  background-position: -72px -120px;
+}
+
+#yii-debug-toolbar .icon-eye-open {
+  background-position: -96px -120px;
+}
+
+#yii-debug-toolbar .icon-eye-close {
+  background-position: -120px -120px;
+}
+
+#yii-debug-toolbar .icon-warning-sign {
+  background-position: -144px -120px;
+}
+
+#yii-debug-toolbar .icon-plane {
+  background-position: -168px -120px;
+}
+
+#yii-debug-toolbar .icon-calendar {
+  background-position: -192px -120px;
+}
+
+#yii-debug-toolbar .icon-random {
+  width: 16px;
+  background-position: -216px -120px;
+}
+
+#yii-debug-toolbar .icon-comment {
+  background-position: -240px -120px;
+}
+
+#yii-debug-toolbar .icon-magnet {
+  background-position: -264px -120px;
+}
+
+#yii-debug-toolbar .icon-chevron-up {
+  background-position: -288px -120px;
+}
+
+#yii-debug-toolbar .icon-chevron-down {
+  background-position: -313px -119px;
+}
+
+#yii-debug-toolbar .icon-retweet {
+  background-position: -336px -120px;
+}
+
+#yii-debug-toolbar .icon-shopping-cart {
+  background-position: -360px -120px;
+}
+
+#yii-debug-toolbar .icon-folder-close {
+  width: 16px;
+  background-position: -384px -120px;
+}
+
+#yii-debug-toolbar .icon-folder-open {
+  width: 16px;
+  background-position: -408px -120px;
+}
+
+#yii-debug-toolbar .icon-resize-vertical {
+  background-position: -432px -119px;
+}
+
+#yii-debug-toolbar .icon-resize-horizontal {
+  background-position: -456px -118px;
+}
+
+#yii-debug-toolbar .icon-hdd {
+  background-position: 0 -144px;
+}
+
+#yii-debug-toolbar .icon-bullhorn {
+  background-position: -24px -144px;
+}
+
+#yii-debug-toolbar .icon-bell {
+  background-position: -48px -144px;
+}
+
+#yii-debug-toolbar .icon-certificate {
+  background-position: -72px -144px;
+}
+
+#yii-debug-toolbar .icon-thumbs-up {
+  background-position: -96px -144px;
+}
+
+#yii-debug-toolbar .icon-thumbs-down {
+  background-position: -120px -144px;
+}
+
+#yii-debug-toolbar .icon-hand-right {
+  background-position: -144px -144px;
+}
+
+#yii-debug-toolbar .icon-hand-left {
+  background-position: -168px -144px;
+}
+
+#yii-debug-toolbar .icon-hand-up {
+  background-position: -192px -144px;
+}
+
+#yii-debug-toolbar .icon-hand-down {
+  background-position: -216px -144px;
+}
+
+#yii-debug-toolbar .icon-circle-arrow-right {
+  background-position: -240px -144px;
+}
+
+#yii-debug-toolbar .icon-circle-arrow-left {
+  background-position: -264px -144px;
+}
+
+#yii-debug-toolbar .icon-circle-arrow-up {
+  background-position: -288px -144px;
+}
+
+#yii-debug-toolbar .icon-circle-arrow-down {
+  background-position: -312px -144px;
+}
+
+#yii-debug-toolbar .icon-globe {
+  background-position: -336px -144px;
+}
+
+#yii-debug-toolbar .icon-wrench {
+  background-position: -360px -144px;
+}
+
+#yii-debug-toolbar .icon-tasks {
+  background-position: -384px -144px;
+}
+
+#yii-debug-toolbar .icon-filter {
+  background-position: -408px -144px;
+}
+
+#yii-debug-toolbar .icon-briefcase {
+  background-position: -432px -144px;
+}
+
+#yii-debug-toolbar .icon-fullscreen {
+  background-position: -456px -144px;
 }

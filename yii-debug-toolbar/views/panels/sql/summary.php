@@ -2,6 +2,7 @@
 <table id="yii-debug-toolbar-sql-summary" class="tabscontent">
     <thead>
         <tr>
+            <th></th>
             <th><?php echo Yii::t('yii-debug-toolbar','Query')?></th>
             <th nowrap="nowrap"><?php echo Yii::t('yii-debug-toolbar','Count')?></th>
             <th nowrap="nowrap"><?php echo Yii::t('yii-debug-toolbar','Total (s)')?></th>
@@ -13,7 +14,19 @@
     <tbody>
     <?php foreach($summary as $id=>$entry):?>
         <tr class="<?php echo ($id%2?'odd':'even') ?><?php echo ($entry[1]>$this->countLimit || ($entry[4]/$entry[1] > $this->timeLimit) ?' warning':'') ?>">
-            <td width="100%"><?php echo $entry[0]; ?></td>
+            <td>
+                <?php echo CHtml::link(null, 'javascript:;//', array(
+                    'title' => Yii::t('yii-debug-toolbar','Explain query'),
+                    'onclick' => YiiDebug::createCallback('sql.explain', array(
+                        'query' => $entry['query']
+                    ), 'function(data){console.log(data)}'),
+                    'class' => 'icon-question-sign'
+                )) ?>
+                
+            </td>
+            <td width="100%">
+                <?php echo $entry[0]; ?>
+            </td>
             <td nowrap="nowrap" style="text-align: center;"><?php echo number_format($entry[1]); ?></td>
             <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[4]); ?></td>
             <td nowrap="nowrap"><?php echo sprintf('%0.6F',$entry[4]/$entry[1]); ?></td>

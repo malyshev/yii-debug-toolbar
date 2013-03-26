@@ -82,11 +82,6 @@ class YiiDebugToolbar extends CWidget
         return $this->_assetsUrl;
     }
 
-    public function getLogs()
-    {
-        return $this->owner->logs;
-    }
-
     /**
      * Set the URL of assets.
      * The base URL that contains all published asset files of yii-debug-toolbar.
@@ -120,6 +115,21 @@ class YiiDebugToolbar extends CWidget
         $this->render('yii_debug_toolbar', array(
             'panels' => $this->getPanels()
         ));
+        
+        $this->renderClientScript();
+    }
+    
+    private function renderClientScript()
+    {
+        $cs = Yii::app()->getClientScript();
+        $scripts = array();
+        
+        foreach ($cs->scripts as $entry)
+        {
+            $scripts = array_merge ($scripts, array_values($entry));
+        }
+        
+        echo CHtml::script(implode("\n",$scripts))."\n";
     }
 
     /**
@@ -174,7 +184,7 @@ class YiiDebugToolbar extends CWidget
                         unset($config['enabled']);
                     }
                 }
-                $panel = Yii::createComponent($config, $this);
+                $panel = Yii::createComponent($config, $this->owner);
 
                 if (false === ($panel instanceof YiiDebugToolbarPanelInterface))
                 {
@@ -189,44 +199,4 @@ class YiiDebugToolbar extends CWidget
         }
         return $this;
     }
-}
-
-/**
- * YiiDebugToolbarPanelInterface
- *
- * @author Sergey Malyshev <malyshev.php@gmail.com>
- * @author Igor Golovanov <igor.golovanov@gmail.com>
- * @version $Id$
- * @package YiiDebugToolbar
- * @since 1.1.7
- */
-interface YiiDebugToolbarPanelInterface
-{
-    /**
-     * Get the title of menu.
-     *
-     * @return string
-     */
-    function getMenuTitle();
-
-    /**
-     * Get the subtitle of menu.
-     *
-     * @return string
-     */
-    function getMenuSubTitle();
-
-    /**
-     * Get the title.
-     *
-     * @return string
-     */
-    function getTitle();
-
-    /**
-     * Get the subtitle.
-     *
-     * @return string
-     */
-    function getSubTitle();
 }
