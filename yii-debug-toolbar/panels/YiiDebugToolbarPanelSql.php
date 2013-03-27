@@ -151,7 +151,7 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     public function init()
     {
         parent::init();
-        YiiDebug::proxyComponent('CDbConnection', YiiDebug::PATH_ALIAS . '.panels.sql.YiiDebugDbCommand');
+        YiiDebug::proxyComponent('CDbConnection', YiiDebug::PATH_ALIAS . '.panels.sql.YiiDebugDbConnection');
     }
 
     /**

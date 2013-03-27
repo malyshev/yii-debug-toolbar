@@ -55,7 +55,7 @@ class YiiDebug extends CComponent
         Yii::trace(self::dump($message), 'dump');
     }
     
-    public static function proxyComponent($class, $proxy)
+    public static function proxyApplicationComponent($class, $proxy)
     {
         $applicationComponents = Yii::app()->getComponents(false);
         $componentClass = null;
@@ -87,6 +87,18 @@ class YiiDebug extends CComponent
                 ), false);
             }
         }
+    }
+
+    public static function proxyComponent($class, $proxy)
+    {
+        if (is_object($class))
+        {
+            return Yii::createComponent(array(
+                    'class' => $proxy,
+                    'instance' => $class
+            ));
+        }
+        return self::proxyApplicationComponent($class, $proxy);
     }
     
     public static function proxyComponentById($id, $proxy)

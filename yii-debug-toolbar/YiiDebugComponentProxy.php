@@ -66,7 +66,8 @@ class YiiDebugComponentProxy extends CComponent
     {
         if (false !== $this->getIsProxy() && false !== method_exists($this->instance, $name))
         {
-            return call_user_func_array(array($this->instance, $name), $parameters);
+            $return = call_user_func_array(array($this->instance, $name), $parameters);
+            return ($return === $this->instance) ? $this : $return;
         }
 
         return parent::__call($name, $parameters);
