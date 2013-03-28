@@ -1,6 +1,7 @@
-<div id="yii-debug-toolbar-switcher">
-    <a href="javascript:;//"><?php echo YiiDebug::t('TOOLBAR')?></a>
-</div>
+
+
+<a id="yii-debug-toolbar-switcher" href="javascript:;//"><?php echo YiiDebug::t('TOOLBAR')?></a>
+
 <div id="yii-debug-toolbar" style="display:none;">
     <div id="yii-debug-toolbar-buttons">
         <ul>

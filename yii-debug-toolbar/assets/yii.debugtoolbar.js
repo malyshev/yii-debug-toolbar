@@ -1,16 +1,14 @@
 (function( $ ){
     var COOKIE_NAME = 'yii-debug-toolbar';
-
     yiiDebugToolbar = {
-
         init : function(){
-
             this.registerEventListeners();
-
             if ($.cookie(COOKIE_NAME)) {
                 $('#yii-debug-toolbar').hide();
+                $('#yii-debug-toolbar-switcher').removeClass('close');
             } else {
                 $('#yii-debug-toolbar').show();
+                $('#yii-debug-toolbar-switcher').addClass('close');
             }
             this.initTabs();
         },
@@ -40,8 +38,6 @@
                     $('#'+panelId).show();
                 }
             }
-
-
         },
 
         toggleTabs : function(e)
@@ -66,9 +62,6 @@
 
         },
 
-        /**
-         * Toggles the nearby panel section in context of the clicked element
-         */
         toggleSection: function(toToggle, object) {
             object = $(object);
             toToggle = !toToggle ? object.next() : $(toToggle);
@@ -114,11 +107,10 @@
 
         toggleToolbar : function(e)
         {
-            //this.closeButtonClicked(e);
             if($('#yii-debug-toolbar').is(":visible"))
             {
                 $('#yii-debug-toolbar').hide();
-                $('#yii-debug-toolbar-switcher a').removeClass('close');
+                $('#yii-debug-toolbar-switcher').removeClass('close');
                 $.cookie(COOKIE_NAME, 'hide', {
                     path: '/',
                     expires: 10
@@ -127,7 +119,7 @@
             else
             {
                 $('#yii-debug-toolbar').show();
-                $('#yii-debug-toolbar-switcher a').addClass('close');
+                $('#yii-debug-toolbar-switcher').addClass('close');
                 $.cookie(COOKIE_NAME, null, {
                     path: '/',
                     expires: -1
@@ -161,7 +153,5 @@
                 }
             });
         }
-
     };
-
 })( jQuery );

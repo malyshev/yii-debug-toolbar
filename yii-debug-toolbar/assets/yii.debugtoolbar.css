@@ -36,41 +36,30 @@
     width:190px;
     line-height:24px;
     background:#192839;
-
 }
 
 #yii-debug-toolbar-switcher {
-    display:block;
-    position:fixed;
-    z-index:1000000;
-    top:5px;
-    right:5px;
-    bottom:0;
+    background: #fff url(glyphicons_360_bug.png) no-repeat scroll center center;
+    border: 3px solid #000;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-indent:-999999px;
     height:28px;
     width:28px;
-    line-height:28px;
-
+    position:fixed;
+    z-index:100000;
+    top:5px;
+    right:5px;
 }
 
-#yii-debug-toolbar-switcher a {
-    background:transparent url(panel.png) no-repeat scroll center center;
-    text-indent:-999999px;
-    z-index:100000000;
-    display:block;
-    height:24px;
-    width:24px;
-    line-height:24px;
-    padding:4px 0 0 4px;
-}
-#yii-debug-toolbar-switcher a.close {
-    background:transparent url(panel-close.png) no-repeat scroll center center;
+#yii-debug-toolbar-switcher.close {
+    border: 3px solid #fff;
 }
 
 #yii-debug-toolbar p {
     padding:5px 0;
 }
-
-
 
 #yii-debug-toolbar h3 {
 font-size:24px;
@@ -144,14 +133,13 @@ line-height:50px;
 #yii-debug-toolbar .yii-debug-toolbar-panel {
     display:block;
     position:fixed;
-    z-index:10000000;
+    z-index:1000000;
     top:0px;
     right:190px;
     left:0;
     bottom:0;
     background:#EEEEEE;
 }
-
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-title {
     position:absolute;
@@ -193,11 +181,11 @@ line-height:50px;
     left:0px;
     background-color:#eee;
     color:#666;
-    z-index:100000000;
+    z-index:100001;
 }
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content  .details {
-	padding-left:1em;
+    padding-left:1em;
 }
 
 /* tabs */
@@ -231,10 +219,6 @@ line-height:50px;
     text-decoration:none;
 }
 
-
-
-/* tabs */
-
 #yii-debug-toolbar .yii-debug-toolbar-panel-content .scroll
  {
     width:100%;height:100%;
@@ -242,7 +226,6 @@ line-height:50px;
     display:block;
     padding:0 10px;
 }
-
 
 #yii-debug-toolbar .yii-debug-toolbar-panel-content table,
 #yii-debug-toolbar .yii-debug-toolbar-panel-content tr,
@@ -359,8 +342,6 @@ line-height:50px;
 #yii-debug-toolbar div.left { float:left; }
 #yii-debug-toolbar div.right { float:right; }
 
-
-
 /*highlight*/
 .sql-hl-default {
     color:Black !important;
@@ -426,30 +407,28 @@ line-height:50px;
 
 .source .copycode
  {
-	text-align:right !important;
-	float:right !important;
+    text-align:right !important;
+    float:right !important;
 }
 
 .source .copycode a
  {
-	cursor:pointer !important;
-	color:blue !important;
+    cursor:pointer !important;
+    color:blue !important;
 }
 
 .source .copycode_hover a
  {
-	color:red !important;
+    color:red !important;
 }
-
 
 #yii-debug-toolbar #resource-usage {
     border-top:1px double #EEEEEE;
-
     position:absolute;
     right:0px;
     bottom:0px;
     width:190px;
-
+    background: #192839;
 }
 
 #yii-debug-toolbar #resource-usage h1 {
