@@ -55,7 +55,7 @@ class YiiDebug extends CComponent
         Yii::trace(self::dump($message), 'dump');
     }
     
-    public static function proxyApplicationComponent($class, $proxy)
+    public static function proxyApplicationComponent($class, $proxy, $config=array())
     {
         $applicationComponents = Yii::app()->getComponents(false);
         $componentClass = null;
@@ -81,27 +81,31 @@ class YiiDebug extends CComponent
                     Yii::app()->setComponent($id, null);
                 }
                 
-                Yii::app()->setComponent($id, array(
+                $config = array_merge($config, array(
                     'class' => $proxy,
                     'instance' => $component
-                ), false);
+                ));
+                
+                Yii::app()->setComponent($id, $config, false);
             }
         }
     }
 
-    public static function proxyComponent($class, $proxy)
+    public static function proxyComponent($class, $proxy, $config=array())
     {
         if (is_object($class))
         {
-            return Yii::createComponent(array(
-                    'class' => $proxy,
-                    'instance' => $class
+            $config = array_merge($config, array(
+                'class' => $proxy,
+                'instance' => $class
             ));
+            
+            return Yii::createComponent($config);
         }
-        return self::proxyApplicationComponent($class, $proxy);
+        return self::proxyApplicationComponent($class, $proxy, $config);
     }
     
-    public static function proxyComponentById($id, $proxy)
+    public static function proxyComponentById($id, $proxy, $config=array())
     {
         $applicationComponents = Yii::app()->getComponents(false);
         if (array_key_exists($id, $applicationComponents))
@@ -112,24 +116,51 @@ class YiiDebug extends CComponent
                 Yii::app()->setComponent($id, null);
             }
             
-            Yii::app()->setComponent($id, array(
+            $config = array_merge($config, array(
                 'class' => $proxy,
                 'instance' => $component
-            ), false);
+            ));
+            
+            Yii::app()->setComponent($id, $config, false);
         }
     }
 
+    /**
+     * 
+     * @param mixed $class the name of the class to reflect, or an object.
+     * @return ReflectionClass
+     */
     public static function getClass($class)
     {
         return new ReflectionClass($class);
     }
 
-    public static function getClassMethod($class,$name)
+    /**
+     * 
+     * @param mixed $class the name of the class to reflect, or an object.
+     * @param string $name a class method name
+     * @return ReflectionMethod
+     */
+    public static function getClassMethod($class, $name)
     {
         $class = self::getClass($class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method;
+    }
+    
+    /**
+     * 
+     * @param mixed $class the name of the class to reflect, or an object.
+     * @param string $name a class property name
+     * @return ReflectionProperty
+     */
+    public static function getClassProperty($class, $name)
+    {
+        $class = self::getClass($class);
+        $property = $class->getProperty($name);
+        $property->setAccessible(true);
+        return $property;
     }
     
     public static function createCallback($action, $params = array(), $callback = null)

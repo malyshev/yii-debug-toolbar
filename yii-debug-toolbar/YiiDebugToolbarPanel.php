@@ -23,7 +23,7 @@ abstract class YiiDebugToolbarPanel extends CWidget implements YiiDebugToolbarPa
     const VIEWS_PATH = '/views/panels';
 
     private $_enabled = true;
-
+    
     /**
      * @param boolean $value set is panel enabled
      */

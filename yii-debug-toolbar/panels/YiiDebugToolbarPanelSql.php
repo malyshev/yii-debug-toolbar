@@ -151,7 +151,9 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
     public function init()
     {
         parent::init();
-        YiiDebug::proxyComponent('CDbConnection', YiiDebug::PATH_ALIAS . '.panels.sql.YiiDebugDbConnection');
+        YiiDebug::proxyComponent('CDbConnection', YiiDebug::PATH_ALIAS . '.panels.sql.YiiDebugDbConnection', array(
+            'owner' => $this,
+        ));
     }
 
     /**
@@ -302,8 +304,8 @@ class YiiDebugToolbarPanelSql extends YiiDebugToolbarPanel
             $message = $log[0];
             if(0 === strncasecmp($message, 'begin:', 6))
             {
-                $log[0]  =substr($message, 6);
-                $stack[] =$log;
+                $log[0] = substr($message, 6);
+                $stack[] = $log;
             }
             else if(0 === strncasecmp($message,'end:',4))
             {

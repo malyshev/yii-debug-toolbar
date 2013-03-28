@@ -17,9 +17,17 @@
  */
 class YiiDebugDbConnection extends YiiDebugComponentProxy
 {
+    public $enableProfiling = true;
+    
+    public $enableParamLogging = true;
+    
     public function createCommand($query=null)
     {
-        return YiiDebug::proxyComponent($this->instance->createCommand($query), 
-               YiiDebug::PATH_ALIAS . '.panels.sql.YiiDebugDbCommand');
+        $command = $this->instance->createCommand($query);
+        YiiDebug::getClassProperty($command, '_connection')->setValue($command, $this);
+        return YiiDebug::proxyComponent($command, 
+               YiiDebug::PATH_ALIAS . '.panels.sql.YiiDebugDbCommand', array(
+                   'owner' => $this->owner,
+               ));
     }
 }
