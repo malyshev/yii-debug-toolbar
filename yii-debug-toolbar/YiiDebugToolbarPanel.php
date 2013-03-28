@@ -20,8 +20,6 @@
 abstract class YiiDebugToolbarPanel extends CWidget implements YiiDebugToolbarPanelInterface
 {
 
-    const VIEWS_PATH = '/views/panels';
-
     private $_enabled = true;
     
     /**
@@ -74,7 +72,7 @@ abstract class YiiDebugToolbarPanel extends CWidget implements YiiDebugToolbarPa
      */
     public function getViewPath($checkTheme = false)
     {
-        return dirname(__FILE__) . self::VIEWS_PATH;
+        return dirname(__FILE__) . YiiDebug::VIEWS_PATH;
     }
 
 }

@@ -16,6 +16,8 @@
 
 class YiiDebugController extends CController
 {
+    public $layout = false;
+    
     public function actions()
     {
         $actions = array();
@@ -28,5 +30,10 @@ class YiiDebugController extends CController
             );
         }
         return $actions;
+    }
+    
+    public function getViewPath($checkTheme = false)
+    {
+        return dirname(__FILE__) . YiiDebug::VIEWS_PATH;
     }
 }

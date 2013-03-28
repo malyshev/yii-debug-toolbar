@@ -18,6 +18,7 @@
 class YiiDebug extends CComponent
 {
     const PATH_ALIAS = 'yii-debug-toolbar';
+    const VIEWS_PATH = '/views/panels';
     
     private static $_route;
     

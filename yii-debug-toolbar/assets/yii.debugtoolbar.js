@@ -148,7 +148,7 @@
                 data : params,
                 success : function(data) {
                     if ('function' == typeof callback) {
-                        callback(data);
+                        callback(el, data);
                     }
                 }
             });

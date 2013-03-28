@@ -14,8 +14,14 @@ class YiiDebugExplainAction extends CAction
 {
     public function run()
     {
-        $query = $this->getQuery();
-        echo $query;
+        $query = base64_decode(Yii::app()->request->getPost('query'));
+        $connectionId = Yii::app()->request->getPost('connectionId');
+        $connection = Yii::app()->getComponent($connectionId);
+        $command = $connection->createCommand('EXPLAIN EXTENDED ' . $query);
+        $data = $command->queryAll();
+        $this->controller->render('sql/_explain', array(
+            'results' => $data
+        ));
     }
     
     protected function getQuery()

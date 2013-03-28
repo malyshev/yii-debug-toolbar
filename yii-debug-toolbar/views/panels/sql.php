@@ -1,3 +1,12 @@
+<script type="text/javascript">
+/*<![CDATA[*/
+var debug_process_explain_data = function(e, d) {
+    var tableRow = $(e).parent().parent();
+    $('tr.sql-query-extended').remove();
+    $('<tr class="sql-query-extended"><td colspan="'+tableRow.find('td').length+'"><\td><\tr>').insertAfter(tableRow).find('td').html(d);
+}
+/*]]>*/
+</script>
 <ul class="yii-debug-toolbar-tabs">
     <li class="active" type="yii-debug-toolbar-sql-summary"><a href="javascript:;//">
         <?php echo Yii::t('yii-debug-toolbar','Summary')?></a></li>

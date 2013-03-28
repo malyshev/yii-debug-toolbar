@@ -21,6 +21,11 @@ class YiiDebugDbConnection extends YiiDebugComponentProxy
     
     public $enableParamLogging = true;
     
+    public function init()
+    {
+        parent::init();
+    }
+    
     public function createCommand($query=null)
     {
         $command = $this->instance->createCommand($query);

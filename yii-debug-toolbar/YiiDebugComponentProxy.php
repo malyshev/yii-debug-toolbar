@@ -29,6 +29,10 @@ class YiiDebugComponentProxy extends CComponent
 
     public function init()
     {
+        if ($this->getIsProxy())
+        {
+            $this->instance->init();
+        }
     }
     
     public function setOwner(YiiDebugToolbarPanel $owner)
@@ -48,7 +52,7 @@ class YiiDebugComponentProxy extends CComponent
     {
         if (null === $this->_isProxy)
         {
-            $this->_isProxy = (null !== $this->_instance && !($this->_instance instanceof $this));
+            $this->_isProxy = (null !== $this->instance && !($this->instance instanceof $this));
         }
         return $this->_isProxy;
     }

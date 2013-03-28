@@ -73,6 +73,11 @@ line-height:50px;
     font-size: 18px;
 }
 
+#yii-debug-toolbar td.nowrap,
+#yii-debug-toolbar th.nowrap {
+    white-space: nowrap;
+}
+
 
 #yii-debug-toolbar #yii-debug-toolbar-buttons {
     opacity:0.9;

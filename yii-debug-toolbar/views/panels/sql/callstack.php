@@ -2,6 +2,7 @@
 <table id="yii-debug-toolbar-sql-callstack" class="tabscontent">
     <thead>
         <tr>
+            <th></th>
             <th>#</th>
             <th><?php echo Yii::t('yii-debug-toolbar','Query')?></th>
             <th nowrap="nowrap"><?php echo Yii::t('yii-debug-toolbar','Time (s)')?></th>
@@ -10,6 +11,18 @@
     <tbody>
         <?php foreach($callstack as $id=>$entry):?>
         <tr class="<?php echo ($id%2?'odd':'even') ?><?php echo ($entry[1]>$this->timeLimit?' warning':'') ?>">
+            <td>
+                <?php if (isset($entry['connectionId']) && $entry['connectionId']): ?>
+                    <?php echo CHtml::link(null, 'javascript:;//', array(
+                        'title' => Yii::t('yii-debug-toolbar','Explain query'),
+                        'onclick' => YiiDebug::createCallback('sql.explain', array(
+                            'query' => $entry['query'],
+                            'connectionId' => $entry['connectionId'],
+                        ), 'debug_process_explain_data'),
+                        'class' => 'icon-question-sign'
+                    )) ?>
+                <?php endif; ?>
+            </td>
             <td class="text-right"><?php echo $id; ?></td>
             <td width="100%"><?php echo $entry[0]; ?></td>
             <td nowrap="nowrap">

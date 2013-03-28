@@ -18,56 +18,57 @@
  */
 class YiiDebugDbCommand extends YiiDebugComponentProxy
 {
-
+    public function update($table, $columns, $conditions='', $params=array())
+    {
+        $result = $this->instance->update($table, $columns, $conditions, $params);
+        return $result;
+    }
+    
+    public function delete($table, $conditions='', $params=array())
+    {
+        $result = $this->instance->delete($table, $conditions, $params);
+        return $result;
+    }
+    
     public function execute($params = array())
     {
-        $this->trace('execute', $params);
-        return $this->instance->execute($params);
+        $result = $this->instance->execute($params);
+        $this->owner->logConnection($this->getConnection());
+        return $result;
     }
 
     public function query($params = array())
     {
-        $params = array_merge($this->params, $params);
-        $this->trace('query', $params);
-        return $this->instance->query($params);
+        $result = $this->instance->query($params);
+        $this->owner->logConnection($this->getConnection());
+        return $result;
     }
 
     public function queryAll($fetchAssociative = true, $params = array())
     {
-        $params = array_merge($this->params, $params);
-        $this->trace('queryAll', $params);
-        return $this->instance->queryAll($fetchAssociative, $params);
+        $result = $this->instance->queryAll($fetchAssociative, $params);
+        $this->owner->logConnection($this->getConnection());
+        return $result;
     }
 
     public function queryRow($fetchAssociative = true, $params = array())
     {
-        $params = array_merge($this->params, $params);
-        $this->trace('queryRow', $params);
-        return $this->instance->queryRow($fetchAssociative, $params);
+        $result = $this->instance->queryRow($fetchAssociative, $params);
+        $this->owner->logConnection($this->getConnection());
+        return $result;
     }
 
     public function queryScalar($params = array())
     {
-        $params = array_merge($this->params, $params);
-        $this->trace('queryScalar', $params);
-        return $this->instance->queryScalar($params);
+        $result = $this->instance->queryScalar($params);
+        $this->owner->logConnection($this->getConnection());
+        return $result;
     }
 
     public function queryColumn($params = array())
     {
-        $params = array_merge($this->params, $params);
-        $this->trace('queryColumn', $params);
-        return $this->instance->queryColumn($params);
+        $result = $this->instance->queryColumn($params);
+        $this->owner->logConnection($this->getConnection());
+        return $result;
     }
-
-    private function getParamLog()
-    {
-        return YiiDebug::getClassProperty($this->instance, '_paramLog')->getValue($this->instance);
-    }
-
-    private function trace($method, $params)
-    {
-        
-    }
-
 }
