@@ -154,6 +154,8 @@ class YiiDebug extends CComponent
     public static function proxyComponentById($id, $proxy, $config = array())
     {
         $applicationComponents = Yii::app()->getComponents(false);
+        $component = null;
+        
         if (array_key_exists($id, $applicationComponents))
         {
             $component = $applicationComponents[$id];
@@ -161,14 +163,14 @@ class YiiDebug extends CComponent
             {
                 Yii::app()->setComponent($id, null);
             }
-
-            $config = array_merge($config, array(
-                'class' => $proxy,
-                'instance' => $component
-                    ));
-
-            Yii::app()->setComponent($id, $config, false);
         }
+        
+        $config = array_merge($config, array(
+            'class' => $proxy,
+            'instance' => $component
+        ));
+
+        Yii::app()->setComponent($id, $config, false);
     }
 
     /**
