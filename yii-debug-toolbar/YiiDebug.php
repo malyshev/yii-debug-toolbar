@@ -102,6 +102,16 @@ class YiiDebug extends CComponent
     {
         Yii::trace(self::dump($message), 'dump');
     }
+    
+    public static function getClassOfAlias($alias)
+    {
+        if (false !== strpos($alias, '.'))
+        {
+            return substr(strrchr($alias, '.'), 1);
+        }
+        
+        return $alias;
+    }
 
     public static function proxyApplicationComponent($class, $proxy, $config = array())
     {
@@ -111,7 +121,7 @@ class YiiDebug extends CComponent
         {
             if (false !== is_array($component) && array_key_exists('class', $component))
             {
-                $componentClass = $component['class'];
+                $componentClass = self::getClassOfAlias($component['class']);
             } else if (false !== is_object($component))
             {
                 $componentClass = get_class($component);
@@ -119,6 +129,7 @@ class YiiDebug extends CComponent
             {
                 $componentClass = $component;
             }
+            
 
             if ($componentClass && (is_subclass_of($componentClass, $class) || $componentClass === $class))
             {
