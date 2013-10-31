@@ -41,7 +41,7 @@ class YiiDebugToolbar extends CWidget
      * @var array
      */
     private $_panels;
-    
+
     /**
      * Setup toolbar panels.
      *
@@ -75,10 +75,12 @@ class YiiDebugToolbar extends CWidget
      */
     public function getAssetsUrl()
     {
-        if (null === $this->_assetsUrl && 'cli' !== php_sapi_name())
+        if (null === $this->_assetsUrl && 'cli' !== php_sapi_name()) {
+            $linkAssets = Yii::app()->getAssetManager()->linkAssets;
             $this->_assetsUrl = Yii::app()
                 ->getAssetManager()
-                ->publish(dirname(__FILE__) . '/assets', false, -1, YII_DEBUG);
+                ->publish(dirname(__FILE__) . '/assets', false, -1, YII_DEBUG and !$linkAssets);
+        }
         return $this->_assetsUrl;
     }
 
