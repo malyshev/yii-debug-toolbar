@@ -15,26 +15,30 @@
  * @package
  * @since 1.1.7
  */
-class YiiDebugToolbarResourceUsage extends CWidget {
+class YiiDebugToolbarResourceUsage extends CWidget
+{
 
     public $htmlOptions = array();
     private $_loadTime;
 
-    public function getLoadTime() {
+    public function getLoadTime()
+    {
         if (null === $this->_loadTime) {
             $this->_loadTime = $this->owner->owner->getLoadTime();
         }
         return $this->_loadTime;
     }
 
-    public function getRequestLoadTime() {
+    public function getRequestLoadTime()
+    {
         return ($this->owner->owner->getEndTime() - $_SERVER['REQUEST_TIME']);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function run() {
+    public function run()
+    {
 
         $data = array();
 

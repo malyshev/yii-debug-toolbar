@@ -1,6 +1,5 @@
 <div id="ydtb-toolbar" data-ydtb-toolbar class="ydtb-collapse">
     <a href="javascript:;//" data-ydtb-toggle="[data-ydtb-toolbar]"><?php echo YiiDebug::t('TOOLBAR') ?></a>
-	
 	<div data-ydtb-sidebar>
 		<h1>Yii <?php echo Yii::getVersion() ?></h1>
 		<?php $this->widget('YiiDebugToolbarResourceUsage'); ?>
@@ -14,7 +13,6 @@
 			</a></li>
 			<?php endforeach; ?>
 		</ul>
-		
 		<div data-ydtb-options>
     	    <i data-ydtb-icon="t"></i>
     	    <i data-ydtb-icon="u"></i>
@@ -34,14 +32,9 @@
 			    <li><i data-ydtb-icon="z" data-ydtb-panel-lock="<?php echo $panel->id ?>"></i></li>
 			</ul>
         </div>
-        
 		<div data-ydtb-panel-content="<?php echo $panel->id ?>">
 			<?php $panel->run(); ?>
 		</div>
 	</div>
 	<?php endforeach; ?>
-	
-	
-	
-	
 </div>
