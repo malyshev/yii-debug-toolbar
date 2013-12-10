@@ -56,10 +56,11 @@ For use [yii-debug-toolbar](/malyshev/yii-debug-toolbar/) need to specify new `r
 
 ## TODOs and BUGS
 
-See: [issues](/malyshev/yii-debug-toolbar/issues)
+See: [issues](https://github.com/malyshev/yii-debug-toolbar/issues)
 
 ## Working preview
-<img src="http://farm7.static.flickr.com/6177/6168425725_87de9089e7_z.jpg" alt="Screenshot1" />
-<img src="http://farm8.staticflickr.com/7034/6417218835_21f8c4a558_z.jpg" alt="Screenshot2" />
+<img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_1.png" alt="Screenshot1" />
+<img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_2.png" alt="Screenshot2" />
+<img src="https://dl.dropboxusercontent.com/u/6067542/yii-debug-toolbar/screenshot_3.png" alt="Screenshot3" />
 
 
