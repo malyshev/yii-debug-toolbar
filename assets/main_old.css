@@ -1,0 +1,177 @@
+
+/* tabs */
+/*
+#ydtb-toolbar [data-ydtb-panel-content] table,
+#ydtb-toolbar [data-ydtb-panel-content] tr,
+#ydtb-toolbar [data-ydtb-panel-content] th,
+#ydtb-toolbar [data-ydtb-panel-content] td{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content] table {
+    width:100%;
+    background-color:#fff;
+    margin-top:0.8em;
+    overflow:auto;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content] table thead tr
+{
+    background:#F5F5F5;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content] td,
+#ydtb-toolbar [data-ydtb-panel-content] th {
+    font-size:12px;
+    vertical-align:top;
+    padding: 8px 10px;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content] th {
+    font-weight: bold;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content] tbody tr:hover{
+    background-color:#FFFFCC;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content] tbody tr.selected{
+    background-color:#e5e5e5;
+}
+#ydtb-toolbar [data-ydtb-panel-content] tbody tr.selected:hover{
+    background-color:#EEEEBB;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content]  td.al-l,
+#ydtb-toolbar [data-ydtb-panel-content]  th.al-l{
+    text-align:left;
+}
+#ydtb-toolbar [data-ydtb-panel-content]  td.al-c,
+#ydtb-toolbar [data-ydtb-panel-content]  th.al-c{
+    text-align:center;
+}
+#ydtb-toolbar [data-ydtb-panel-content]  td.al-r,
+#ydtb-toolbar [data-ydtb-panel-content]  th.al-r{
+    text-align:right;
+    text-align:right;
+}
+*/
+
+#ydtb-toolbar [data-ydtb-panel-content] table.phpinfo{}
+#ydtb-toolbar [data-ydtb-panel-content] table.phpinfo th{
+	text-align:left; color:black; font-size:14px; border-bottom:1px solid #CCCCCC; background:#F5F5F5;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content] .odd{
+    background-color:#f5f5f5;
+}
+
+#ydtb-toolbar [data-ydtb-panel-content] .warning{
+    background-color:#FFEEEE;
+}
+
+#ydtb-toolbar .hidden{
+    display:none;
+}
+
+
+#ydtb-toolbar .text-right {
+	text-align:right;
+}
+
+#ydtb-toolbar pre, #ydtb-toolbar pre code{
+    padding:0;
+}
+
+#ydtb-toolbar-sql-callstack tbody td,
+#ydtb-toolbar-sql-summary tbody td {
+	font-family:monospace;
+}
+
+#ydtb-toolbar div.col{ width:49%; }
+#ydtb-toolbar div.left{ float:left; }
+#ydtb-toolbar div.right{ float:right; }
+
+
+
+/*highlight*/
+.sql-hl-default {
+    color:Black !important;
+}
+.sql-hl-code {
+    color:Gray !important;
+}
+.sql-hl-brackets {
+    color:Olive !important;
+}
+.sql-hl-comment {
+    color:#808080 !important;
+	font-style:italic !important;
+}
+.sql-hl-quotes {
+    color:red !important;
+}
+.sql-hl-string {
+    color:Red !important;
+}
+.sql-hl-identifier {
+    color:Blue !important;
+}
+.sql-hl-builtin {
+    color:Teal !important;
+}
+.sql-hl-reserved {
+    color:Green !important;
+}
+.sql-hl-inlinedoc {
+    color:Blue !important;
+}
+.sql-hl-var {
+    color:#000020 !important;
+}
+.sql-hl-url {
+    color:Blue !important;
+}
+.sql-hl-special {
+    color:Navy !important;
+}
+.sql-hl-number {
+    color:Maroon !important;
+}
+.sql-hl-inlinetags {
+    color:Blue !important;
+}
+.sql-hl-main {
+	font-family:'Courier New', Courier, monospace !important;
+	font-weight:normal !important;
+}
+.sql-hl-gutter {
+    background-color:#cccccc !important;
+    color:White;
+    width:10px
+}
+.sql-hl-table {
+    font-family:courier !important;
+    font-size:12px !important;
+    border:solid 1px #cccccc !important;
+    margin:3px !important;
+}
+
+.source .copycode
+{
+	text-align:right !important;
+	float:right !important;
+}
+
+.source .copycode a
+{
+	cursor:pointer !important;
+	color:blue !important;
+}
+
+.source .copycode_hover a
+{
+	color:red !important;
+}
+
