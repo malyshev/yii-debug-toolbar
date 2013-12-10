@@ -180,7 +180,7 @@ class YiiDebugToolbarRoute extends CLogRoute
     	$this->_endTime = microtime(true);
     }
 
-	public function collectLogs($logger)
+	public function collectLogs($logger, $processLogs=false)
     {
         $logs = $logger->getLogs();
         $this->logs = empty($this->logs) ? $logs : array_merge($this->logs, $logs);
