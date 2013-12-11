@@ -51,7 +51,7 @@ class YiiDebugToolbarPanelRequest extends YiiDebugToolbarPanel
         $this->render('request', array(
             'server' => $_SERVER,
             'cookies' => $_COOKIE,
-            'session' => isset($_SESSION) ? $_SESSION : null,
+            'session' => isset($_SESSION) ? $_SESSION : array(),
             'post' => $_POST,
             'get' => $_GET,
             'files' => $_FILES,

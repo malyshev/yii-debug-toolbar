@@ -125,8 +125,6 @@ class YiiDebugToolbar extends CWidget
     {
         $cs = Yii::app()->getClientScript()
 	        	->registerCoreScript('jquery');
-        
-        $cs->registerCssFile($this->assetsUrl . '/main_old.css');
         $cs->registerCssFile($this->assetsUrl . '/main.css');
 
         $cs->registerScriptFile($this->assetsUrl . '/main.js',
